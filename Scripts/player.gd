@@ -4,26 +4,29 @@ extends CharacterBody2D
 
 const MOVE_SPEED: float = 200
 
+var facing_direction: String = "S"
 var input_direction: Vector2 = Vector2(0,0)
 
 func _process(delta: float) -> void:
 	if abs(velocity.x) == 0 and abs(velocity.y) == 0:
-		sprite.animation = "idle-S"
+		sprite.animation = "idle-" + facing_direction
 		return
 		
 	if abs(input_direction.x) > 0:
 		if input_direction.y > 0:
-			sprite.animation = "walk-SE"
+			facing_direction = "SE"
 		elif input_direction.y < 0:
-			sprite.animation = "walk-NE"
+			facing_direction = "NE"
 		else:
-			sprite.animation = "walk-E"
+			facing_direction = "E"
 	else:
 		if input_direction.y > 0:
-			sprite.animation = "walk-S"
+			facing_direction = "S"
 		else:
-			sprite.animation = "walk-N"
+			facing_direction = "N"
 		
+	sprite.animation = "walk-" + facing_direction
+	
 	if velocity.x > 0:
 		sprite.flip_h = false
 	elif velocity.x < 0:
