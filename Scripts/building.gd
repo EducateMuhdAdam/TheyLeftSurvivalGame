@@ -1,8 +1,8 @@
 extends StaticBody2D
 class_name Building
 
-@export var x_size: int = 2
-@export var y_size: int = 1
+# All your stats are now neatly contained inside this single variable
+@export var data: BuildingData
 
 var interact: Callable = func():
 	pass

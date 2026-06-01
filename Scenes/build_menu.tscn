@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c5apihatiaqbx"]
+
+[ext_resource type="Script" uid="uid://cekn0ydjbc2a5" path="res://Scripts/build_menu.gd" id="1_hx1pr"]
+
+[node name="BuildMenu" type="CanvasLayer" unique_id=1446202511]
+script = ExtResource("1_hx1pr")
+
+[node name="Control" type="Control" parent="." unique_id=297409220]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=402273735]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=1020917008]
+layout_mode = 2

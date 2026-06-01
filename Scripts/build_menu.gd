@@ -1,0 +1,41 @@
+extends CanvasLayer
+
+@onready var v_box_container: VBoxContainer = $Control/MarginContainer/VBoxContainer
+
+var test = preload("res://Data/buildings/farm_lv1.tres")
+var BUTTON_TEMPLATE = preload("res://Scenes/build_button.tscn")
+const PATH: String = "res://Data/buildings/"
+var building_resources: Array[Resource]
+
+func _ready() -> void:
+	building_resources = get_building_resources()
+	for resource in building_resources:
+		var button = BUTTON_TEMPLATE.instantiate()
+		button.set_building(test)
+		
+		v_box_container.add_child(button)
+
+func get_building_resources() -> Array[Resource]:
+	var resources: Array[Resource] = []
+	var dir = DirAccess.open(PATH)
+	
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		
+		while file_name != "":
+			# Ignore directories and only grab scene files
+			if !dir.current_is_dir() and file_name.ends_with(".tres"):
+				var scene_path = PATH + "/" + file_name
+				var scene_resource = load(scene_path)
+					
+				if scene_resource:
+					resources.append(scene_resource)
+					print("Successfully loaded: ", scene_path)
+			file_name = dir.get_next()
+			
+		dir.list_dir_end()
+	else:
+		print("An error occurred when trying to access the path.")
+		
+	return resources
