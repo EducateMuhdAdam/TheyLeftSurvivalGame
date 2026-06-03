@@ -3,15 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://jol6ct5qi280" path="res://Assets/Images/Buildings/FarmLv1.png" id="1_3ijrf"]
 [ext_resource type="Script" uid="uid://l01p7urjb8vs" path="res://Scripts/building_button.gd" id="2_8wxra"]
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_8wxra"]
-
 [node name="BuildButton" type="Button" unique_id=1408553309]
-custom_minimum_size = Vector2(200, 100)
-offset_right = 200.0
-offset_bottom = 100.0
+custom_minimum_size = Vector2(300, 60)
+offset_right = 240.0
+offset_bottom = 60.0
 toggle_mode = true
-button_group = SubResource("ButtonGroup_8wxra")
-text = "Farm Lv1"
 icon = ExtResource("1_3ijrf")
 expand_icon = true
 script = ExtResource("2_8wxra")

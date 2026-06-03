@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BuildingData" format=3 uid="uid://8hme33onhrnv"]
+
+[ext_resource type="Script" uid="uid://cma7fqff3prkl" path="res://Scripts/building_data.gd" id="1_7r42e"]
+[ext_resource type="Texture2D" uid="uid://cceqpybd2ollt" path="res://Assets/Images/Buildings/CookplaceLv2.png" id="1_q4kej"]
+[ext_resource type="PackedScene" uid="uid://dd5711ny42xem" path="res://Scenes/buildings/cookplace_lv2.tscn" id="2_c1f8q"]
+
+[resource]
+script = ExtResource("1_7r42e")
+building_id = 6
+building_name = "Cookplace"
+image = ExtResource("1_q4kej")
+building_level = 2
+physical_scene = ExtResource("2_c1f8q")
+metadata/_custom_type_script = "uid://cma7fqff3prkl"

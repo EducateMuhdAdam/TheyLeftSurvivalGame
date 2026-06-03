@@ -12,3 +12,9 @@ func setup_button() -> void:
 	if building_reference.building_level != 0:
 		msg = msg + " Lv%d" % building_reference.building_level
 	text = msg
+	
+
+
+
+func _on_pressed() -> void:
+	pass # Replace with function body.

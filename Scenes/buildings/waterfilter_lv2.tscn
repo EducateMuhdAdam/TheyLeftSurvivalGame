@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://co81eftwidjho"]
+
+[ext_resource type="Script" uid="uid://o4ahfg736fic" path="res://Scripts/building.gd" id="1_uk4j7"]
+[ext_resource type="Resource" uid="uid://cpxxq2uy0ginu" path="res://Data/buildings/waterfilter_lv2.tres" id="2_326me"]
+[ext_resource type="Texture2D" uid="uid://bvyj8eyga1emj" path="res://Assets/Images/Buildings/WaterFilterLv2.png" id="2_ya53j"]
+
+[node name="WaterfilterLv2" type="StaticBody2D" unique_id=1626640858]
+script = ExtResource("1_uk4j7")
+data = ExtResource("2_326me")
+metadata/_custom_type_script = "uid://o4ahfg736fic"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=290983337]
+scale = Vector2(2, 2)
+texture = ExtResource("2_ya53j")

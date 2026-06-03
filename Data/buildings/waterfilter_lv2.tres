@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BuildingData" format=3 uid="uid://cpxxq2uy0ginu"]
+
+[ext_resource type="Texture2D" uid="uid://bvyj8eyga1emj" path="res://Assets/Images/Buildings/WaterFilterLv2.png" id="1_dxcws"]
+[ext_resource type="Script" uid="uid://cma7fqff3prkl" path="res://Scripts/building_data.gd" id="1_epiqs"]
+[ext_resource type="PackedScene" uid="uid://co81eftwidjho" path="res://Scenes/buildings/waterfilter_lv2.tscn" id="2_4n1sc"]
+
+[resource]
+script = ExtResource("1_epiqs")
+building_id = 4
+building_name = "Water Filter"
+image = ExtResource("1_dxcws")
+building_level = 2
+physical_scene = ExtResource("2_4n1sc")
+metadata/_custom_type_script = "uid://cma7fqff3prkl"

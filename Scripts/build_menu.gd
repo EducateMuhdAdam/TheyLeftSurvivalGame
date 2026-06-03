@@ -1,17 +1,18 @@
 extends CanvasLayer
 
-@onready var v_box_container: VBoxContainer = $Control/MarginContainer/VBoxContainer
+@onready var v_box_container: VBoxContainer = $Control/MarginContainer/PanelContainer/ScrollContainer/VBoxContainer
 
-var test = preload("res://Data/buildings/farm_lv1.tres")
 var BUTTON_TEMPLATE = preload("res://Scenes/build_button.tscn")
 const PATH: String = "res://Data/buildings/"
 var building_resources: Array[Resource]
 
 func _ready() -> void:
+	var building_menu_group = ButtonGroup.new()
 	building_resources = get_building_resources()
 	for resource in building_resources:
 		var button = BUTTON_TEMPLATE.instantiate()
-		button.set_building(test)
+		button.set_building(resource)
+		button.button_group = building_menu_group
 		
 		v_box_container.add_child(button)
 
