@@ -4,3 +4,7 @@
 
 [node name="BuildingHandler" type="Node2D" unique_id=322601886]
 script = ExtResource("1_in8yd")
+
+[node name="Buildings" type="Node2D" parent="." unique_id=295352750]
+
+[node name="Guides" type="Node2D" parent="." unique_id=2045507820]

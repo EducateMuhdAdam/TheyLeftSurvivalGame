@@ -1,16 +1,22 @@
 extends Node2D
 
-@export var default: Resource = preload("res://Scenes/farm_lv1.tscn")
+@onready var buildings: Node2D = $Buildings
+@onready var guides: Node2D = $Guides
 
-var guide: Building = null
+
+var reference: BuildingData = preload("res://Data/buildings/farm_lv1.tres") #Default
+var guide: Sprite2D = Sprite2D.new()
 var is_build_mode: bool = true
 var anchor: Vector2 = Vector2(0,0)
 var building_list: Array[Building] = []
 const tilesize: int = 32
 
 func _ready() -> void:
-	setup_guide(default)
-	add_child(guide)
+	EventBus.change_building.connect(set_reference)
+	setup_guide(reference)
+	
+	guide.scale = Vector2(2, 2)
+	guides.add_child(guide)
 	
 
 func _process(delta: float) -> void:
@@ -20,14 +26,17 @@ func _process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			create_building(default)
+			create_building(reference)
 
-func setup_guide(building: Resource) -> void:
-	guide = building.instantiate()
+func set_reference(building: BuildingData) -> void:
+	reference = building
+	setup_guide(building)
+
+func setup_guide(building: BuildingData) -> void:
+	guide.texture = building.image
 	
-func create_building(building: Resource) -> void:
-	var new = building.instantiate()
+func create_building(building: BuildingData) -> void:
+	var new = building.physical_scene.instantiate()
 	new.global_position = guide.global_position
 	building_list.append(new)
-	add_child(new)
-	
+	buildings.add_child(new)

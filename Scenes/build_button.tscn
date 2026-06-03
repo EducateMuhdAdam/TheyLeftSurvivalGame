@@ -11,3 +11,5 @@ toggle_mode = true
 icon = ExtResource("1_3ijrf")
 expand_icon = true
 script = ExtResource("2_8wxra")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

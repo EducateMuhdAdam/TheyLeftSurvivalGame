@@ -2,6 +2,7 @@ extends Button
 
 var building_reference: BuildingData
 
+
 func set_building(buildingData: BuildingData) -> void:
 	building_reference = buildingData
 	setup_button()
@@ -17,4 +18,4 @@ func setup_button() -> void:
 
 
 func _on_pressed() -> void:
-	pass # Replace with function body.
+	EventBus.change_building.emit(building_reference)
