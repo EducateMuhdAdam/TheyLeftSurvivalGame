@@ -1,16 +1,24 @@
 [gd_scene format=3 uid="uid://b5pmpx5avkj0u"]
 
-[ext_resource type="Script" uid="uid://o4ahfg736fic" path="res://Scripts/building.gd" id="1_np4c6"]
+[ext_resource type="Script" uid="uid://vrswfvbjcs31" path="res://Scripts/buildings/farm_lv_1.gd" id="1_fter2"]
 [ext_resource type="Texture2D" uid="uid://jol6ct5qi280" path="res://Assets/Images/Buildings/FarmLv1.png" id="2_1og72"]
+[ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="3_fter2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swnle"]
+size = Vector2(106, 30)
 
 [node name="FarmLv1" type="StaticBody2D" unique_id=1723961577 groups=["Buildings"]]
-script = ExtResource("1_np4c6")
-building_id = 1
-building_name = "Farm"
-building_level = 1
-image = ExtResource("2_1og72")
+script = ExtResource("1_fter2")
 metadata/_custom_type_script = "uid://o4ahfg736fic"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=182202189]
 scale = Vector2(2, 2)
 texture = ExtResource("2_1og72")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=528940138]
+script = ExtResource("3_fter2")
+metadata/_custom_type_script = "uid://doscx7owdvjqj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=431859571]
+position = Vector2(0, 15)
+shape = SubResource("RectangleShape2D_swnle")

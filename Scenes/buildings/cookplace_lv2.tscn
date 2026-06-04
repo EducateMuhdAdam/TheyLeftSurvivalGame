@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://dd5711ny42xem"]
 
 [ext_resource type="Script" uid="uid://o4ahfg736fic" path="res://Scripts/building.gd" id="1_1e01n"]
+[ext_resource type="Resource" uid="uid://8hme33onhrnv" path="res://Data/buildings/cookplace_lv2.tres" id="2_kjsx2"]
 [ext_resource type="Texture2D" uid="uid://cceqpybd2ollt" path="res://Assets/Images/Buildings/CookplaceLv2.png" id="2_xvvrw"]
 
 [node name="CookplaceLv2" type="StaticBody2D" unique_id=1142591236]
 script = ExtResource("1_1e01n")
+data = ExtResource("2_kjsx2")
 metadata/_custom_type_script = "uid://o4ahfg736fic"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1597284966]

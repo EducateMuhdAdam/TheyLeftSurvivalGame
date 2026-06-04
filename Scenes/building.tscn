@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://o4ahfg736fic" path="res://Scripts/building.gd" id="1_avus0"]
 
 [node name="Building" type="StaticBody2D" unique_id=759114107]
+y_sort_enabled = true
 script = ExtResource("1_avus0")

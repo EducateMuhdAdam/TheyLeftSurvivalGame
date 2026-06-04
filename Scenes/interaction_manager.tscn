@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://rd1vvi1471og"]
+
+[ext_resource type="Script" uid="uid://clygy73xvqnb7" path="res://Scripts/interaction_manager.gd" id="1_8nyqy"]
+
+[node name="InteractionManager" type="Node2D" unique_id=615882491]
+script = ExtResource("1_8nyqy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1901212311]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=527189846]
+offset_right = 40.0
+offset_bottom = 23.0

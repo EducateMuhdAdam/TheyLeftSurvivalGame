@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var buildings: Node2D = $Buildings
+@export var ObjectContainer: Node2D 
 @onready var guides: Node2D = $Guides
 
 
@@ -37,6 +37,7 @@ func setup_guide(building: BuildingData) -> void:
 	
 func create_building(building: BuildingData) -> void:
 	var new = building.physical_scene.instantiate()
+	ObjectContainer.add_child(new)
 	new.global_position = guide.global_position
 	building_list.append(new)
-	buildings.add_child(new)
+	
