@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c54oomagof8jl"]
+
+[ext_resource type="Script" uid="uid://duf0isocnyk6w" path="res://Scripts/hud.gd" id="1_e0onf"]
+
+[node name="HUD" type="CanvasLayer" unique_id=824274622]
+script = ExtResource("1_e0onf")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=504536263]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=814082389]
+layout_mode = 2
+
+[node name="Hunger" type="Label" parent="MarginContainer/VBoxContainer" unique_id=267676912]
+layout_mode = 2
+text = "Hunger: 00"
+
+[node name="Thirst" type="Label" parent="MarginContainer/VBoxContainer" unique_id=59588861]
+layout_mode = 2
+text = "Thirst: 00"
