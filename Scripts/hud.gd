@@ -1,8 +1,9 @@
-extends CanvasLayer
+extends Control
 
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var hunger_label: Label = $MarginContainer/VBoxContainer/Hunger
 @onready var thirst_label: Label = $MarginContainer/VBoxContainer/Thirst
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

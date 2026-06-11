@@ -1,6 +1,6 @@
-extends CanvasLayer
+extends Control
 
-@onready var v_box_container: VBoxContainer = $Control/MarginContainer/PanelContainer/ScrollContainer/VBoxContainer
+@onready var v_box_container: VBoxContainer = $MarginContainer/PanelContainer/ScrollContainer/VBoxContainer
 
 var BUTTON_TEMPLATE = preload("res://Scenes/build_button.tscn")
 const PATH: String = "res://Data/buildings/"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dvnrfmo207uxg"]
+
+[ext_resource type="Texture2D" uid="uid://hxyugq50tp5q" path="res://Assets/Images/Items/fish.png" id="1_50v8j"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="1_q7wen"]
+
+[resource]
+script = ExtResource("1_q7wen")
+itemID = 2
+itemName = "Raw Fish"
+image = ExtResource("1_50v8j")
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

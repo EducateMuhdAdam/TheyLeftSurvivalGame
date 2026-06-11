@@ -5,29 +5,25 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hx1pr"]
 bg_color = Color(0.07450981, 0.2509804, 0.38431373, 0.6901961)
 
-[node name="BuildMenu" type="CanvasLayer" unique_id=1446202511]
-script = ExtResource("1_hx1pr")
-
-[node name="Control" type="Control" parent="." unique_id=297409220]
+[node name="BuildMenu" type="Control" unique_id=1671126576]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+script = ExtResource("1_hx1pr")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=402273735]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=402273735]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 310.0
+offset_bottom = 210.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 
-[node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer" unique_id=1479393766]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=1479393766]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_hx1pr")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control/MarginContainer/PanelContainer" unique_id=1315761130]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/PanelContainer" unique_id=1315761130]
 custom_minimum_size = Vector2(300, 200)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/PanelContainer/ScrollContainer" unique_id=1020917008]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/ScrollContainer" unique_id=1020917008]
 layout_mode = 2

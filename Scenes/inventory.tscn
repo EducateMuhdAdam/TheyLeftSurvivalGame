@@ -2,10 +2,13 @@
 
 [ext_resource type="Script" uid="uid://mh1vcdkfvy0d" path="res://Scripts/inventory.gd" id="1_wdn4f"]
 
-[node name="Inventory" type="CanvasLayer" unique_id=737728766]
+[node name="Inventory" type="Control" unique_id=1991736021]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_wdn4f")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1644644187]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

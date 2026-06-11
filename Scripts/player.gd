@@ -11,6 +11,7 @@ var hunger_rate = 0.05
 var thirst_rate = 0.2
 var hunger = 100
 var thirst = 100
+var inventory = {1: {"id": 1, "qty": 2}, 0: {"id": 2, "qty": 1}}
 
 var facing_direction: String = "S"
 var input_direction: Vector2 = Vector2(0,0)

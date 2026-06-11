@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://027efauysjhb"]
+
+[ext_resource type="Texture2D" uid="uid://dvf6hfqb2weck" path="res://Assets/Images/Items/empty bottle.png" id="1_2mwwn"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="2_5lcft"]
+
+[resource]
+script = ExtResource("2_5lcft")
+itemID = 1
+itemName = "Empty Bottle"
+image = ExtResource("1_2mwwn")
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"
