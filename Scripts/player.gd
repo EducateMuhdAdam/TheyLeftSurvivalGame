@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 signal hunger_changed(value)
 signal thirst_changed(value)
+signal update_inventory(inventory)
 
 const MOVE_SPEED: float = 200
 
@@ -66,3 +67,19 @@ func decrease_hunger(delta: float) -> void:
 func decrease_thirst(delta: float) -> void:
 	thirst = max(thirst - (thirst_rate * delta), 0) 
 	thirst_changed.emit(thirst)
+
+func swap_inventory(ID1: int, ID2: int) -> void:
+	if not inventory.has(ID1) and not inventory.has(ID2):
+		return
+	elif inventory.has(ID1) and inventory.has(ID2):
+		var temp = inventory[ID1]
+		inventory[ID1] = inventory[ID2]
+		inventory[ID2] = temp
+	elif inventory.has(ID1):
+		inventory[ID2] = inventory[ID1]
+		inventory.erase(ID1)
+	else:
+		inventory[ID1] = inventory[ID2]
+		inventory.erase(ID2)
+	update_inventory.emit(inventory)
+	

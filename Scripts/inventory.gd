@@ -12,9 +12,13 @@ const INVENTORY_NUM: int = 30
 
 func _ready() -> void:
 	item_library = get_item_resources()
+	player.update_inventory.connect(update_inventory)
 	setup_inventory_grid()
-	update_inventory()
+	update_inventory(player.inventory)
 	visible = false
+
+#TODO: Create Default Error File For Item Not Found
+#TODO: Have the item be able to move around in the inventory
 
 #To be changed later when root CanvasLayer is implemented	
 func _unhandled_input(event: InputEvent) -> void:
@@ -27,11 +31,12 @@ func setup_inventory_grid() -> void:
 		newGrid.slotID = i
 		slots[i] = newGrid
 		inventory_grid.add_child(newGrid)
+		newGrid.swap_item.connect(player.swap_inventory)
 
-func update_inventory() -> void:
+func update_inventory(updated_inventory: Dictionary) -> void:
 	for i in player.inventory:
-		var itemID = player.inventory[i]["id"]
-		var itemQty = player.inventory[i]["qty"]
+		var itemID = updated_inventory[i]["id"]
+		var itemQty = updated_inventory[i]["qty"]
 		slots[i].set_item(item_library[itemID])
 		slots[i].set_quantity(itemQty)
 
