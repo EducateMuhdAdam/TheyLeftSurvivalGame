@@ -13,6 +13,7 @@ const tilesize: int = 32
 
 func _ready() -> void:
 	EventBus.change_building.connect(set_reference)
+	EventBus.toggle_build_mode.connect(toggle_build_mode)
 	setup_guide(reference)
 	
 	guide.scale = Vector2(2, 2)
@@ -24,7 +25,7 @@ func _process(delta: float) -> void:
 		guide.global_position = (get_global_mouse_position() / tilesize).snapped(Vector2.ONE) * tilesize
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton and event.pressed and is_build_mode:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			create_building(reference)
 
@@ -40,4 +41,11 @@ func create_building(building: BuildingData) -> void:
 	ObjectContainer.add_child(new)
 	new.global_position = guide.global_position
 	building_list.append(new)
-	
+
+func toggle_build_mode(build_on: bool) -> void:
+	if build_on:
+		guide.show()
+		is_build_mode = true
+	else:
+		guide.hide()
+		is_build_mode = false

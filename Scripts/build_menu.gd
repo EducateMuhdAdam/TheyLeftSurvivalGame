@@ -1,12 +1,14 @@
 extends Control
 
 @onready var v_box_container: VBoxContainer = $MarginContainer/PanelContainer/ScrollContainer/VBoxContainer
+@onready var panel_container: PanelContainer = $MarginContainer/PanelContainer
 
 var BUTTON_TEMPLATE = preload("res://Scenes/build_button.tscn")
 const PATH: String = "res://Data/buildings/"
 var building_resources: Array[Resource]
 
 func _ready() -> void:
+	EventBus.toggle_build_mode.connect(toggle_build_menu)
 	var building_menu_group = ButtonGroup.new()
 	building_resources = get_building_resources()
 	for resource in building_resources:
@@ -40,3 +42,9 @@ func get_building_resources() -> Array[Resource]:
 		print("An error occurred when trying to access the path.")
 		
 	return resources
+
+func toggle_build_menu(build_on: bool) -> void:
+	if build_on:
+		self.show()
+	else:
+		self.hide()

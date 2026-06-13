@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://bbv06qmilxi12"]
 
+[ext_resource type="Script" uid="uid://b821lud4528jq" path="res://Scripts/ui_manager.gd" id="1_i37jq"]
 [ext_resource type="PackedScene" uid="uid://vl445vc0o05o" path="res://Scenes/inventory.tscn" id="1_toaf1"]
 [ext_resource type="PackedScene" uid="uid://c54oomagof8jl" path="res://Scenes/hud.tscn" id="2_i37jq"]
 [ext_resource type="PackedScene" uid="uid://c5apihatiaqbx" path="res://Scenes/build_menu.tscn" id="3_laqw3"]
 
 [node name="UiManager" type="CanvasLayer" unique_id=881400200]
 follow_viewport_enabled = true
+script = ExtResource("1_i37jq")
 
 [node name="Inventory" parent="." unique_id=1991736021 instance=ExtResource("1_toaf1")]
 offset_right = 1280.0

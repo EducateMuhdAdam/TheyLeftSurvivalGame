@@ -11,19 +11,13 @@ const PATH: String = "res://Data/items/"
 const INVENTORY_NUM: int = 30
 
 func _ready() -> void:
+	EventBus.toggle_inventory.connect(toggle_inventory)
+	
 	item_library = get_item_resources()
 	player.update_inventory.connect(update_inventory)
 	setup_inventory_grid()
 	update_inventory(player.inventory)
 	visible = false
-
-#TODO: Create Default Error File For Item Not Found
-#TODO: Have the item be able to move around in the inventory
-
-#To be changed later when root CanvasLayer is implemented	
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("inventory"):
-		toggle_inventory()
 
 func setup_inventory_grid() -> void:
 	for i in range(0, INVENTORY_NUM):
@@ -40,8 +34,8 @@ func update_inventory(updated_inventory: Dictionary) -> void:
 		slots[i].set_item(item_library[itemID])
 		slots[i].set_quantity(itemQty)
 
-func toggle_inventory() -> void:
-	visible = !visible
+func toggle_inventory(inventory_on: bool) -> void:
+	visible = inventory_on
 
 func get_item_resources() -> Dictionary:
 	var resources: Dictionary = {}

@@ -1,5 +1,12 @@
 extends CharacterBody2D
 
+#TODO: Create Default Error File For Item Not Found
+#TODO: Make The buildings Function
+#TODO: Make the Crafting Menu
+#TODO: Make The Farming Menu
+#TODO: Make Player Sprite
+#TODO: Make Fishing
+
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 signal hunger_changed(value)
