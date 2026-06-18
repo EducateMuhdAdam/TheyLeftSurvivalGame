@@ -2,7 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bnf8v6ri2sitw" path="res://Scenes/player.tscn" id="1_vk57k"]
 [ext_resource type="Texture2D" uid="uid://bshjimqy40spq" path="res://Assets/Images/Tilesets/They Left Tileset.png" id="2_8ffim"]
+[ext_resource type="PackedScene" uid="uid://cnh1udge76yvw" path="res://Scenes/droped_item.tscn" id="3_6444e"]
 [ext_resource type="PackedScene" uid="uid://dj4xpmy55h7iw" path="res://Scenes/building_handler.tscn" id="3_xfk5q"]
+[ext_resource type="PackedScene" uid="uid://cy0mfpdyljcyl" path="res://Scenes/item_handler.tscn" id="4_7p6j4"]
+[ext_resource type="Resource" uid="uid://027efauysjhb" path="res://Data/items/1_empty_bottle.tres" id="4_evi0p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xfk5q"]
 texture = ExtResource("2_8ffim")
@@ -34,5 +37,12 @@ y_sort_enabled = true
 [node name="Player" parent="ObjectContainer" unique_id=1555570297 instance=ExtResource("1_vk57k")]
 position = Vector2(449, 295)
 
+[node name="DropedItem" parent="ObjectContainer" unique_id=401315552 instance=ExtResource("3_6444e")]
+position = Vector2(368, 144)
+itemData = ExtResource("4_evi0p")
+
 [node name="BuildingHandler" parent="." unique_id=322601886 node_paths=PackedStringArray("ObjectContainer") instance=ExtResource("3_xfk5q")]
+ObjectContainer = NodePath("../ObjectContainer")
+
+[node name="ItemHandler" parent="." unique_id=2071323990 node_paths=PackedStringArray("ObjectContainer") instance=ExtResource("4_7p6j4")]
 ObjectContainer = NodePath("../ObjectContainer")

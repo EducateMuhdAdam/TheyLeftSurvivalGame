@@ -14,17 +14,21 @@ signal thirst_changed(value)
 signal update_inventory(inventory)
 
 const MOVE_SPEED: float = 200
+const INVENTORY_NUM: int = 30
 
 var hunger_rate = 0.05
 var thirst_rate = 0.2
 var hunger = 100
 var thirst = 100
 var inventory = {1: {"id": 1, "qty": 2}, 0: {"id": 2, "qty": 1}}
+var item_lookup: Array[int] = []
 
 var facing_direction: String = "S"
 var input_direction: Vector2 = Vector2(0,0)
 
 func _ready() -> void:
+	update_lookout()
+	EventBus.add_item.connect(add_inventory)
 	hunger_changed.emit(hunger)
 	thirst_changed.emit(thirst)
 
@@ -75,6 +79,19 @@ func decrease_thirst(delta: float) -> void:
 	thirst = max(thirst - (thirst_rate * delta), 0) 
 	thirst_changed.emit(thirst)
 
+func add_inventory(data: ItemData) -> void:
+	if data.itemID in item_lookup:
+		for slotkey in inventory.keys():
+			if inventory[slotkey]["id"] == data.itemID:
+				inventory[slotkey]["qty"] += 1
+	else:
+		for i in range(0, INVENTORY_NUM):
+			if i not in inventory.keys():
+				inventory[i] = {"id": data.itemID, "qty": 1}
+				item_lookup.append(data.itemID)
+				break
+	update_inventory.emit(inventory)
+
 func swap_inventory(ID1: int, ID2: int) -> void:
 	if not inventory.has(ID1) and not inventory.has(ID2):
 		return
@@ -90,3 +107,6 @@ func swap_inventory(ID1: int, ID2: int) -> void:
 		inventory.erase(ID2)
 	update_inventory.emit(inventory)
 	
+func update_lookout() -> void:
+	for slotkey in inventory.keys():
+		item_lookup.append(inventory[slotkey]["id"])

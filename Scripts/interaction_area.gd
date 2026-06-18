@@ -2,6 +2,7 @@ extends Area2D
 class_name InteractionArea
 
 @export var action_name: String = "Interact"
+var show_interaction: bool = true
 
 func _ready():
 	# Example for an Area2D or Area3D
@@ -25,5 +26,5 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		on_indicator.call()
+		off_indicator.call()
 		InteractionManager.unregister_area(self)

@@ -1,17 +1,15 @@
 [gd_scene format=3 uid="uid://cnh1udge76yvw"]
 
 [ext_resource type="Script" uid="uid://vw76y6wi0lxh" path="res://Scripts/droped_item.gd" id="1_3m34b"]
-[ext_resource type="Texture2D" uid="uid://dvf6hfqb2weck" path="res://Assets/Images/Items/empty bottle.png" id="2_5yghy"]
 [ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="3_fq0rf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asfth"]
-size = Vector2(64, 64)
+size = Vector2(32, 32)
 
 [node name="DropedItem" type="StaticBody2D" unique_id=401315552]
 script = ExtResource("1_3m34b")
 
 [node name="Image" type="Sprite2D" parent="." unique_id=312859996]
-texture = ExtResource("2_5yghy")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=1609316235]
 script = ExtResource("3_fq0rf")

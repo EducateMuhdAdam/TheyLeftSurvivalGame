@@ -4,20 +4,24 @@ class_name DroppedItem
 @onready var image: Sprite2D = $Image
 @onready var interaction_area: InteractionArea = $InteractionArea
 
-var itemData: ItemData = null
+@export var itemData: ItemData = null
 var interact: Callable = func():
 	pass
 
-const MAX_SIZE: int = 64
+const MAX_SIZE: int = 32
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	interaction_area.on_indicator = self.highlight_object()
-	interaction_area.off_indicator = self.remove_highlight()
+	if itemData:
+		set_itemData(itemData)
+	interaction_area.interact = self.item_picked_up
+	interaction_area.show_interaction = false
+	interaction_area.on_indicator = self.highlight_object
+	interaction_area.off_indicator = self.remove_highlight
 
 func set_itemData(data: ItemData) -> void:
 	itemData = data
-	image.texture = itemData.image.texture
+	image.texture = itemData.image
 	set_image_scale()
 
 func highlight_object():
@@ -31,4 +35,8 @@ func remove_highlight():
 func set_image_scale() -> void:
 	var max_image_size = max(image.texture.get_size().x, image.texture.get_size().y)
 	var new_scale = MAX_SIZE / max_image_size
-	image.scale = new_scale
+	image.scale = Vector2(new_scale, new_scale)
+
+func item_picked_up() -> void:
+	EventBus.add_item.emit(itemData)
+	queue_free()

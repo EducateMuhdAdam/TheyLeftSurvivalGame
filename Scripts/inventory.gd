@@ -8,7 +8,7 @@ var slots: Dictionary = {}
 var item_library: Dictionary = {}
 
 const PATH: String = "res://Data/items/"
-const INVENTORY_NUM: int = 30
+
 
 func _ready() -> void:
 	EventBus.toggle_inventory.connect(toggle_inventory)
@@ -20,7 +20,7 @@ func _ready() -> void:
 	visible = false
 
 func setup_inventory_grid() -> void:
-	for i in range(0, INVENTORY_NUM):
+	for i in range(0, player.INVENTORY_NUM):
 		var newGrid = grid_scene.instantiate()
 		newGrid.slotID = i
 		slots[i] = newGrid
