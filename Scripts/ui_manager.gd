@@ -1,21 +1,20 @@
 extends CanvasLayer
 
-var watertest = preload("res://Scenes/building_ui/water_filter_ui.tscn")
-
 @onready var inventory: Control = $Inventory
 @onready var build_menu: Control = $BuildMenu
 @onready var hud: Control = $HUD
-@onready var ui_container: HBoxContainer = $CenterContainer/UIContainer
 
 var modeNum: int = 0
 var build_mode: bool = true
 var inventory_mode: bool = false
 
+<<<<<<< HEAD
 func _ready() -> void:
 	var node = watertest.instantiate()
 	share_ui(node.get_panel())
 	
-
+=======
+>>>>>>> parent of 2e4fa41 (Added Water Filter Menu and Building Menu System)
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("inventory"):
 		toggle_inventory()
@@ -51,8 +50,3 @@ func set_build_menu(is_on: bool) -> void:
 	else:
 		build_mode = false
 		EventBus.toggle_build_mode.emit(false)
-
-func share_ui(new_node: Node) -> void:
-	inventory.change_column_num(5)
-	print(new_node)
-	new_node.reparent(ui_container)

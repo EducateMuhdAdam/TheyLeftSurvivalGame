@@ -10,3 +10,4 @@ class_name BuildingData
 	
 # Link the physical scene directly to this data
 @export var physical_scene: PackedScene
+@export var panel_scene: PackedScene
