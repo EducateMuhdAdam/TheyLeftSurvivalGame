@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dabvdt1mo5tqi"]
+
+[ext_resource type="Texture2D" uid="uid://ctur5kxlbvyfy" path="res://Assets/Images/Buildings/WaterFilterLv1.png" id="1_ough6"]
+[ext_resource type="Script" uid="uid://dfhupafjrvjsk" path="res://Scripts/building_ui/water_filter_ui.gd" id="1_txj8r"]
+[ext_resource type="PackedScene" uid="uid://dybkjkmv5mrbs" path="res://Scenes/inventory_slot.tscn" id="2_hlgr1"]
+
+[node name="Water Filter" type="Control" unique_id=1575956813]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_txj8r")
+
+[node name="WaterFilterPanel" type="PanelContainer" parent="." unique_id=1625453517]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 427.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WaterFilterPanel" unique_id=1241806816]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="WaterFilterPanel/VBoxContainer" unique_id=975630968]
+layout_mode = 2
+text = "Water Filter"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="WaterFilterPanel/VBoxContainer" unique_id=1753129831]
+layout_mode = 2
+texture = ExtResource("1_ough6")
+expand_mode = 4
+
+[node name="Input" parent="WaterFilterPanel/VBoxContainer/TextureRect" unique_id=22464642 instance=ExtResource("2_hlgr1")]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 262.0
+offset_right = 302.0
+offset_bottom = 326.0
+
+[node name="Output" parent="WaterFilterPanel/VBoxContainer/TextureRect" unique_id=766363026 instance=ExtResource("2_hlgr1")]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 293.0
+offset_right = 146.0
+offset_bottom = 357.0

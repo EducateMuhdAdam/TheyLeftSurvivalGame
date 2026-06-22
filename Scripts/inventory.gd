@@ -1,8 +1,10 @@
 extends Control
 
 @onready var player = get_tree().get_first_node_in_group("Player")
-@onready var inventory_grid: GridContainer = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer
+@onready var inventory_grid: GridContainer = $InventoryPanel/MarginContainer/VBoxContainer/InventoryGrid
+@onready var inventory_panel: PanelContainer = $InventoryPanel
 @export var grid_scene = preload("res://Scenes/inventory_slot.tscn")
+@export var ui_container: HBoxContainer
 
 var slots: Dictionary = {}
 var item_library: Dictionary = {}
@@ -11,12 +13,11 @@ const PATH: String = "res://Data/items/"
 
 
 func _ready() -> void:
-	EventBus.toggle_inventory.connect(toggle_inventory)
-	
 	item_library = get_item_resources()
 	player.update_inventory.connect(update_inventory)
 	setup_inventory_grid()
 	update_inventory(player.inventory)
+	inventory_panel.reparent(ui_container)
 	visible = false
 
 func setup_inventory_grid() -> void:
@@ -33,9 +34,6 @@ func update_inventory(updated_inventory: Dictionary) -> void:
 		var itemQty = updated_inventory[i]["qty"]
 		slots[i].set_item(item_library[itemID])
 		slots[i].set_quantity(itemQty)
-
-func toggle_inventory(inventory_on: bool) -> void:
-	visible = inventory_on
 
 func get_item_resources() -> Dictionary:
 	var resources: Dictionary = {}
@@ -62,3 +60,6 @@ func get_item_resources() -> Dictionary:
 		print("An error occurred when trying to access the path.")
 		
 	return resources
+
+func change_column_num(num: int) -> void:
+	inventory_grid.columns = num
