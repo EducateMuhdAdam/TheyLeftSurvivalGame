@@ -12,6 +12,7 @@ var inventory_mode: bool = false
 
 func _ready() -> void:
 	inventory.get_panel().reparent(ui_container)
+	EventBus.shared_ui.connect(open_shared_mode)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("inventory"):
@@ -48,3 +49,8 @@ func set_build_menu(is_on: bool) -> void:
 	else:
 		build_mode = false
 		EventBus.toggle_build_mode.emit(false)
+
+func open_shared_mode(node: PanelContainer, building: Node) -> void:
+	inventory.toggle_shared_mode(true)
+	ui_container.add_child(node)
+	toggle_inventory()

@@ -1,14 +1,26 @@
 [gd_scene format=3 uid="uid://n4rvp8w0qon2"]
 
-[ext_resource type="Script" uid="uid://o4ahfg736fic" path="res://Scripts/building.gd" id="1_uvj84"]
+[ext_resource type="Script" uid="uid://bjmd5tpf06bi1" path="res://Scripts/buildings/waterfilter_lv_1.gd" id="1_kfvdm"]
 [ext_resource type="Texture2D" uid="uid://ctur5kxlbvyfy" path="res://Assets/Images/Buildings/WaterFilterLv1.png" id="2_ar0vy"]
 [ext_resource type="Resource" uid="uid://knrp4o6exuav" path="res://Data/buildings/waterfilter_lv1.tres" id="2_kfvdm"]
+[ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="4_44h15"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bnuob"]
+size = Vector2(106, 30)
 
 [node name="WaterfilterLv1" type="StaticBody2D" unique_id=1418852078]
-script = ExtResource("1_uvj84")
+script = ExtResource("1_kfvdm")
 data = ExtResource("2_kfvdm")
 metadata/_custom_type_script = "uid://o4ahfg736fic"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1539995715]
 scale = Vector2(2, 2)
 texture = ExtResource("2_ar0vy")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=253773181]
+script = ExtResource("4_44h15")
+metadata/_custom_type_script = "uid://doscx7owdvjqj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=367186623]
+position = Vector2(0, 15)
+shape = SubResource("RectangleShape2D_bnuob")

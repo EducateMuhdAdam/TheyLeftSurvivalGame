@@ -2,6 +2,7 @@ extends Control
 
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var inventory_grid: GridContainer = $PanelContainer/MarginContainer/VBoxContainer/GridContainer
+@onready var panel_container: PanelContainer = $PanelContainer
 
 @export var grid_scene = preload("res://Scenes/inventory_slot.tscn")
 @export var ui_container: HBoxContainer
