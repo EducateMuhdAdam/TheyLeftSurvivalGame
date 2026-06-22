@@ -8,13 +8,6 @@ var modeNum: int = 0
 var build_mode: bool = true
 var inventory_mode: bool = false
 
-<<<<<<< HEAD
-func _ready() -> void:
-	var node = watertest.instantiate()
-	share_ui(node.get_panel())
-	
-=======
->>>>>>> parent of 2e4fa41 (Added Water Filter Menu and Building Menu System)
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("inventory"):
 		toggle_inventory()

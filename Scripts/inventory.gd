@@ -62,7 +62,6 @@ func get_item_resources() -> Dictionary:
 		print("An error occurred when trying to access the path.")
 		
 	return resources
-<<<<<<< HEAD
 
 func toggle_shared_mode(shared_mode: bool) -> void:
 	if shared_mode:
@@ -72,5 +71,3 @@ func toggle_shared_mode(shared_mode: bool) -> void:
 
 func change_column_num(num: int) -> void:
 	inventory_grid.columns = num
-=======
->>>>>>> parent of 2e4fa41 (Added Water Filter Menu and Building Menu System)
