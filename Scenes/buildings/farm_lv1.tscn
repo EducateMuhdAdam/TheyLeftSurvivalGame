@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://vrswfvbjcs31" path="res://Scripts/buildings/farm_lv_1.gd" id="1_fter2"]
 [ext_resource type="Texture2D" uid="uid://jol6ct5qi280" path="res://Assets/Images/Buildings/FarmLv1.png" id="2_1og72"]
+[ext_resource type="Resource" uid="uid://4xy1tl26rviw" path="res://Data/buildings/farm_lv1.tres" id="2_swnle"]
 [ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="3_fter2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swnle"]
@@ -9,6 +10,7 @@ size = Vector2(106, 30)
 
 [node name="FarmLv1" type="StaticBody2D" unique_id=1723961577 groups=["Buildings"]]
 script = ExtResource("1_fter2")
+data = ExtResource("2_swnle")
 metadata/_custom_type_script = "uid://o4ahfg736fic"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=182202189]

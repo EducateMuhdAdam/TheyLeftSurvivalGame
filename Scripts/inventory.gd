@@ -1,14 +1,16 @@
 extends Control
 
 @onready var player = get_tree().get_first_node_in_group("Player")
-@onready var inventory_grid: GridContainer = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer
+@onready var inventory_grid: GridContainer = $PanelContainer/MarginContainer/VBoxContainer/GridContainer
+
 @export var grid_scene = preload("res://Scenes/inventory_slot.tscn")
+@export var ui_container: HBoxContainer
+
 
 var slots: Dictionary = {}
 var item_library: Dictionary = {}
 
 const PATH: String = "res://Data/items/"
-
 
 func _ready() -> void:
 	EventBus.toggle_inventory.connect(toggle_inventory)
@@ -18,6 +20,9 @@ func _ready() -> void:
 	setup_inventory_grid()
 	update_inventory(player.inventory)
 	visible = false
+
+func get_panel() -> PanelContainer:
+	return $PanelContainer
 
 func setup_inventory_grid() -> void:
 	for i in range(0, player.INVENTORY_NUM):

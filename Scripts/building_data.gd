@@ -9,5 +9,8 @@ class_name BuildingData
 @export var building_level: int = 0
 	
 # Link the physical scene directly to this data
-@export var physical_scene: PackedScene
-@export var panel_scene: PackedScene
+
+@export_file("*.tscn")
+var build_scene_path: String
+@export_file("*.tscn")
+var ui_scene_path: String

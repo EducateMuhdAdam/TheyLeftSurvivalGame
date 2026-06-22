@@ -4,28 +4,27 @@
 [ext_resource type="PackedScene" uid="uid://vl445vc0o05o" path="res://Scenes/inventory.tscn" id="1_toaf1"]
 [ext_resource type="PackedScene" uid="uid://c54oomagof8jl" path="res://Scenes/hud.tscn" id="2_i37jq"]
 [ext_resource type="PackedScene" uid="uid://c5apihatiaqbx" path="res://Scenes/build_menu.tscn" id="3_laqw3"]
+[ext_resource type="Script" uid="uid://c46aq0qj2vavd" path="res://Scripts/ui_container.gd" id="5_laqw3"]
 
-[node name="UiManager" type="CanvasLayer" unique_id=881400200]
-follow_viewport_enabled = true
+[node name="UIManager" type="CanvasLayer" unique_id=29909133]
 script = ExtResource("1_i37jq")
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2086757350]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1829722347]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
 
-[node name="UIContainer" type="HBoxContainer" parent="CenterContainer" unique_id=446316075 node_paths=PackedStringArray("inventory")]
+[node name="UIContainer" type="HBoxContainer" parent="CenterContainer" unique_id=1179706775 node_paths=PackedStringArray("inventory")]
 layout_mode = 2
+alignment = 1
 script = ExtResource("5_laqw3")
 inventory = NodePath("../../Inventory")
 
-[node name="Inventory" parent="." unique_id=1991736021 instance=ExtResource("1_toaf1")]
-offset_right = 1280.0
-offset_bottom = 720.0
-
-[node name="BuildMenu" parent="." unique_id=1671126576 instance=ExtResource("3_laqw3")]
+[node name="Inventory" parent="." unique_id=1991736021 node_paths=PackedStringArray("ui_container") instance=ExtResource("1_toaf1")]
+ui_container = NodePath("../CenterContainer/UIContainer")
 
 [node name="HUD" parent="." unique_id=273165038 instance=ExtResource("2_i37jq")]
+
+[node name="BuildMenu" parent="." unique_id=1671126576 instance=ExtResource("3_laqw3")]

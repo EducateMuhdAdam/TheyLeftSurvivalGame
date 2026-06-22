@@ -36,8 +36,8 @@ func set_reference(building: BuildingData) -> void:
 func setup_guide(building: BuildingData) -> void:
 	guide.texture = building.image
 	
-func create_building(building: BuildingData) -> void:
-	var new = building.physical_scene.instantiate()
+func create_building(building_data: BuildingData) -> void:
+	var new = load(building_data.build_scene_path).instantiate()
 	ObjectContainer.add_child(new)
 	new.global_position = guide.global_position
 	building_list.append(new)

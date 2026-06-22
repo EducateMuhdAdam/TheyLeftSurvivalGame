@@ -1,7 +1,6 @@
 [gd_resource type="Resource" script_class="BuildingData" format=3 uid="uid://4xy1tl26rviw"]
 
 [ext_resource type="Texture2D" uid="uid://jol6ct5qi280" path="res://Assets/Images/Buildings/FarmLv1.png" id="1_jb0tv"]
-[ext_resource type="PackedScene" uid="uid://b5pmpx5avkj0u" path="res://Scenes/buildings/farm_lv1.tscn" id="2_1iwri"]
 [ext_resource type="Script" uid="uid://cma7fqff3prkl" path="res://Scripts/building_data.gd" id="3_dvj21"]
 
 [resource]
@@ -10,5 +9,5 @@ building_id = 1
 building_name = "Farm"
 image = ExtResource("1_jb0tv")
 building_level = 1
-physical_scene = ExtResource("2_1iwri")
+build_scene_path = "uid://b5pmpx5avkj0u"
 metadata/_custom_type_script = "uid://cma7fqff3prkl"

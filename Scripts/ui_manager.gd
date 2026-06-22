@@ -4,9 +4,14 @@ extends CanvasLayer
 @onready var build_menu: Control = $BuildMenu
 @onready var hud: Control = $HUD
 
+@onready var ui_container: HBoxContainer = $CenterContainer/UIContainer
+
 var modeNum: int = 0
 var build_mode: bool = true
 var inventory_mode: bool = false
+
+func _ready() -> void:
+	inventory.get_panel().reparent(ui_container)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("inventory"):

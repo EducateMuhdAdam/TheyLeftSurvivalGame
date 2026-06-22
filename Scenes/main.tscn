@@ -7,4 +7,4 @@
 
 [node name="LevelRoot" parent="." unique_id=1101166072 instance=ExtResource("1_jjgbg")]
 
-[node name="UiManager" parent="." unique_id=881400200 instance=ExtResource("2_bo1nx")]
+[node name="UIManager" parent="." unique_id=29909133 instance=ExtResource("2_bo1nx")]

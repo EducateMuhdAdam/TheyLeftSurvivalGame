@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cma7fqff3prkl" path="res://Scripts/building_data.gd" id="1_cilsu"]
 [ext_resource type="Texture2D" uid="uid://1lxayti6o387" path="res://Assets/Images/Buildings/CookplaceLv1.png" id="1_qher3"]
-[ext_resource type="PackedScene" uid="uid://cfmwv5ept5ymb" path="res://Scenes/buildings/cookplace_lv1.tscn" id="2_snad2"]
 
 [resource]
 script = ExtResource("1_cilsu")
@@ -10,5 +9,5 @@ building_id = 5
 building_name = "Cookplace"
 image = ExtResource("1_qher3")
 building_level = 1
-physical_scene = ExtResource("2_snad2")
+build_scene_path = "uid://cfmwv5ept5ymb"
 metadata/_custom_type_script = "uid://cma7fqff3prkl"

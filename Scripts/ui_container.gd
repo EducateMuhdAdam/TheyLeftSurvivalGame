@@ -11,7 +11,7 @@ func _ready() -> void:
 func toggle_inventory(inventory_on: bool) -> void:
 	if not inventory_on:
 		inventory.change_column_num(10)
-		for children in get_children():
-			if children != inventory.inventory_panel:
-				children.queue_free()
+		#for children in get_children():
+		#	if children != inventory.get_panel():
+		#		children.queue_free()
 	visible = inventory_on
