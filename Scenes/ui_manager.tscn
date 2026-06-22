@@ -9,7 +9,6 @@
 follow_viewport_enabled = true
 script = ExtResource("1_i37jq")
 
-<<<<<<< HEAD
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=2086757350]
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,10 +22,7 @@ layout_mode = 2
 script = ExtResource("5_laqw3")
 inventory = NodePath("../../Inventory")
 
-[node name="Inventory" parent="." unique_id=1991736021 node_paths=PackedStringArray("ui_container") instance=ExtResource("1_toaf1")]
-=======
 [node name="Inventory" parent="." unique_id=1991736021 instance=ExtResource("1_toaf1")]
->>>>>>> parent of 2e4fa41 (Added Water Filter Menu and Building Menu System)
 offset_right = 1280.0
 offset_bottom = 720.0
 
