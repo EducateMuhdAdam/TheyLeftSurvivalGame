@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 EventBus="*uid://dq6ulv2pamo4w"
 InteractionManager="*uid://rd1vvi1471og"
+Catalogue="*uid://1njdb6ycy5lr"
 
 [display]
 

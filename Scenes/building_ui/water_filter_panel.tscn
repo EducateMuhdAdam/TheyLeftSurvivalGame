@@ -1,12 +1,16 @@
 [gd_scene format=3 uid="uid://heir4geidqwv"]
 
+[ext_resource type="Script" uid="uid://cug34xl00iris" path="res://Scripts/building_ui/water_filter_panel.gd" id="1_8p57p"]
 [ext_resource type="Texture2D" uid="uid://ctur5kxlbvyfy" path="res://Assets/Images/Buildings/WaterFilterLv1.png" id="1_rpldr"]
 [ext_resource type="PackedScene" uid="uid://dybkjkmv5mrbs" path="res://Scenes/inventory_slot.tscn" id="2_8p57p"]
 
-[node name="PanelContainer" type="PanelContainer" unique_id=838501850]
+[node name="PanelContainer" type="PanelContainer" unique_id=838501850 node_paths=PackedStringArray("output", "input")]
 custom_minimum_size = Vector2(400, 400)
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_8p57p")
+output = NodePath("VBoxContainer/TextureRect/Output")
+input = NodePath("VBoxContainer/TextureRect/Input")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=151186254]
 layout_mode = 2
@@ -27,6 +31,7 @@ offset_left = 86.0
 offset_top = 289.0
 offset_right = 150.0
 offset_bottom = 353.0
+one_item = true
 
 [node name="Input" parent="VBoxContainer/TextureRect" unique_id=879139016 instance=ExtResource("2_8p57p")]
 layout_mode = 0
@@ -34,3 +39,4 @@ offset_left = 238.0
 offset_top = 263.0
 offset_right = 302.0
 offset_bottom = 327.0
+one_item = true

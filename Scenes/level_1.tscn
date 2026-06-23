@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dj4xpmy55h7iw" path="res://Scenes/building_handler.tscn" id="3_xfk5q"]
 [ext_resource type="PackedScene" uid="uid://cy0mfpdyljcyl" path="res://Scenes/item_handler.tscn" id="4_7p6j4"]
 [ext_resource type="Resource" uid="uid://027efauysjhb" path="res://Data/items/1_empty_bottle.tres" id="4_evi0p"]
+[ext_resource type="Resource" uid="uid://8wyiy1x1tfx1" path="res://Data/items/4_dirtywater_bottle.tres" id="5_lsmp6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xfk5q"]
 texture = ExtResource("2_8ffim")
@@ -40,6 +41,10 @@ position = Vector2(449, 295)
 [node name="DropedItem" parent="ObjectContainer" unique_id=401315552 instance=ExtResource("3_6444e")]
 position = Vector2(368, 144)
 itemData = ExtResource("4_evi0p")
+
+[node name="DropedItem2" parent="ObjectContainer" unique_id=1171172998 instance=ExtResource("3_6444e")]
+position = Vector2(593, 183)
+itemData = ExtResource("5_lsmp6")
 
 [node name="BuildingHandler" parent="." unique_id=322601886 node_paths=PackedStringArray("ObjectContainer") instance=ExtResource("3_xfk5q")]
 ObjectContainer = NodePath("../ObjectContainer")

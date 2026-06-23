@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://8wyiy1x1tfx1"]
+
+[ext_resource type="Texture2D" uid="uid://dcjwxkhmwqyn" path="res://Assets/Images/Items/dirty bottle.png" id="1_1csbl"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="2_1fry4"]
+
+[resource]
+script = ExtResource("2_1fry4")
+itemID = 4
+itemName = "Filled Dirty Waterbottle"
+image = ExtResource("1_1csbl")
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

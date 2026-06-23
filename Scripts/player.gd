@@ -20,17 +20,19 @@ var hunger_rate = 0.05
 var thirst_rate = 0.2
 var hunger = 100
 var thirst = 100
-var inventory = {1: {"id": 1, "qty": 2}, 0: {"id": 2, "qty": 1}}
-var item_lookup: Array[int] = []
+var inventory = {1: {"id": 1, "qty": 2}, 2: {"id": 2, "qty": 1}}
 
 var facing_direction: String = "S"
 var input_direction: Vector2 = Vector2(0,0)
 
 func _ready() -> void:
-	update_lookout()
 	EventBus.add_item.connect(add_inventory)
+	EventBus.swap_item.connect(swap_inventory)
+	EventBus.erase_item.connect(remove_inventory)
+	EventBus.remove_item.connect(remove_one_inventory)
 	hunger_changed.emit(hunger)
 	thirst_changed.emit(thirst)
+	update_inventory.emit(inventory)
 
 func _process(delta: float) -> void:
 	
@@ -79,7 +81,25 @@ func decrease_thirst(delta: float) -> void:
 	thirst = max(thirst - (thirst_rate * delta), 0) 
 	thirst_changed.emit(thirst)
 
+func set_inventory_slot(slotID: int, itemID: int, qty: int):
+	if !itemID || qty == 0:
+		inventory.erase(slotID)
+		return
+	if !inventory.has(slotID):
+		inventory[slotID] = {"id": itemID, "qty": qty}
+		return
+	inventory[slotID]["qty"] = qty
+	inventory[slotID]["id"] = itemID
+	
+
+func set_inventory_quantity(slotID: int, qty: int) -> void:
+	inventory[slotID]["qty"] = qty
+	update_inventory.emit(inventory)
+
 func add_inventory(data: ItemData) -> void:
+	var item_lookup: Array[int] = []
+	for slotkey in inventory.keys():
+		item_lookup.append(inventory[slotkey]["id"])
 	if data.itemID in item_lookup:
 		for slotkey in inventory.keys():
 			if inventory[slotkey]["id"] == data.itemID:
@@ -90,6 +110,18 @@ func add_inventory(data: ItemData) -> void:
 				inventory[i] = {"id": data.itemID, "qty": 1}
 				item_lookup.append(data.itemID)
 				break
+	update_inventory.emit(inventory)
+
+func remove_inventory(slotID: int) -> void:
+	inventory.erase(slotID)
+	update_inventory.emit(inventory)
+
+func remove_one_inventory(slotID: int) -> void:
+	var slot = inventory[slotID]
+	if slot["qty"] > 1:
+		inventory[slotID]["qty"] -= 1
+	else:
+		inventory.erase(slotID)
 	update_inventory.emit(inventory)
 
 func swap_inventory(ID1: int, ID2: int) -> void:
@@ -106,7 +138,5 @@ func swap_inventory(ID1: int, ID2: int) -> void:
 		inventory[ID1] = inventory[ID2]
 		inventory.erase(ID2)
 	update_inventory.emit(inventory)
+
 	
-func update_lookout() -> void:
-	for slotkey in inventory.keys():
-		item_lookup.append(inventory[slotkey]["id"])
