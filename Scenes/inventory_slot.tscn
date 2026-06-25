@@ -7,6 +7,7 @@ custom_minimum_size = Vector2(64, 64)
 offset_right = 64.0
 offset_bottom = 64.0
 script = ExtResource("1_0v82l")
+one_item = null
 
 [node name="Icon" type="TextureRect" parent="." unique_id=635116467]
 layout_mode = 2

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://6c7007prvr1f"]
+
+[ext_resource type="Script" uid="uid://dvvhg48v2laad" path="res://Scripts/building_ui/cooking_panel.gd" id="1_le5cx"]
+[ext_resource type="Texture2D" uid="uid://1lxayti6o387" path="res://Assets/Images/Buildings/CookplaceLv1.png" id="1_lx0vr"]
+[ext_resource type="PackedScene" uid="uid://dybkjkmv5mrbs" path="res://Scenes/inventory_slot.tscn" id="2_le5cx"]
+
+[node name="PanelContainer" type="PanelContainer" unique_id=1054163561]
+custom_minimum_size = Vector2(400, 400)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_le5cx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=971113223]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=576166010]
+layout_mode = 2
+text = "Cooking"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=407232845]
+layout_mode = 2
+texture = ExtResource("1_lx0vr")
+expand_mode = 5
+
+[node name="Fuel" parent="VBoxContainer/TextureRect" unique_id=22464642 instance=ExtResource("2_le5cx")]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 261.0
+offset_right = 233.0
+offset_bottom = 325.0
+one_item = false
+
+[node name="Food" parent="VBoxContainer/TextureRect" unique_id=1158540632 instance=ExtResource("2_le5cx")]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 86.0
+offset_right = 235.0
+offset_bottom = 150.0
+one_item = true

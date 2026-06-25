@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bw65vqi35po6w"]
+
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="1_od627"]
+[ext_resource type="Texture2D" uid="uid://dmyuuvdjssxvh" path="res://Assets/Images/Items/cooked fish.png" id="1_sbgbb"]
+
+[resource]
+script = ExtResource("1_od627")
+itemID = 5
+itemName = "Cooked Fish"
+image = ExtResource("1_sbgbb")
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

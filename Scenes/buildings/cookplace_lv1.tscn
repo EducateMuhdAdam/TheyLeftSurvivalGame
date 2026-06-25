@@ -1,14 +1,30 @@
 [gd_scene format=3 uid="uid://cfmwv5ept5ymb"]
 
-[ext_resource type="Script" uid="uid://o4ahfg736fic" path="res://Scripts/building.gd" id="1_lj7l0"]
+[ext_resource type="Script" uid="uid://bi2kkrlb6iaql" path="res://Scripts/buildings/cookplace_lv_1.gd" id="1_00brp"]
 [ext_resource type="Resource" uid="uid://b6ji30bxmgidq" path="res://Data/buildings/cookplace_lv1.tres" id="2_00brp"]
 [ext_resource type="Texture2D" uid="uid://1lxayti6o387" path="res://Assets/Images/Buildings/CookplaceLv1.png" id="3_we6bn"]
+[ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="4_we6bn"]
 
-[node name="Building" type="StaticBody2D" unique_id=949385918]
-script = ExtResource("1_lj7l0")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5tla"]
+size = Vector2(106, 30)
+
+[node name="CookplaceLv1" type="StaticBody2D" unique_id=949385918]
+script = ExtResource("1_00brp")
 data = ExtResource("2_00brp")
 metadata/_custom_type_script = "uid://o4ahfg736fic"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=434296973]
 scale = Vector2(2, 2)
 texture = ExtResource("3_we6bn")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=2113105923]
+script = ExtResource("4_we6bn")
+metadata/_custom_type_script = "uid://doscx7owdvjqj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1899029515]
+position = Vector2(0, 15)
+shape = SubResource("RectangleShape2D_u5tla")
+
+[node name="Cooktime" type="Timer" parent="." unique_id=815946362]
+wait_time = 10.0
+one_shot = true

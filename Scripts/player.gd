@@ -20,13 +20,14 @@ var hunger_rate = 0.05
 var thirst_rate = 0.2
 var hunger = 100
 var thirst = 100
-var inventory = {1: {"id": 1, "qty": 2}, 2: {"id": 2, "qty": 1}}
+var inventory = {1: {"id": 1, "qty": 2}, 2: {"id": 2, "qty": 3}}
 
 var facing_direction: String = "S"
 var input_direction: Vector2 = Vector2(0,0)
 
 func _ready() -> void:
-	EventBus.add_item.connect(add_inventory)
+	EventBus.add_item.connect(add_one_inventory)
+	EventBus.add_multiple_item.connect(add_inventory)
 	EventBus.swap_item.connect(swap_inventory)
 	EventBus.erase_item.connect(remove_inventory)
 	EventBus.remove_item.connect(remove_one_inventory)
@@ -96,21 +97,23 @@ func set_inventory_quantity(slotID: int, qty: int) -> void:
 	inventory[slotID]["qty"] = qty
 	update_inventory.emit(inventory)
 
-func add_inventory(data: ItemData) -> void:
+func add_inventory(data: ItemData, quantity: int) -> void:
 	var item_lookup: Array[int] = []
 	for slotkey in inventory.keys():
 		item_lookup.append(inventory[slotkey]["id"])
 	if data.itemID in item_lookup:
 		for slotkey in inventory.keys():
 			if inventory[slotkey]["id"] == data.itemID:
-				inventory[slotkey]["qty"] += 1
+				inventory[slotkey]["qty"] += quantity
 	else:
 		for i in range(0, INVENTORY_NUM):
 			if i not in inventory.keys():
-				inventory[i] = {"id": data.itemID, "qty": 1}
-				item_lookup.append(data.itemID)
+				inventory[i] = {"id": data.itemID, "qty": quantity}
 				break
 	update_inventory.emit(inventory)
+
+func add_one_inventory(data: ItemData) -> void:
+	add_inventory(data, 1)
 
 func remove_inventory(slotID: int) -> void:
 	inventory.erase(slotID)

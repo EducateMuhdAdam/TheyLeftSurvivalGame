@@ -6,6 +6,8 @@ extends PanelContainer
 var building = null
 
 func _ready() -> void:
+	output.controller = building
+	input.controller = building
 	input.requirement = Callable(self, "check_dirty_water")
 	output.requirement = Callable(self, "check_empty_water")
 	input.building_action =  Callable(self, "building_action")
@@ -23,3 +25,11 @@ func check_empty_water(data: Variant) -> bool:
 	
 func building_action() -> void:
 	building.building_action(self)
+	
+
+func close_panel() -> void:
+	if input.item:
+		EventBus.add_item.emit(input.item)
+	if output.item:
+		EventBus.add_item.emit(output.item)
+	queue_free()

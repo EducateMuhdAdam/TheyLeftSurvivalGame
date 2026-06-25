@@ -10,4 +10,5 @@ building_name = "Cookplace"
 image = ExtResource("1_qher3")
 building_level = 1
 build_scene_path = "uid://cfmwv5ept5ymb"
+ui_scene_path = "uid://6c7007prvr1f"
 metadata/_custom_type_script = "uid://cma7fqff3prkl"

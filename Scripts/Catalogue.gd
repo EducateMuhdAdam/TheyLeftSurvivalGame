@@ -1,9 +1,20 @@
 extends Node
 
 var item_catalogue: Dictionary
+var cooking_reference: Dictionary = {
+	2: 5
+}
+
 
 func _ready() -> void:
 	item_catalogue = get_item_resources()
+	cooking_reference = get_cooking_reference()
+
+func get_cooking_reference() -> Dictionary:
+	var reference = {}
+	for key in cooking_reference.keys():
+		reference[key] = item_catalogue[cooking_reference[key]]
+	return reference
 
 func get_item_resources() -> Dictionary:
 	const PATH: String = "res://Data/items/"

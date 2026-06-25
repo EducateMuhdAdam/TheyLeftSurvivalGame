@@ -86,6 +86,8 @@ func swap_item_seq(origin_slot: Variant) -> void:
 	if controller is Building:
 		EventBus.erase_item.emit(origin_slot.slotID)
 		building_action.call()
+	if origin_slot.controller is Building:
+		origin_slot.building_action.call()
 
 func one_item_seq(origin_slot: Variant) -> void:
 	if item:
@@ -97,6 +99,8 @@ func one_item_seq(origin_slot: Variant) -> void:
 	
 	if controller is Building:
 		building_action.call()
+	if origin_slot.controller is Building:
+		origin_slot.building_action.call()
 
 func empty_slot() -> void:
 	icon.texture = null

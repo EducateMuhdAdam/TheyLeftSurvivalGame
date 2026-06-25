@@ -11,8 +11,6 @@ func _ready() -> void:
 func _on_interact():
 	var panel = load(self.data.ui_scene_path).instantiate()
 	panel.building = self
-	panel.output.controller = self
-	panel.input.controller = self
 	EventBus.shared_ui.emit(panel, self)
 
 func building_action(panel: PanelContainer) -> void:
