@@ -14,6 +14,7 @@ const TIMETOCOOK: int = 10
 func _ready() -> void:
 	interaction_area.interact = Callable(self, "_on_interact")
 	cooktime.timeout.connect(_on_timer_timeout)
+	cooktime.one_shot = true
 
 func _on_interact():
 	panel = load(self.data.ui_scene_path).instantiate()
@@ -36,6 +37,8 @@ func building_action(panel: PanelContainer) -> void:
 		panel.fuel.set_quantity(panel.fuel.quantity - 1)
 		fuel["qty"] -= 1
 		cooktime.start(TIMETOCOOK)
+	else:
+		cooktime.stop()
 
 func _on_timer_timeout() -> void:
 	food["data"] = Catalogue.cooking_reference[food["data"].itemID]

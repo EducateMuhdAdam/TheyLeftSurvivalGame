@@ -27,4 +27,3 @@ shape = SubResource("RectangleShape2D_u5tla")
 
 [node name="Cooktime" type="Timer" parent="." unique_id=815946362]
 wait_time = 10.0
-one_shot = true

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://d3ou6racgxg4v"]
+
+[ext_resource type="Texture2D" uid="uid://hqxi34hkl6r8" path="res://Assets/Images/Items/Seeds.png" id="1_7g42g"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="1_j3a7q"]
+
+[resource]
+script = ExtResource("1_j3a7q")
+itemID = 7
+itemName = "Tomato Seeds"
+image = ExtResource("1_7g42g")
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

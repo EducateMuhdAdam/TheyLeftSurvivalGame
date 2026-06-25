@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ctur5kxlbvyfy" path="res://Assets/Images/Buildings/WaterFilterLv1.png" id="1_rpldr"]
 [ext_resource type="PackedScene" uid="uid://dybkjkmv5mrbs" path="res://Scenes/inventory_slot.tscn" id="2_8p57p"]
 
-[node name="PanelContainer" type="PanelContainer" unique_id=838501850 node_paths=PackedStringArray("output", "input")]
+[node name="WaterFilterPanel" type="PanelContainer" unique_id=838501850 node_paths=PackedStringArray("output", "input")]
 custom_minimum_size = Vector2(400, 400)
 offset_right = 40.0
 offset_bottom = 40.0

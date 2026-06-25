@@ -24,3 +24,6 @@ metadata/_custom_type_script = "uid://doscx7owdvjqj"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=431859571]
 position = Vector2(0, 15)
 shape = SubResource("RectangleShape2D_swnle")
+
+[node name="Growtime" type="Timer" parent="." unique_id=1221463716]
+wait_time = 10.0

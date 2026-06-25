@@ -4,16 +4,26 @@ var item_catalogue: Dictionary
 var cooking_reference: Dictionary = {
 	2: 5
 }
+var plant_reference: Dictionary = {
+	7: 8
+}
 
 
 func _ready() -> void:
 	item_catalogue = get_item_resources()
 	cooking_reference = get_cooking_reference()
+	plant_reference = get_plant_reference()
 
 func get_cooking_reference() -> Dictionary:
 	var reference = {}
 	for key in cooking_reference.keys():
 		reference[key] = item_catalogue[cooking_reference[key]]
+	return reference
+
+func get_plant_reference() -> Dictionary:
+	var reference = {}
+	for key in plant_reference.keys():
+		reference[key] = item_catalogue[plant_reference[key]]
 	return reference
 
 func get_item_resources() -> Dictionary:

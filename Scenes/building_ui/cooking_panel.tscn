@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://1lxayti6o387" path="res://Assets/Images/Buildings/CookplaceLv1.png" id="1_lx0vr"]
 [ext_resource type="PackedScene" uid="uid://dybkjkmv5mrbs" path="res://Scenes/inventory_slot.tscn" id="2_le5cx"]
 
-[node name="PanelContainer" type="PanelContainer" unique_id=1054163561]
+[node name="CookingPanel" type="PanelContainer" unique_id=1054163561]
 custom_minimum_size = Vector2(400, 400)
 offset_right = 40.0
 offset_bottom = 40.0
