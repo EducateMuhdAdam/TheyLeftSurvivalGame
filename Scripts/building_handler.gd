@@ -40,6 +40,7 @@ func create_building(building_data: BuildingData) -> void:
 	var new = load(building_data.build_scene_path).instantiate()
 	ObjectContainer.add_child(new)
 	new.global_position = guide.global_position
+	new.building_data = building_data
 	building_list.append(new)
 
 func toggle_build_mode(build_on: bool) -> void:

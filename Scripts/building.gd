@@ -4,6 +4,7 @@ class_name Building
 # All your stats are now neatly contained inside this single variable
 @export var data: BuildingData
 
+var building_data: BuildingData = null
 func _ready() -> void:
 	y_sort_enabled = true
 

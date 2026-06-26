@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BuildingData" format=3 uid="uid://b3hc138sc7hs7"]
+
+[ext_resource type="Script" uid="uid://cma7fqff3prkl" path="res://Scripts/building_data.gd" id="1_3q8km"]
+[ext_resource type="Texture2D" uid="uid://ctriuy6cd2dr3" path="res://Assets/Images/Buildings/FarmLv2.png" id="1_hbrwj"]
+
+[resource]
+script = ExtResource("1_3q8km")
+building_id = 7
+building_name = "Dumpster"
+image = ExtResource("1_hbrwj")
+build_scene_path = "uid://blog5v035ocuu"
+metadata/_custom_type_script = "uid://cma7fqff3prkl"

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cxetadih8vkdy"]
+
+[ext_resource type="Script" uid="uid://cyg2befst6int" path="res://Scripts/building_ui/building_panel.gd" id="1_n3s8j"]
+
+[node name="BuildingPanel" type="PanelContainer" unique_id=991270900]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_n3s8j")

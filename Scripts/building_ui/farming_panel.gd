@@ -1,14 +1,14 @@
-extends PanelContainer
+extends BuildingPanel
 
 @export var plant: Slot
-
-var building = null
+@onready var label: Label = $VBoxContainer/Label
 
 func _ready() -> void:
 	plant.controller = building
 	plant.requirement = Callable(self, "check_seed")
 	plant.building_action =  Callable(self, "building_action")
-
+	label.text = panel_name
+	
 func check_seed(data: Variant) -> bool:
 	print("seed:", data)
 	if data && (!data.item || data.item.itemID == 7):

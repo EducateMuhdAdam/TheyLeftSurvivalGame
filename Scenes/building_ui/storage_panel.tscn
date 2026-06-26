@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ccx1ga817wuf0"]
+
+[ext_resource type="Script" uid="uid://b8df0fu7q7cr8" path="res://Scripts/building_ui/storage_panel.gd" id="1_kqlle"]
+
+[node name="StoragePanel" type="PanelContainer" unique_id=1325588874]
+custom_minimum_size = Vector2(0, 400)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_kqlle")
+metadata/_custom_type_script = "uid://cyg2befst6int"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1195085679]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1883520776]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1653676016]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="StorageGrid" type="GridContainer" parent="MarginContainer/VBoxContainer" unique_id=1683243903]
+layout_mode = 2
+columns = 5

@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://8y52kuunx643" path="res://Data/items/6_wood.tres" id="4_lsmp6"]
 [ext_resource type="Resource" uid="uid://8wyiy1x1tfx1" path="res://Data/items/4_dirtywater_bottle.tres" id="5_lsmp6"]
 [ext_resource type="Resource" uid="uid://d3ou6racgxg4v" path="res://Data/items/7_seeds.tres" id="6_xrdnt"]
+[ext_resource type="PackedScene" uid="uid://n4rvp8w0qon2" path="res://Scenes/buildings/waterfilter_lv1.tscn" id="7_wrinw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xfk5q"]
 texture = ExtResource("2_8ffim")
@@ -50,6 +51,9 @@ itemData = ExtResource("5_lsmp6")
 [node name="DropedItem3" parent="ObjectContainer" unique_id=1231498127 instance=ExtResource("3_6444e")]
 position = Vector2(759, 136)
 itemData = ExtResource("6_xrdnt")
+
+[node name="WaterfilterLv1" parent="ObjectContainer" unique_id=1418852078 instance=ExtResource("7_wrinw")]
+position = Vector2(523, 87)
 
 [node name="BuildingHandler" parent="." unique_id=322601886 node_paths=PackedStringArray("ObjectContainer") instance=ExtResource("3_xfk5q")]
 ObjectContainer = NodePath("../ObjectContainer")

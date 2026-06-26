@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://blog5v035ocuu"]
+
+[ext_resource type="Script" uid="uid://dkixwcspe56py" path="res://Scripts/buildings/storage.gd" id="1_e4ss2"]
+[ext_resource type="Texture2D" uid="uid://ctriuy6cd2dr3" path="res://Assets/Images/Buildings/FarmLv2.png" id="2_4k5xr"]
+[ext_resource type="Resource" uid="uid://b3hc138sc7hs7" path="res://Data/buildings/dumpster.tres" id="2_majvt"]
+[ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="3_fxxfc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tetnc"]
+size = Vector2(106, 30)
+
+[node name="Dumpster" type="StaticBody2D" unique_id=1505914045]
+script = ExtResource("1_e4ss2")
+NumberOfSlots = 10
+data = ExtResource("2_majvt")
+metadata/_custom_type_script = "uid://dkixwcspe56py"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=260412250]
+scale = Vector2(2, 2)
+texture = ExtResource("2_4k5xr")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=757857675]
+script = ExtResource("3_fxxfc")
+metadata/_custom_type_script = "uid://doscx7owdvjqj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1641794003]
+position = Vector2(0, 15)
+shape = SubResource("RectangleShape2D_tetnc")

@@ -1,9 +1,8 @@
-extends PanelContainer
+extends BuildingPanel
 
 @export var output: Slot
 @export var input: Slot
-
-var building = null
+@onready var label: Label = $VBoxContainer/Label
 
 func _ready() -> void:
 	output.controller = building
@@ -12,6 +11,7 @@ func _ready() -> void:
 	output.requirement = Callable(self, "check_empty_water")
 	input.building_action =  Callable(self, "building_action")
 	output.building_action =  Callable(self, "building_action")
+	label.text = panel_name
 
 func check_dirty_water(data: Variant) -> bool:
 	if data && (!data.item || data.item.itemID == 4):

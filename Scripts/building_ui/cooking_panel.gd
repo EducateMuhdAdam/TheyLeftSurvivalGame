@@ -1,9 +1,8 @@
-extends PanelContainer
-
-var building = null
+extends BuildingPanel
 
 @onready var fuel: Slot = $VBoxContainer/TextureRect/Fuel
 @onready var food: Slot = $VBoxContainer/TextureRect/Food
+@onready var label: Label = $VBoxContainer/Label
 
 func _ready() -> void:
 	fuel.controller = building
@@ -13,6 +12,7 @@ func _ready() -> void:
 	food.requirement = Callable(self, "check_food")
 	fuel.building_action =  Callable(self, "building_action")
 	food.building_action =  Callable(self, "building_action")
+	label.text = panel_name
 
 func check_fuel(data: Variant) -> bool:
 	if data && (!data.item || data.item.itemID == 6):
