@@ -10,7 +10,6 @@ func _ready() -> void:
 	label.text = panel_name
 	
 func check_seed(data: Variant) -> bool:
-	print("seed:", data)
 	if data && (!data.item || data.item.itemID == 7):
 		return true
 	return false

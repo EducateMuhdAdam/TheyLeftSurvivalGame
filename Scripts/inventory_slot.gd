@@ -1,11 +1,17 @@
 extends PanelContainer
 class_name Slot
 
+signal slot_updated(slot: PanelContainer)
+
 @onready var icon: TextureRect = $Icon
-@onready var label: Label = $MarginContainer/Label
+@onready var quantity_label: Label = $MarginContainer/QuantityLabel
+@onready var notation_label: Label = $MarginContainer2/NotationLabel
+
 
 @export var one_item: bool = false
 
+var notation: String = ""
+var can_interact: bool = true
 var controller: Node
 var slotID: int = -1
 var item: ItemData = null
@@ -17,6 +23,9 @@ var requirement:Callable = func(data: Variant) -> bool:
 var building_action: Callable = func() -> void:
 	pass
 
+func _ready() -> void:
+	notation_label.text = notation
+
 func update_slot(newItem: Resource, qty: int) -> void:
 	set_item(newItem)
 	set_quantity(qty)
@@ -27,6 +36,7 @@ func update_player() -> void:
 	else:
 		controller.remove_inventory(slotID)
 
+#Used to set Item while pinging player/etc
 func set_item(newItem: Resource) -> void:
 	if newItem:
 		item = newItem
@@ -35,20 +45,24 @@ func set_item(newItem: Resource) -> void:
 		empty_slot()
 	if controller.is_in_group("Player"):
 		update_player()
-		
+	slot_updated.emit(self)
+
+#Used to set Quantity while pinging player/etc
 func set_quantity(qty: int) -> void:
 	quantity = qty
 	if qty == 0:
 		set_item(null)
 	if qty == 1 or qty == 0:
-		label.text = ""
+		quantity_label.text = ""
 	else:
-		label.text = str(qty)
+		quantity_label.text = str(qty)
 	if controller.is_in_group("Player"):
 		update_player()
+	slot_updated.emit(self)
+
 
 func _get_drag_data(at_position: Vector2) -> Variant:
-	if not item:
+	if not item or not can_interact:
 		return null
 	
 	var preview = TextureRect.new()
@@ -76,6 +90,8 @@ func swap_item_seq(origin_slot: Variant) -> void:
 	if origin_slot.item == item and not one_item:
 		set_quantity(origin_slot.quantity + quantity)
 		origin_slot.set_quantity(0)
+	elif origin_slot.one_item and item:
+		origin_slot.one_item_seq(self)
 	elif origin_slot.requirement.call(self):
 		update_slot(origin_slot.item, origin_slot.quantity)
 		origin_slot.update_slot(temp_slot.item, temp_slot.quantity)
@@ -104,7 +120,7 @@ func one_item_seq(origin_slot: Variant) -> void:
 
 func empty_slot() -> void:
 	icon.texture = null
-	label.text = ""
+	quantity_label.text = ""
 	quantity = 0
 	item = null
 	

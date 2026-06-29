@@ -91,7 +91,6 @@ func set_inventory_slot(slotID: int, itemID: int, qty: int):
 		return
 	inventory[slotID]["qty"] = qty
 	inventory[slotID]["id"] = itemID
-	
 
 func set_inventory_quantity(slotID: int, qty: int) -> void:
 	inventory[slotID]["qty"] = qty

@@ -4,7 +4,7 @@ extends Control
 @onready var inventory_grid: GridContainer = $PanelContainer/MarginContainer/VBoxContainer/GridContainer
 @onready var panel_container: PanelContainer = $PanelContainer
 
-@export var grid_scene = preload("res://Scenes/inventory_slot.tscn")
+@export var slot_scene = preload("res://Scenes/inventory_slot.tscn")
 @export var ui_container: HBoxContainer
 
 
@@ -19,14 +19,13 @@ func _ready() -> void:
 	setup_inventory_grid()
 	update_inventory(player.inventory)
 	visible = false
-	
 
 func get_panel() -> PanelContainer:
 	return $PanelContainer
 
 func setup_inventory_grid() -> void:
 	for i in range(0, player.INVENTORY_NUM):
-		var newGrid = grid_scene.instantiate()
+		var newGrid = slot_scene.instantiate()
 		newGrid.slotID = i
 		newGrid.controller = player
 		slots[i] = newGrid

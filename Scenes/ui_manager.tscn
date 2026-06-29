@@ -5,9 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://c54oomagof8jl" path="res://Scenes/hud.tscn" id="2_i37jq"]
 [ext_resource type="PackedScene" uid="uid://c5apihatiaqbx" path="res://Scenes/build_menu.tscn" id="3_laqw3"]
 [ext_resource type="Script" uid="uid://c46aq0qj2vavd" path="res://Scripts/ui_container.gd" id="5_laqw3"]
+[ext_resource type="PackedScene" uid="uid://dve0s5ll6kbgp" path="res://Scenes/hotbar.tscn" id="6_k436y"]
 
 [node name="UIManager" type="CanvasLayer" unique_id=29909133]
 script = ExtResource("1_i37jq")
+
+[node name="Hotbar" parent="." unique_id=660023644 node_paths=PackedStringArray("inventory_scene") instance=ExtResource("6_k436y")]
+inventory_scene = NodePath("../Inventory")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1829722347]
 anchors_preset = 15
