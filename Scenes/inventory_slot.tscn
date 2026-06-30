@@ -30,6 +30,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
 
 [node name="NotationLabel" type="Label" parent="MarginContainer2" unique_id=1108980689]
 layout_mode = 2

@@ -90,7 +90,7 @@ func swap_item_seq(origin_slot: Variant) -> void:
 	if origin_slot.item == item and not one_item:
 		set_quantity(origin_slot.quantity + quantity)
 		origin_slot.set_quantity(0)
-	elif origin_slot.one_item and item:
+	elif origin_slot.one_item and item and origin_slot.requirement.call(self):
 		origin_slot.one_item_seq(self)
 	elif origin_slot.requirement.call(self):
 		update_slot(origin_slot.item, origin_slot.quantity)
