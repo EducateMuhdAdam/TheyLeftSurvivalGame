@@ -8,4 +8,5 @@ script = ExtResource("1_v3dya")
 itemID = 3
 itemName = "Clean Water Bottle"
 image = ExtResource("1_exxyk")
+tags = Array[String](["Drink"])
 metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

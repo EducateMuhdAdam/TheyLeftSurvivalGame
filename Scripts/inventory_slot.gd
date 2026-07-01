@@ -43,7 +43,7 @@ func set_item(newItem: Resource) -> void:
 		icon.texture = newItem.image
 	else:
 		empty_slot()
-	if controller.is_in_group("Player"):
+	if controller && controller.is_in_group("Player"):
 		update_player()
 	slot_updated.emit(self)
 
@@ -56,7 +56,7 @@ func set_quantity(qty: int) -> void:
 		quantity_label.text = ""
 	else:
 		quantity_label.text = str(qty)
-	if controller.is_in_group("Player"):
+	if controller && controller.is_in_group("Player"):
 		update_player()
 	slot_updated.emit(self)
 
@@ -76,7 +76,7 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	return self 
 
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
-	return data is Slot and data != self and requirement.call(data)
+	return data is Slot and data != self and requirement.call(data) #Test if can_interact should be here
 	
 func _drop_data(at_position: Vector2, origin_slot: Variant) -> void:
 	if one_item:

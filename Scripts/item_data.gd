@@ -5,3 +5,4 @@ class_name ItemData
 @export var itemName: String = ""
 @export var itemDescription: String = ""
 @export var image: Texture2D = null
+@export var tags: Array[String] = []

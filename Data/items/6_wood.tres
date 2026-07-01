@@ -8,4 +8,5 @@ script = ExtResource("1_rscq4")
 itemID = 6
 itemName = "Wood"
 image = ExtResource("1_rbsyf")
+tags = Array[String](["Fuel"])
 metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

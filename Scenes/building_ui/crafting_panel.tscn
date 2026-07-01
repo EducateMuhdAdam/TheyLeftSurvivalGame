@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dbteli4kein0x"]
+
+[ext_resource type="Script" uid="uid://babytwvephyhm" path="res://Scripts/building_ui/crafting_panel.gd" id="1_u33bw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u33bw"]
+font_color = Color(1, 0, 0, 1)
+
+[node name="CraftingPanel" type="PanelContainer" unique_id=1922602003]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u33bw")
+metadata/_custom_type_script = "uid://cyg2befst6int"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1540076826]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1718636623]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=515760324]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Crafting"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer" unique_id=269033860]
+custom_minimum_size = Vector2(282, 300)
+layout_mode = 2
+
+[node name="RecipeContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" unique_id=1805745048]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=200624734]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Confirm" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1722686546]
+custom_minimum_size = Vector2(20, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+text = "Craft Item"
+
+[node name="Warning" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=730480496]
+layout_mode = 2
+text = "Insufficient 
+Materials"
+label_settings = SubResource("LabelSettings_u33bw")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Confirm" to="." method="_on_confirm_pressed"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BuildingData" format=3 uid="uid://c5t76m0ys70rv"]
+
+[ext_resource type="Texture2D" uid="uid://hrl6y6btkoja" path="res://Assets/Images/Buildings/Workbench.png" id="1_dtr2j"]
+[ext_resource type="Script" uid="uid://cma7fqff3prkl" path="res://Scripts/building_data.gd" id="1_wokiw"]
+
+[resource]
+script = ExtResource("1_wokiw")
+building_id = 8
+building_name = "Workbench"
+image = ExtResource("1_dtr2j")
+build_scene_path = "uid://c7gqauh6jvf37"
+ui_scene_path = "uid://dbteli4kein0x"
+metadata/_custom_type_script = "uid://cma7fqff3prkl"

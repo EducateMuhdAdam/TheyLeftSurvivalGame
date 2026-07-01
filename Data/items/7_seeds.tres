@@ -8,4 +8,5 @@ script = ExtResource("1_j3a7q")
 itemID = 7
 itemName = "Tomato Seeds"
 image = ExtResource("1_7g42g")
+tags = Array[String](["Seed"])
 metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

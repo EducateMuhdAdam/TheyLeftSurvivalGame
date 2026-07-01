@@ -16,11 +16,13 @@ signal update_inventory(inventory)
 const MOVE_SPEED: float = 200
 const INVENTORY_NUM: int = 30
 
+var unlocked_recipes: Array[int] = Catalogue.get_crafting_resources().keys()
+
 var hunger_rate = 0.05
 var thirst_rate = 0.2
-var hunger = 100
-var thirst = 100
-var inventory = {1: {"id": 1, "qty": 2}, 2: {"id": 2, "qty": 3}}
+var hunger = 40
+var thirst = 40
+var inventory = {1: {"id": 1, "qty": 2}, 2: {"id": 2, "qty": 3}, 3: {"id": 6, "qty": 64}}
 
 var facing_direction: String = "S"
 var input_direction: Vector2 = Vector2(0,0)
@@ -78,9 +80,23 @@ func decrease_hunger(delta: float) -> void:
 	hunger = max(hunger - (hunger_rate * delta), 0) 
 	hunger_changed.emit(hunger)
 	
+func increase_hunger(ammount: float) -> void:
+	hunger = min(hunger + ammount, 100)
+	hunger_changed.emit(hunger)
+	
 func decrease_thirst(delta: float) -> void:
 	thirst = max(thirst - (thirst_rate * delta), 0) 
 	thirst_changed.emit(thirst)
+
+func increase_thirst(ammount: float) -> void:
+	thirst = min(thirst + ammount, 100) 
+	thirst_changed.emit(thirst)
+
+func find_item_quantity(itemID: int, qty: int) -> Variant:
+	for slotID in inventory.keys():
+		if inventory[slotID]["id"] == itemID and inventory[slotID]["qty"] >= qty:
+			return slotID
+	return null
 
 func set_inventory_slot(slotID: int, itemID: int, qty: int):
 	if !itemID || qty == 0:
@@ -119,11 +135,14 @@ func remove_inventory(slotID: int) -> void:
 	update_inventory.emit(inventory)
 
 func remove_one_inventory(slotID: int) -> void:
+	remove_ammount_inventory(slotID, 1)
+
+func remove_ammount_inventory(slotID: int, qty: int) -> void:
 	var slot = inventory[slotID]
-	if slot["qty"] > 1:
-		inventory[slotID]["qty"] -= 1
+	if slot["qty"] > qty:
+		inventory[slotID]["qty"] -= qty
 	else:
-		inventory.erase(slotID)
+		inventory[slotID]["qty"] = 0
 	update_inventory.emit(inventory)
 
 func swap_inventory(ID1: int, ID2: int) -> void:

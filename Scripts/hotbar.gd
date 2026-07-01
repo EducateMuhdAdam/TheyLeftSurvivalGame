@@ -25,6 +25,11 @@ func _unhandled_input(event):
 		highlight_slot((highlighted_id + 1) % HOTBAR_SIZE)
 	elif event.is_action_pressed("hotbar_prev"):
 		highlight_slot((highlighted_id - 1 + HOTBAR_SIZE) % HOTBAR_SIZE)
+	elif event.is_action_pressed("use_item"):
+		interact_item(slots[highlighted_id].item)
+	for i in range(0, HOTBAR_SIZE):
+		if event.is_action_pressed(str((i + 1) % HOTBAR_SIZE)):
+			highlight_slot(i)
 
 
 func setup_hotbar() -> void:
@@ -33,7 +38,7 @@ func setup_hotbar() -> void:
 		new_slot.slotID = i
 		new_slot.controller = self
 		new_slot.can_interact = false
-		new_slot.notation = str(i)
+		new_slot.notation = str((i + 1) % HOTBAR_SIZE)
 		slots[i] = new_slot
 		h_box_container.add_child(new_slot)
 		inventory_scene.slots[i].slot_updated.connect(update_hotbar)
@@ -47,3 +52,11 @@ func highlight_slot(slotID: int) -> void:
 	slots[highlighted_id].add_theme_stylebox_override("panel", normal_style)
 	slots[slotID].add_theme_stylebox_override("panel", highlighted_style)
 	highlighted_id = slotID
+
+func interact_item(itemData: ItemData) -> void:
+	if "Food" in itemData.tags:
+		player.increase_hunger(Catalogue.eating_reference[itemData.itemID])
+		player.remove_one_inventory(highlighted_id)
+	if "Drink" in itemData.tags:
+		player.increase_thirst(Catalogue.drinking_reference[itemData.itemID])
+		player.remove_one_inventory(highlighted_id)

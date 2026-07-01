@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://vdmop00b8yw6"]
+
+[ext_resource type="Texture2D" uid="uid://ccmhhc3xx2f8y" path="res://Assets/Images/Items/stick.png" id="1_2ujme"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="1_qn8wv"]
+
+[resource]
+script = ExtResource("1_qn8wv")
+itemID = 9
+itemName = "Stick"
+image = ExtResource("1_2ujme")
+tags = Array[String](["Fuel"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"
