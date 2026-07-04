@@ -1,13 +1,15 @@
 extends Control
 
-@onready var v_box_container: VBoxContainer = $MarginContainer/PanelContainer/ScrollContainer/VBoxContainer
-@onready var panel_container: PanelContainer = $MarginContainer/PanelContainer
+@onready var building_button_container: VBoxContainer = $PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/BuildingButtonContainer
+@onready var panel_container: PanelContainer = $PanelContainer
+@onready var confirm: Button = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Confirm
 
 var BUTTON_TEMPLATE = preload("res://Scenes/build_button.tscn")
 const PATH: String = "res://Data/buildings/"
 var building_resources: Array[Resource]
 
 func _ready() -> void:
+	confirm.pressed.connect(confirm_pressed)
 	EventBus.toggle_build_mode.connect(toggle_build_menu)
 	var building_menu_group = ButtonGroup.new()
 	building_resources = get_building_resources()
@@ -16,7 +18,7 @@ func _ready() -> void:
 		button.set_building(resource)
 		button.button_group = building_menu_group
 		
-		v_box_container.add_child(button)
+		building_button_container.add_child(button)
 
 func get_building_resources() -> Array[Resource]:
 	var resources: Array[Resource] = []
@@ -48,3 +50,7 @@ func toggle_build_menu(build_on: bool) -> void:
 		self.show()
 	else:
 		self.hide()
+
+func confirm_pressed() -> void:
+	EventBus.toggle_placement_mode.emit(true)
+	toggle_build_menu(false)

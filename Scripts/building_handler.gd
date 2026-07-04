@@ -5,36 +5,46 @@ extends Node2D
 
 
 var reference: BuildingData = preload("res://Data/buildings/farm_lv1.tres") #Default
-var guide: Sprite2D = Sprite2D.new()
-var is_build_mode: bool = true
+var guide: Building
+var is_placement_mode: bool = false
 var anchor: Vector2 = Vector2(0,0)
 var building_list: Array[Building] = []
 const tilesize: int = 32
 
 func _ready() -> void:
 	EventBus.change_building.connect(set_reference)
-	EventBus.toggle_build_mode.connect(toggle_build_mode)
-	setup_guide(reference)
+	EventBus.toggle_placement_mode.connect(toggle_placement_mode)
 	
-	guide.scale = Vector2(2, 2)
-	guides.add_child(guide)
 	
 
 func _process(delta: float) -> void:
-	if is_build_mode:
+	if is_placement_mode:
 		guide.global_position = (get_global_mouse_position() / tilesize).snapped(Vector2.ONE) * tilesize
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed and is_build_mode:
-		if event.button_index == MOUSE_BUTTON_LEFT:
+	if event is InputEventMouseButton and event.pressed and is_placement_mode:
+		if event.button_index == MOUSE_BUTTON_LEFT and check_blocking():
 			create_building(reference)
 
 func set_reference(building: BuildingData) -> void:
 	reference = building
-	setup_guide(building)
 
-func setup_guide(building: BuildingData) -> void:
-	guide.texture = building.image
+func check_blocking() -> bool:
+	if !guide.building_space:
+		print("Building Space Not Setup")
+		return true
+	for area in guide.building_space.get_overlapping_areas():
+		if area is BuildingSpace:
+			print("Area Occupied")
+			return false
+	return true
+
+func setup_guide() -> void:
+	if guide:
+		guide.queue_free()
+	guide = load(reference.build_scene_path).instantiate()
+	add_child(guide)
+	guide.activate_interaction(false)
 	
 func create_building(building_data: BuildingData) -> void:
 	var new = load(building_data.build_scene_path).instantiate()
@@ -42,11 +52,13 @@ func create_building(building_data: BuildingData) -> void:
 	new.global_position = guide.global_position
 	new.building_data = building_data
 	building_list.append(new)
+	toggle_placement_mode(false)
 
-func toggle_build_mode(build_on: bool) -> void:
-	if build_on:
+func toggle_placement_mode(mode_on: bool) -> void:
+	if mode_on:
+		is_placement_mode = true
+		setup_guide()
 		guide.show()
-		is_build_mode = true
 	else:
 		guide.hide()
-		is_build_mode = false
+		is_placement_mode = false

@@ -12,6 +12,7 @@ const TIMETOCOOK: int = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	building_space = $BuildingSpace
 	interaction_area.interact = Callable(self, "_on_interact")
 	cooktime.timeout.connect(_on_timer_timeout)
 	cooktime.one_shot = true
@@ -21,6 +22,9 @@ func _on_interact():
 	panel.building = self
 	EventBus.shared_ui.emit(panel, self)
 	setup_panel()
+
+func activate_interaction(active: bool) -> void:
+	interaction_area.active = active
 
 func setup_panel() -> void:
 	if !panel:

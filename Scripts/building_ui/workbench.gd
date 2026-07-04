@@ -6,6 +6,8 @@ extends Building
 func _ready() -> void:
 	interaction_area.interact = Callable(self, "_on_interact")
 	
+func activate_interaction(active: bool) -> void:
+	interaction_area.active = active
 
 func _on_interact():
 	var panel = load(self.data.ui_scene_path).instantiate()

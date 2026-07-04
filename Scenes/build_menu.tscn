@@ -5,25 +5,67 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hx1pr"]
 bg_color = Color(0.07450981, 0.2509804, 0.38431373, 0.6901961)
 
+[sub_resource type="LabelSettings" id="LabelSettings_hx1pr"]
+font_color = Color(1, 0, 0, 1)
+
 [node name="BuildMenu" type="Control" unique_id=1671126576]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_hx1pr")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=402273735]
-layout_mode = 0
-offset_right = 310.0
-offset_bottom = 210.0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=1479393766]
-layout_mode = 2
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1479393766]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -154.5
+offset_right = 160.0
+offset_bottom = 154.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_hx1pr")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/PanelContainer" unique_id=1315761130]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=402273735]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1797604238]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2103601498]
+layout_mode = 2
+text = "Build Menu"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1315761130]
 custom_minimum_size = Vector2(300, 200)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/ScrollContainer" unique_id=1020917008]
+[node name="BuildingButtonContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1020917008]
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=655457628]
+layout_mode = 2
+alignment = 1
+
+[node name="Confirm" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=5794656]
+layout_mode = 2
+text = "Confirm"
+
+[node name="Warning" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=646204155]
+layout_mode = 2
+text = "Infufficient Materials"
+label_settings = SubResource("LabelSettings_hx1pr")
+horizontal_alignment = 1

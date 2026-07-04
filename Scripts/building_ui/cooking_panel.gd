@@ -15,12 +15,12 @@ func _ready() -> void:
 	label.text = panel_name
 
 func check_fuel(data: Variant) -> bool:
-	if data && (!data.item || data.item.itemID == 6):
+	if data && (!data.item || "Fuel" in data.item.tags):
 		return true
 	return false
 
 func check_food(data: Variant) -> bool:
-	if data && (!data.item || data.item.itemID == 2):
+	if data && (!data.item || "Uncooked" in data.item.tags):
 		return true
 	return false
 

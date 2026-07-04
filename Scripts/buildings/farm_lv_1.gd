@@ -14,6 +14,9 @@ func _ready() -> void:
 	growtime.timeout.connect(_on_timer_timeout)
 	growtime.one_shot = true
 
+func activate_interaction(active: bool) -> void:
+	interaction_area.active = active
+
 func _on_interact():
 	panel = load(self.data.ui_scene_path).instantiate()
 	panel.building = self

@@ -3,6 +3,7 @@ class_name InteractionArea
 
 @export var action_name: String = "Interact"
 var show_interaction: bool = true
+var active: bool = true
 
 func _ready():
 	# Example for an Area2D or Area3D
@@ -20,11 +21,11 @@ var off_indicator: Callable = func():
 
 func _on_body_entered(body: Node2D) -> void:
 	# Check the group on the body itself instead of pre-saving a reference
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") and active:
 		on_indicator.call()
 		InteractionManager.register_area(self)
 
 func _on_body_exited(body: Node2D) -> void:
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") and active:
 		off_indicator.call()
 		InteractionManager.unregister_area(self)

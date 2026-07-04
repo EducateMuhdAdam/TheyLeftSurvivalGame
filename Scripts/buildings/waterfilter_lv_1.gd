@@ -13,8 +13,11 @@ func _on_interact():
 	panel.building = self
 	EventBus.shared_ui.emit(panel, self)
 
+func activate_interaction(active: bool) -> void:
+	interaction_area.active = active
+
 func building_action(panel: PanelContainer) -> void:
-	if panel.input.item && panel.input.item.itemID == 4:
+	if panel.input.item && panel.input.item.tags == 4:
 		panel.input.update_slot(Catalogue.item_catalogue[1], 1)
 	
 	if panel.output.item && panel.output.item.itemID == 1:
