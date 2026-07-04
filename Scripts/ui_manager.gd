@@ -13,6 +13,8 @@ var inventory_mode: bool = false
 func _ready() -> void:
 	inventory.get_panel().reparent(ui_container)
 	EventBus.shared_ui.connect(open_shared_mode)
+	EventBus.toggle_build_mode.connect(set_build_mode)
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("inventory"):
@@ -27,6 +29,9 @@ func toggle_inventory() -> void:
 	else:
 		set_inventory(false)
 
+func set_build_mode(active: bool) -> void:
+	build_mode = active
+
 func toggle_build_mode() -> void:
 	if !build_mode:
 		set_build_menu(true)
@@ -38,16 +43,16 @@ func set_inventory(is_on: bool) -> void:
 	if is_on:
 		inventory_mode = true
 		EventBus.toggle_inventory.emit(true)
+		EventBus.toggle_placement_mode.emit(false)
 	else:
 		inventory_mode = false
 		EventBus.toggle_inventory.emit(false)
 
 func set_build_menu(is_on: bool) -> void:
 	if is_on:
-		build_mode = true
 		EventBus.toggle_build_mode.emit(true)
+		EventBus.toggle_placement_mode.emit(false)
 	else:
-		build_mode = false
 		EventBus.toggle_build_mode.emit(false)
 
 func open_shared_mode(node: PanelContainer, building: Node) -> void:

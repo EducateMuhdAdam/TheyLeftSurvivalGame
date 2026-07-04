@@ -53,4 +53,4 @@ func toggle_build_menu(build_on: bool) -> void:
 
 func confirm_pressed() -> void:
 	EventBus.toggle_placement_mode.emit(true)
-	toggle_build_menu(false)
+	EventBus.toggle_build_mode.emit(false)

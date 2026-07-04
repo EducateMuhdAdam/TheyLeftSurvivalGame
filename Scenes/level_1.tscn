@@ -25,24 +25,37 @@ texture_region_size = Vector2i(32, 32)
 2:2/0 = 0
 4:0/0 = 0
 5:0/0 = 0
+5:0/0/custom_data_0 = true
 6:0/0 = 0
 6:1/0 = 0
 5:1/0 = 0
+5:1/0/custom_data_0 = true
 4:1/0 = 0
 4:2/0 = 0
+4:2/0/custom_data_0 = true
 5:2/0 = 0
+5:2/0/custom_data_0 = true
 6:2/0 = 0
+6:2/0/custom_data_0 = true
 6:3/0 = 0
+6:3/0/custom_data_0 = true
 5:3/0 = 0
+5:3/0/custom_data_0 = true
 4:3/0 = 0
+4:3/0/custom_data_0 = true
 4:4/0 = 0
+4:4/0/custom_data_0 = true
 5:4/0 = 0
+5:4/0/custom_data_0 = true
 6:4/0 = 0
+6:4/0/custom_data_0 = true
 6:5/0 = 0
 5:5/0 = 0
+5:5/0/custom_data_0 = true
 4:5/0 = 0
 4:6/0 = 0
 5:6/0 = 0
+5:6/0/custom_data_0 = true
 6:6/0 = 0
 0:4/0 = 0
 1:4/0 = 0
@@ -55,6 +68,8 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_7p6j4"]
 tile_size = Vector2i(32, 32)
+custom_data_layer_0/name = "water"
+custom_data_layer_0/type = 1
 sources/1 = SubResource("TileSetAtlasSource_xfk5q")
 
 [node name="LevelRoot" type="Node2D" unique_id=1101166072]
@@ -84,8 +99,9 @@ itemData = ExtResource("6_xrdnt")
 [node name="WaterfilterLv1" parent="ObjectContainer" unique_id=1418852078 instance=ExtResource("7_wrinw")]
 position = Vector2(523, 87)
 
-[node name="BuildingHandler" parent="." unique_id=322601886 node_paths=PackedStringArray("ObjectContainer") instance=ExtResource("3_xfk5q")]
+[node name="BuildingHandler" parent="." unique_id=322601886 node_paths=PackedStringArray("ObjectContainer", "tilemap") instance=ExtResource("3_xfk5q")]
 ObjectContainer = NodePath("../ObjectContainer")
+tilemap = NodePath("../TileMapLayer")
 
 [node name="ItemHandler" parent="." unique_id=2071323990 node_paths=PackedStringArray("ObjectContainer") instance=ExtResource("4_7p6j4")]
 ObjectContainer = NodePath("../ObjectContainer")
