@@ -23,7 +23,11 @@ func get_building_space() -> Variant:
 	return null
 
 func activate_interaction(active: bool) -> void:
-	print("Interaction not set up for ", self.name)
+	for child in get_children():
+		if child is InteractionArea:
+			child.active = active
+			return
+	print("InteractionArea not set")
 
 func get_placement_requirement() -> Callable:
 	if landlocked:

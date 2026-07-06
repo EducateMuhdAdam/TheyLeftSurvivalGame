@@ -22,9 +22,6 @@ func _on_interact():
 	EventBus.shared_ui.emit(panel, self)
 	setup_panel()
 
-func activate_interaction(active: bool) -> void:
-	interaction_area.active = active
-
 func setup_panel() -> void:
 	if !panel:
 		return

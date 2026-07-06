@@ -19,6 +19,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("3_we6bn")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=2113105923]
+visible = false
 script = ExtResource("4_we6bn")
 metadata/_custom_type_script = "uid://doscx7owdvjqj"
 

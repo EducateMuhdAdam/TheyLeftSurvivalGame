@@ -6,54 +6,80 @@ extends CanvasLayer
 
 @onready var ui_container: HBoxContainer = $CenterContainer/UIContainer
 
+var modeSignals: Array[Signal] = [EventBus.toggle_build_mode, EventBus.toggle_destroy_mode, EventBus.toggle_placement_mode, EventBus.toggle_inventory]
 var modeNum: int = 0
-var build_mode: bool = true
+var build_mode: bool = false
+var destroy_mode: bool = false
 var inventory_mode: bool = false
 
 func _ready() -> void:
 	inventory.get_panel().reparent(ui_container)
 	EventBus.shared_ui.connect(open_shared_mode)
 	EventBus.toggle_build_mode.connect(set_build_mode)
+	EventBus.toggle_inventory.connect(set_inventory_mode)
+	EventBus.toggle_destroy_mode.connect(set_destroy_mode)
 	
-
+func activate_one_mode(exception: Variant):
+	var signals = modeSignals.duplicate()
+	if exception is Signal:
+		signals.erase(exception)
+		exception.emit(true)
+	for s in signals:
+		s.emit(false)
+	
+	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("inventory"):
 		toggle_inventory()
 	if event.is_action_pressed("build"):
 		toggle_build_mode()
+	if event.is_action_pressed("destroy"):
+		toggle_destroy_mode()
 
 func toggle_inventory() -> void:
 	if !inventory_mode:
 		set_inventory(true)
-		set_build_menu(false)
 	else:
 		set_inventory(false)
+
+func toggle_destroy_mode() -> void:
+	if !destroy_mode:
+		set_destroy(true)
+	else:
+		set_destroy(false)
 
 func set_build_mode(active: bool) -> void:
 	build_mode = active
 
+func set_inventory_mode(active: bool) -> void:
+	inventory_mode = active
+
+func set_destroy_mode(active: bool) -> void:
+	destroy_mode = active
+
 func toggle_build_mode() -> void:
 	if !build_mode:
 		set_build_menu(true)
-		set_inventory(false)
 	else:
 		set_build_menu(false)
 
+func set_destroy(is_on: bool) -> void:
+	if is_on:
+		activate_one_mode(EventBus.toggle_destroy_mode)
+	else:
+		activate_one_mode(null)
+
 func set_inventory(is_on: bool) -> void:
 	if is_on:
-		inventory_mode = true
-		EventBus.toggle_inventory.emit(true)
-		EventBus.toggle_placement_mode.emit(false)
+		activate_one_mode(EventBus.toggle_inventory)
 	else:
-		inventory_mode = false
-		EventBus.toggle_inventory.emit(false)
+		activate_one_mode(null)
 
 func set_build_menu(is_on: bool) -> void:
 	if is_on:
-		EventBus.toggle_build_mode.emit(true)
-		EventBus.toggle_placement_mode.emit(false)
+		activate_one_mode(EventBus.toggle_build_mode)
 	else:
-		EventBus.toggle_build_mode.emit(false)
+		activate_one_mode(null)
 
 func open_shared_mode(node: PanelContainer, building: Node) -> void:
 	inventory.toggle_shared_mode(true)

@@ -15,7 +15,7 @@ var footprint: Array[Vector2i] = []
 func _ready() -> void:
 	self.area_entered.connect(_on_area_entered)
 	self.area_exited.connect(_on_area_exited)
-	shape.size = Vector2(20, 20)
+	shape.size = Vector2(30, 30)
 	setup_collisions()
 
 func _on_area_entered(area: Area2D):

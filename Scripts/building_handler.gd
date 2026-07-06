@@ -5,9 +5,12 @@ extends Node2D
 @onready var guides: Node2D = $Guides
 @onready var player = get_tree().get_first_node_in_group("Player")
 
+enum BuildMode {PLACE, DESTROY, OFF}
+
 var reference: BuildingData = preload("res://Data/buildings/farm_lv1.tres") #Default
 var guide: Building
-var is_placement_mode: bool = false
+var highlighted: Building
+var mode: BuildMode = BuildMode.OFF
 var anchor: Vector2 = Vector2(0,0)
 var building_list: Array[Building] = []
 var last_pos: Vector2 = Vector2.INF
@@ -16,19 +19,29 @@ const tilesize: int = 32
 func _ready() -> void:
 	EventBus.change_building.connect(set_reference)
 	EventBus.toggle_placement_mode.connect(toggle_placement_mode)
-	
+	EventBus.toggle_destroy_mode.connect(toggle_destroy_mode)
 
 func _process(delta: float) -> void:
-	if !is_placement_mode:
+	if mode == BuildMode.OFF:
 		return
+	match mode:
+		BuildMode.PLACE:
+			var new_pos = (get_global_mouse_position() / tilesize).snapped(Vector2.ONE) * tilesize
+			#guide.global_position = (get_global_mouse_position() / tilesize).snapped(Vector2.ONE) * tilesize
+			if new_pos != last_pos:
+				last_pos = new_pos
+				guide.global_position = new_pos
+				update_guide()
+		BuildMode.DESTROY:
+			var building = get_building_under_mouse()
+			if building != highlighted:
+				if highlighted:
+					highlight_destroy(highlighted, false)
 	
-	var new_pos = (get_global_mouse_position() / tilesize).snapped(Vector2.ONE) * tilesize
-	#guide.global_position = (get_global_mouse_position() / tilesize).snapped(Vector2.ONE) * tilesize
-	if new_pos != last_pos:
-		last_pos = new_pos
-		guide.global_position = new_pos
-		update_guide()
-	
+				highlighted = building
+				
+				if highlighted:
+					highlight_destroy(highlighted, true)
 
 func remove_ingredients() -> void:
 	if !reference:
@@ -53,10 +66,15 @@ func remove_items_from_player(slotIDs: Array[int]) -> void:
 		player.remove_ammount_inventory(slotID, qty)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed and is_placement_mode:
-		if event.button_index == MOUSE_BUTTON_LEFT and check_can_place():
-			create_building(reference)
-			remove_ingredients()
+	if event is not InputEventMouseButton or !event.pressed:
+		return
+	match mode:
+		BuildMode.PLACE:
+			if event.button_index == MOUSE_BUTTON_LEFT and check_can_place():
+				create_building(reference)
+				remove_ingredients()
+		BuildMode.DESTROY:
+			destroy_building(highlighted)
 
 func set_reference(building: BuildingData) -> void:
 	reference = building
@@ -66,6 +84,20 @@ func update_guide() -> void:
 		guide.modulate = Color(1, 1, 1, 0.5)
 	else:
 		guide.modulate = Color(1, 0.3, 0.3, 0.8)
+
+func highlight_destroy(building: Building, highlighted: bool) -> void:
+	if highlighted:
+		building.modulate = Color(1, 0.3, 0.3, 0.8)
+	else:
+		building.modulate = Color(1, 1, 1, 1)
+
+func destroy_building(building: Variant) -> void:
+	if !building:
+		return
+	var ingredients: Dictionary = building.building_data.requirement
+	for itemID in ingredients.keys():
+		player.add_inventory(Catalogue.item_catalogue[itemID], ingredients[itemID])
+	building.queue_free()
 
 func check_can_place() -> bool:
 	if !guide.building_space:
@@ -80,11 +112,26 @@ func setup_guide() -> void:
 		guide.queue_free()
 	guide = load(reference.build_scene_path).instantiate()
 	guides.add_child(guide)
+	guide.collision_mask = 2
 	if guide.get_building_space():
 		guide.building_space.area_detected.connect(update_guide)
+		guide.building_space.collision_layer = 1 << 1
+		guide.building_space.collision_mask = 1 << 0
 	update_guide()
 	guide.activate_interaction(false)
 
+func get_building_under_mouse() -> Building:
+	var query = PhysicsPointQueryParameters2D.new()
+	query.position = get_global_mouse_position()
+	query.collide_with_areas = true
+	query.collide_with_bodies = false
+	query.collision_mask = 1 << 0
+	var results = get_world_2d().direct_space_state.intersect_point(query)
+	for result in results:
+		var area = result.collider
+		if area is BuildingSpace && area.get_parent() in building_list:
+			return area.get_parent() as Building
+	return null
 
 
 func create_building(building_data: BuildingData) -> void:
@@ -105,9 +152,19 @@ func show_guide(show: bool) -> void:
 
 func toggle_placement_mode(mode_on: bool) -> void:
 	if mode_on:
-		is_placement_mode = true
+		mode = BuildMode.PLACE
 		setup_guide()
 		show_guide(true)
-	else:
+	elif mode == BuildMode.PLACE:
+		mode = BuildMode.OFF
+	if !mode_on:
 		show_guide(false)
-		is_placement_mode = false
+		
+func toggle_destroy_mode(mode_on: bool) -> void:
+	if mode_on:
+		mode = BuildMode.DESTROY
+	elif mode == BuildMode.DESTROY:
+		mode = BuildMode.OFF
+	if !mode_on:
+		if highlighted:
+			highlight_destroy(highlighted, false)
