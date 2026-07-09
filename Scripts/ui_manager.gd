@@ -5,6 +5,8 @@ extends CanvasLayer
 @onready var hud: Control = $HUD
 
 @onready var ui_container: HBoxContainer = $CenterContainer/UIContainer
+@onready var mode_display: Control = $ModeDisplay
+
 
 var modeSignals: Array[Signal] = [EventBus.toggle_build_mode, EventBus.toggle_destroy_mode, EventBus.toggle_placement_mode, EventBus.toggle_inventory]
 var modeNum: int = 0
@@ -26,6 +28,8 @@ func activate_one_mode(exception: Variant):
 		exception.emit(true)
 	for s in signals:
 		s.emit(false)
+	if !exception:
+		EventBus.mode_display.emit(GlobalEnum.BuildMode.OFF)
 	
 	
 func _unhandled_input(event: InputEvent) -> void:
@@ -50,12 +54,18 @@ func toggle_destroy_mode() -> void:
 
 func set_build_mode(active: bool) -> void:
 	build_mode = active
+	if active:
+		EventBus.mode_display.emit(GlobalEnum.BuildMode.PLACE)
 
 func set_inventory_mode(active: bool) -> void:
 	inventory_mode = active
+	if active:
+		EventBus.mode_display.emit(GlobalEnum.BuildMode.OFF)
 
 func set_destroy_mode(active: bool) -> void:
 	destroy_mode = active
+	if active:
+		EventBus.mode_display.emit(GlobalEnum.BuildMode.DESTROY)
 
 func toggle_build_mode() -> void:
 	if !build_mode:

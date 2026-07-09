@@ -14,6 +14,8 @@ const PATH: String = "res://Data/buildings/"
 var building_resources: Array[Resource]
 
 func _ready() -> void:
+	warning.hide()
+	self.hide()
 	confirm.pressed.connect(confirm_pressed)
 	EventBus.toggle_build_mode.connect(toggle_build_menu)
 	var building_menu_group = ButtonGroup.new()
@@ -72,16 +74,12 @@ func toggle_build_menu(build_on: bool) -> void:
 		self.show()
 	else:
 		self.hide()
+		warning.hide()
 
 func confirm_pressed() -> void:
 	if !highlighted:
 		return
-	var found_slots: Array[int]
-	for itemID in highlighted.requirement.keys():
-		var slot = player.find_item_quantity(itemID, highlighted.requirement[itemID])
-		if slot:
-			found_slots.append(slot)
-	if found_slots.size() == highlighted.requirement.size():
+	if player.find_item_from_dict(highlighted.requirement).size() == highlighted.requirement.size():
 		EventBus.toggle_placement_mode.emit(true)
 		EventBus.toggle_build_mode.emit(false)
 		warning.hide()

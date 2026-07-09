@@ -1,14 +1,36 @@
 [gd_scene format=3 uid="uid://bs0li1lwjgy3t"]
 
-[ext_resource type="Script" uid="uid://o4ahfg736fic" path="res://Scripts/building.gd" id="1_326me"]
+[ext_resource type="Script" uid="uid://dbojxhew5ne1g" path="res://Scripts/buildings/waterfilter_lv_2.gd" id="1_clpia"]
 [ext_resource type="Resource" uid="uid://cpxxq2uy0ginu" path="res://Data/buildings/waterfilter_lv2.tres" id="2_326me"]
 [ext_resource type="Texture2D" uid="uid://bvyj8eyga1emj" path="res://Assets/Images/Buildings/WaterFilterLv2.png" id="3_clpia"]
+[ext_resource type="Script" uid="uid://cp78fkd8r8mvm" path="res://building_space.gd" id="4_f8hl3"]
+[ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="5_0btc3"]
 
-[node name="Building" type="StaticBody2D" unique_id=1288707489]
-script = ExtResource("1_326me")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yv41l"]
+size = Vector2(106, 30)
+
+[node name="WaterFilterLv2" type="StaticBody2D" unique_id=1288707489]
+script = ExtResource("1_clpia")
 data = ExtResource("2_326me")
 metadata/_custom_type_script = "uid://o4ahfg736fic"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1842378625]
 scale = Vector2(2, 2)
 texture = ExtResource("3_clpia")
+
+[node name="BuildingSpace" type="Area2D" parent="." unique_id=817458664]
+script = ExtResource("4_f8hl3")
+sizeX = 2
+sizeY = 1
+metadata/_custom_type_script = "uid://cp78fkd8r8mvm"
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1994054463]
+visible = false
+script = ExtResource("5_0btc3")
+metadata/_custom_type_script = "uid://doscx7owdvjqj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=724931584]
+position = Vector2(0, 15)
+shape = SubResource("RectangleShape2D_yv41l")
+
+[node name="Timer" type="Timer" parent="." unique_id=6442296]

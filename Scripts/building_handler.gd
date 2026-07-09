@@ -48,11 +48,7 @@ func remove_ingredients() -> void:
 		print("Reference not set")
 		return
 	var requirement = reference.requirement
-	var found_slots: Array[int]
-	for itemID in requirement.keys():
-		var slot = player.find_item_quantity(itemID, requirement[itemID])
-		if slot:
-			found_slots.append(slot)
+	var found_slots: Array[int] = player.find_item_from_dict(requirement)
 	if found_slots.size() == requirement.size():
 		remove_items_from_player(found_slots)
 	else:
@@ -141,6 +137,7 @@ func create_building(building_data: BuildingData) -> void:
 	new.building_data = building_data
 	building_list.append(new)
 	toggle_placement_mode(false)
+	EventBus.mode_display.emit(GlobalEnum.BuildMode.OFF)
 
 func show_guide(show: bool) -> void:
 	if !guide:
@@ -159,6 +156,7 @@ func toggle_placement_mode(mode_on: bool) -> void:
 		mode = BuildMode.OFF
 	if !mode_on:
 		show_guide(false)
+		
 		
 func toggle_destroy_mode(mode_on: bool) -> void:
 	if mode_on:

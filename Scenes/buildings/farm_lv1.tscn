@@ -18,6 +18,9 @@ metadata/_custom_type_script = "uid://o4ahfg736fic"
 scale = Vector2(2, 2)
 texture = ExtResource("2_1og72")
 
+[node name="Item" type="Sprite2D" parent="Sprite2D" unique_id=402221301]
+position = Vector2(0, 7.5)
+
 [node name="InteractionArea" type="Area2D" parent="." unique_id=528940138]
 script = ExtResource("3_fter2")
 metadata/_custom_type_script = "uid://doscx7owdvjqj"

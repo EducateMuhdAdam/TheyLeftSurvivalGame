@@ -7,7 +7,7 @@ extends Building
 var plant: Dictionary = {"data": null, "qty": 0}
 var panel: Node = null
 
-const TIMETOGROW: int = 300
+const TIMETOGROW: int = 120
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

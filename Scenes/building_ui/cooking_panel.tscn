@@ -30,7 +30,6 @@ offset_left = 169.0
 offset_top = 261.0
 offset_right = 233.0
 offset_bottom = 325.0
-one_item = false
 
 [node name="Food" parent="VBoxContainer/TextureRect" unique_id=1158540632 instance=ExtResource("2_le5cx")]
 layout_mode = 0

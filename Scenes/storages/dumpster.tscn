@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://blog5v035ocuu"]
 
 [ext_resource type="Script" uid="uid://dkixwcspe56py" path="res://Scripts/buildings/storage.gd" id="1_e4ss2"]
-[ext_resource type="Texture2D" uid="uid://ctriuy6cd2dr3" path="res://Assets/Images/Buildings/FarmLv2.png" id="2_4k5xr"]
 [ext_resource type="Resource" uid="uid://b3hc138sc7hs7" path="res://Data/buildings/dumpster.tres" id="2_majvt"]
 [ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="3_fxxfc"]
+[ext_resource type="Texture2D" uid="uid://bn3bas3bjyhhs" path="res://Assets/Images/Buildings/Dumpster_closed.png" id="3_pqcue"]
 [ext_resource type="Script" uid="uid://cp78fkd8r8mvm" path="res://building_space.gd" id="5_pqcue"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tetnc"]
@@ -17,7 +17,7 @@ metadata/_custom_type_script = "uid://dkixwcspe56py"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=260412250]
 scale = Vector2(2, 2)
-texture = ExtResource("2_4k5xr")
+texture = ExtResource("3_pqcue")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=757857675]
 script = ExtResource("3_fxxfc")

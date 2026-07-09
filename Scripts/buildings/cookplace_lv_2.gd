@@ -4,15 +4,15 @@ extends Building
 @onready var cooktime: Timer = $Cooktime
 @onready var sprite: Sprite2D = $Sprite2D
 
-var cp_off = preload("res://Assets/Images/Buildings/CookplaceLv1.png")
-var cp_on = preload("res://Assets/Images/Buildings/CookplaceLv1_on.png")
+var cp_off = preload("res://Assets/Images/Buildings/CookplaceLv2.png")
+var cp_on = preload("res://Assets/Images/Buildings/CookplaceLv2_on.png")
 
 var food: Dictionary = {"data": null, "qty": 0}
 var fuel: Dictionary = {"data": null, "qty": 0}
 var cooked: bool = false
 var panel: Node = null
 
-const TIMETOCOOK: int = 30
+const TIMETOCOOK: int = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

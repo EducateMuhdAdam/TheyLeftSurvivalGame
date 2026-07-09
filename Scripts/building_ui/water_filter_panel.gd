@@ -3,8 +3,10 @@ extends BuildingPanel
 @export var output: Slot
 @export var input: Slot
 @onready var label: Label = $VBoxContainer/Label
+@onready var texture_rect: TextureRect = $VBoxContainer/TextureRect
 
 func _ready() -> void:
+	building_texture = texture_rect
 	output.controller = building
 	input.controller = building
 	input.requirement = Callable(self, "check_dirty_water")

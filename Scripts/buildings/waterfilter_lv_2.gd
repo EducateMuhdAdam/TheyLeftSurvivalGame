@@ -4,7 +4,7 @@ extends Building
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var timer: Timer = $Timer
 
-const FILTERTIME: float = 3
+const FILTERTIME: float = 1
 
 var dirty: float = 0
 var clean: float = 0
@@ -13,9 +13,9 @@ var panel: BuildingPanel
 var input: Dictionary = {"data": null, "qty": 0}
 var output: Dictionary = {"data": null, "qty": 0}
 
-var wf_empty = preload("res://Assets/Images/Buildings/WaterFilterLv1.png")
-var wf_input = preload("res://Assets/Images/Buildings/WaterFilterLv1_input.png")
-var wf_output = preload("res://Assets/Images/Buildings/WaterFilterLv1_output.png")
+var wf_empty = preload("res://Assets/Images/Buildings/WaterFilterLv2.png")
+var wf_input = preload("res://Assets/Images/Buildings/WaterFilterLv2_input.png")
+var wf_output = preload("res://Assets/Images/Buildings/WaterFilterLv2_output.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -40,8 +40,8 @@ func setup_panel() -> void:
 		panel.input.update_slot(input["data"], input["qty"])
 	if output["data"]:
 		panel.output.update_slot(output["data"], output["qty"])
-	panel.input.position = Vector2(238, 263)
-	panel.output.position = Vector2(86, 289)
+	panel.output.position = Vector2(300, 314)
+	panel.input.position = Vector2(112, 49)
 
 func building_action(panel: PanelContainer) -> void:
 	input["data"] = panel.input.item

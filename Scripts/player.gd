@@ -95,7 +95,7 @@ func increase_thirst(ammount: float) -> void:
 func find_item_quantity(itemID: int, qty: int) -> Variant:
 	for slotID in inventory.keys():
 		if inventory[slotID]["id"] == itemID and inventory[slotID]["qty"] >= qty:
-			return slotID
+			return int(slotID)
 	return null
 
 func set_inventory_slot(slotID: int, itemID: int, qty: int):
@@ -126,6 +126,14 @@ func add_inventory(data: ItemData, quantity: int) -> void:
 				inventory[i] = {"id": data.itemID, "qty": quantity}
 				break
 	update_inventory.emit(inventory)
+
+func find_item_from_dict(checkDict: Dictionary[int, int]) -> Array[int]:
+	var found_slots: Array[int]
+	for itemID in checkDict.keys():
+		var slot = find_item_quantity(itemID, checkDict[itemID])
+		if slot != null:
+			found_slots.append(slot)
+	return found_slots
 
 func add_one_inventory(data: ItemData) -> void:
 	add_inventory(data, 1)
