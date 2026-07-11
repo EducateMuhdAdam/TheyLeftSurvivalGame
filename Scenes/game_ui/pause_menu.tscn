@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://msvff6bd74dd"]
+
+[ext_resource type="Script" uid="uid://d2ux5h5okebcn" path="res://Scenes/game_ui/pause_menu.gd" id="1_vee7v"]
+
+[node name="PauseMenu" type="Control" unique_id=497654649]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vee7v")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2067780474 groups=["Persist"]]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -89.0
+offset_right = 85.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=399784526]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer" unique_id=496655968]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=1424902462]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1527029167]
+layout_mode = 2
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="Spacing" type="Control" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=160172721]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=155879278]
+layout_mode = 2
+text = "Resume"
+
+[node name="Save" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=358763938]
+layout_mode = 2
+text = "Save"
+
+[node name="Quit" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1645343129]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -9,7 +9,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bnuob"]
 size = Vector2(106, 30)
 
-[node name="WaterfilterLv1" type="StaticBody2D" unique_id=1418852078]
+[node name="WaterfilterLv1" type="StaticBody2D" unique_id=1418852078 groups=["Buildings", "Persist"]]
 script = ExtResource("1_kfvdm")
 data = ExtResource("2_kfvdm")
 metadata/_custom_type_script = "uid://o4ahfg736fic"

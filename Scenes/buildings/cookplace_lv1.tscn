@@ -9,7 +9,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5tla"]
 size = Vector2(106, 30)
 
-[node name="CookplaceLv1" type="StaticBody2D" unique_id=949385918]
+[node name="CookplaceLv1" type="StaticBody2D" unique_id=949385918 groups=["Buildings", "Persist"]]
 script = ExtResource("1_00brp")
 data = ExtResource("2_00brp")
 metadata/_custom_type_script = "uid://o4ahfg736fic"

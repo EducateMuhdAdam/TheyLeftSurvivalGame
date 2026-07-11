@@ -168,4 +168,16 @@ func swap_inventory(ID1: int, ID2: int) -> void:
 		inventory.erase(ID2)
 	update_inventory.emit(inventory)
 
-	
+func save() -> Dictionary:
+	var save_dict = {
+		"filename" : get_scene_file_path(),
+		"parent" : get_parent().get_path(),
+		"pos_x" : position.x,
+		"pos_y" : position.y,
+		"unlocked_recipes": unlocked_recipes,
+		"hunger_rate": hunger_rate,
+		"thirst_rate": thirst_rate,
+		"hunger": hunger,
+		"thirst": thirst
+	}
+	return save_dict

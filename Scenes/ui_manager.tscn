@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bvcjqnqg7xxgm" path="res://Scenes/mode_display.tscn" id="3_wcp00"]
 [ext_resource type="Script" uid="uid://c46aq0qj2vavd" path="res://Scripts/ui_container.gd" id="5_laqw3"]
 [ext_resource type="PackedScene" uid="uid://dve0s5ll6kbgp" path="res://Scenes/hotbar.tscn" id="6_k436y"]
+[ext_resource type="PackedScene" uid="uid://msvff6bd74dd" path="res://Scenes/game_ui/pause_menu.tscn" id="8_pwm6i"]
 
 [node name="UIManager" type="CanvasLayer" unique_id=29909133]
 script = ExtResource("1_i37jq")
@@ -35,3 +36,5 @@ ui_container = NodePath("../CenterContainer/UIContainer")
 [node name="HUD" parent="." unique_id=273165038 instance=ExtResource("2_i37jq")]
 
 [node name="BuildMenu" parent="." unique_id=1671126576 instance=ExtResource("3_laqw3")]
+
+[node name="PauseMenu" parent="." unique_id=497654649 instance=ExtResource("8_pwm6i")]

@@ -5,6 +5,7 @@ extends Building
 @onready var item: Sprite2D = $Sprite2D/Item
 
 var plant: Dictionary = {"data": null, "qty": 0}
+var progress: int
 var panel: Node = null
 
 const TIMETOGROW: int = 120
@@ -13,7 +14,8 @@ const TIMETOGROW: int = 120
 func _ready() -> void:
 	interaction_area.interact = Callable(self, "_on_interact")
 	growtime.timeout.connect(_on_timer_timeout)
-	growtime.one_shot = true
+	if progress:
+		growtime.start()
 
 func activate_interaction(active: bool) -> void:
 	interaction_area.active = active
@@ -41,7 +43,8 @@ func building_action(panel: PanelContainer) -> void:
 	plant = {"data": panel.plant.item, "qty": panel.plant.quantity}
 	if panel.plant.item && panel.check_seed(panel.plant):
 		set_item(panel.plant.item)
-		growtime.start(TIMETOGROW)
+		progress = TIMETOGROW
+		growtime.start(1)
 	else:
 		set_item(null)
 		growtime.stop()
@@ -55,9 +58,21 @@ func fit_to_size(sprite: Sprite2D, max_size: Vector2) -> void:
 	sprite.scale = Vector2.ONE * scale_factor
 
 func _on_timer_timeout() -> void:
-	if !plant["data"]:
+	progress -= 1
+	if progress > 0 || !plant["data"]:
 		return
 	plant["data"] = Catalogue.plant_reference[plant["data"].itemID]
 	set_item(plant["data"])
 	if panel:
 		panel.plant.update_slot(plant["data"], 1)
+
+func save() -> Dictionary:
+	var save_dict = {
+		"filename" : get_scene_file_path(),
+		"parent" : get_parent().get_path(),
+		"pos_x" : position.x, # Vector2 is not supported by JSON
+		"pos_y" : position.y,
+		"plant": plant,
+		"progress": progress
+	}
+	return save_dict

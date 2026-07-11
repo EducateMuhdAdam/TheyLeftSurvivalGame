@@ -21,6 +21,8 @@ var wf_output = preload("res://Assets/Images/Buildings/WaterFilterLv1_output.png
 func _ready() -> void:
 	interaction_area.interact = Callable(self, "_on_interact")
 	timer.timeout.connect(_on_timeout)
+	if timer.is_stopped() and dirty > 0 and clean < 100:
+		timer.start(FILTERTIME)
 
 
 func _on_interact():
@@ -89,3 +91,16 @@ func _on_timeout() -> void:
 	empty_dirty()
 	fill_clean()
 	update_sprite()
+	
+func save() -> Dictionary:
+	var save_dict = {
+		"filename" : get_scene_file_path(),
+		"parent" : get_parent().get_path(),
+		"pos_x" : position.x, # Vector2 is not supported by JSON
+		"pos_y" : position.y,
+		"input" : input,
+		"output" : output,
+		"dirty" : dirty,
+		"clean" : clean
+	}
+	return save_dict

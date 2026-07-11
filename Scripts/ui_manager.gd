@@ -6,7 +6,9 @@ extends CanvasLayer
 
 @onready var ui_container: HBoxContainer = $CenterContainer/UIContainer
 @onready var mode_display: Control = $ModeDisplay
+@onready var pause_menu: Control = $PauseMenu
 
+@export var main: Node2D
 
 var modeSignals: Array[Signal] = [EventBus.toggle_build_mode, EventBus.toggle_destroy_mode, EventBus.toggle_placement_mode, EventBus.toggle_inventory]
 var modeNum: int = 0
@@ -15,6 +17,7 @@ var destroy_mode: bool = false
 var inventory_mode: bool = false
 
 func _ready() -> void:
+	pause_menu.main = main
 	inventory.get_panel().reparent(ui_container)
 	EventBus.shared_ui.connect(open_shared_mode)
 	EventBus.toggle_build_mode.connect(set_build_mode)
@@ -33,12 +36,23 @@ func activate_one_mode(exception: Variant):
 	
 	
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("escape"):
+		handle_escape()
+	if !main.paused:
+		return
 	if event.is_action_pressed("inventory"):
 		toggle_inventory()
 	if event.is_action_pressed("build"):
 		toggle_build_mode()
 	if event.is_action_pressed("destroy"):
 		toggle_destroy_mode()
+	
+
+func handle_escape() -> void:
+	if build_mode or inventory_mode or destroy_mode:
+		activate_one_mode(null)
+	else:
+		main.handle_pause()
 
 func toggle_inventory() -> void:
 	if !inventory_mode:
@@ -95,3 +109,9 @@ func open_shared_mode(node: PanelContainer, building: Node) -> void:
 	inventory.toggle_shared_mode(true)
 	ui_container.add_child(node)
 	toggle_inventory()
+
+func show_pause_menu(show: bool) -> void:
+	if show:
+		pause_menu.show()
+	else:
+		pause_menu.hide()

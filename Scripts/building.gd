@@ -40,3 +40,13 @@ func is_water(data: TileData) -> bool:
 
 func is_land(data: TileData) -> bool:
 	return data != null && !data.get_custom_data("water")
+
+func save() -> Dictionary:
+	print("Save Not Set Up For Building")
+	var save_dict = {
+		"filename" : get_scene_file_path(),
+		"parent" : get_parent().get_path(),
+		"pos_x" : position.x, # Vector2 is not supported by JSON
+		"pos_y" : position.y
+	}
+	return save_dict

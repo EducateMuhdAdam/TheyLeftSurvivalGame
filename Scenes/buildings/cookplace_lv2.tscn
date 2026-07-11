@@ -9,7 +9,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgrv8"]
 size = Vector2(106, 30)
 
-[node name="Building" type="StaticBody2D" unique_id=815552534]
+[node name="Building" type="StaticBody2D" unique_id=815552534 groups=["Buildings", "Persist"]]
 script = ExtResource("1_ohiue")
 data = ExtResource("2_kjsx2")
 metadata/_custom_type_script = "uid://o4ahfg736fic"

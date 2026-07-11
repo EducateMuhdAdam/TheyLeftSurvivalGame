@@ -9,7 +9,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mo0cr"]
 size = Vector2(106, 30)
 
-[node name="FarmLv2" type="StaticBody2D" unique_id=1963802407]
+[node name="FarmLv2" type="StaticBody2D" unique_id=1963802407 groups=["Buildings", "Persist"]]
 script = ExtResource("1_q4aee")
 data = ExtResource("2_o5w8q")
 metadata/_custom_type_script = "uid://o4ahfg736fic"
@@ -36,4 +36,3 @@ position = Vector2(0, 15)
 shape = SubResource("RectangleShape2D_mo0cr")
 
 [node name="Growtime" type="Timer" parent="." unique_id=2063016937]
-wait_time = 10.0

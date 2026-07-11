@@ -7,6 +7,8 @@ var inventory: Dictionary = {}
 var storage_panel = load("res://Scenes/building_ui/storage_panel.tscn")
 
 func _ready() -> void:
+	add_to_group("Buildings")
+	add_to_group("Persist")
 	for child in get_children():
 		if child is InteractionArea:
 			child.interact = Callable(self, "open_panel")
@@ -34,3 +36,14 @@ func building_action(slot: Variant) -> void:
 		set_inventory_slot(slot.slotID, slot.item.itemID, slot.quantity)
 	else:
 		remove_inventory(slot.slotID)
+
+func save() -> Dictionary:
+	var save_dict = {
+		"filename" : get_scene_file_path(),
+		"parent" : get_parent().get_path(),
+		"pos_x" : position.x, # Vector2 is not supported by JSON
+		"pos_y" : position.y,
+		"inventory" : inventory,
+		"NumberOfSlots" : NumberOfSlots
+	}
+	return save_dict
