@@ -3,7 +3,7 @@ extends Node2D
 @export var ObjectContainer: Node2D 
 @export var tilemap: TileMapLayer
 @onready var guides: Node2D = $Guides
-@onready var player = get_tree().get_first_node_in_group("Player")
+@onready var player: CharacterBody2D = await Main.get_player()
 
 enum BuildMode {PLACE, DESTROY, OFF}
 
@@ -20,6 +20,7 @@ func _ready() -> void:
 	EventBus.change_building.connect(set_reference)
 	EventBus.toggle_placement_mode.connect(toggle_placement_mode)
 	EventBus.toggle_destroy_mode.connect(toggle_destroy_mode)
+	log_buildings()
 
 func _process(delta: float) -> void:
 	if mode == BuildMode.OFF:
@@ -42,6 +43,10 @@ func _process(delta: float) -> void:
 				
 				if highlighted:
 					highlight_destroy(highlighted, true)
+
+#REDUNDANT
+func log_buildings() -> void:
+	print(building_list.size(), " buildings logged", building_list)
 
 func remove_ingredients() -> void:
 	if !reference:
@@ -108,6 +113,7 @@ func setup_guide() -> void:
 		guide.queue_free()
 	guide = load(reference.build_scene_path).instantiate()
 	guides.add_child(guide)
+	guide.remove_from_group("Persist")
 	guide.collision_mask = 2
 	if guide.get_building_space():
 		guide.building_space.area_detected.connect(update_guide)

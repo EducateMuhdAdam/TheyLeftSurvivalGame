@@ -1,6 +1,6 @@
 extends Control
 
-@onready var player = get_tree().get_first_node_in_group("Player")
+var player: CharacterBody2D
 @onready var inventory_grid: GridContainer = $PanelContainer/MarginContainer/VBoxContainer/GridContainer
 @onready var panel_container: PanelContainer = $PanelContainer
 
@@ -11,7 +11,10 @@ extends Control
 var slots: Dictionary = {}
 var item_library: Dictionary = {}
 
+signal slots_created
+
 func _ready() -> void:
+	player = await Main.get_player()
 	EventBus.toggle_inventory.connect(toggle_inventory)
 	
 	item_library = Catalogue.item_catalogue
@@ -19,6 +22,7 @@ func _ready() -> void:
 	setup_inventory_grid()
 	update_inventory(player.inventory)
 	visible = false
+	slots_created.emit()
 
 func get_panel() -> PanelContainer:
 	return $PanelContainer

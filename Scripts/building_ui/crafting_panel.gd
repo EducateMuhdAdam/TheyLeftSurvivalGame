@@ -1,6 +1,6 @@
 extends BuildingPanel
 
-@onready var player = get_tree().get_first_node_in_group("Player")
+var player: CharacterBody2D
 @onready var recipe_container: VBoxContainer = $MarginContainer/VBoxContainer/ScrollContainer/RecipeContainer
 @onready var scroll_container: ScrollContainer = $MarginContainer/VBoxContainer/ScrollContainer
 @onready var confirm: Button = $MarginContainer/VBoxContainer/HBoxContainer/Confirm
@@ -16,6 +16,7 @@ var crafting_buttons = []
 var highlighted: CraftingData
 
 func _ready() -> void:
+	player = await Main.get_player()
 	warning.hide()
 	populate_scrollbar()
 	scroll_container.custom_minimum_size.x = max_width

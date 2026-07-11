@@ -83,7 +83,11 @@ func _drop_data(at_position: Vector2, origin_slot: Variant) -> void:
 		one_item_seq(origin_slot)
 	else:
 		swap_item_seq(origin_slot)
-	
+
+func get_item_path() -> Variant:
+	if item:
+		return item.resource_path
+	return null
 
 func swap_item_seq(origin_slot: Variant) -> void:
 	var temp_slot = clone()

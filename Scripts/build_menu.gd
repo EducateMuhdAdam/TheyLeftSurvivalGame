@@ -1,6 +1,6 @@
 extends Control
 
-@onready var player = get_tree().get_first_node_in_group("Player")
+var player: CharacterBody2D
 @onready var building_button_container: VBoxContainer = $PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/BuildingButtonContainer
 @onready var panel_container: PanelContainer = $PanelContainer
 @onready var cost_container: HBoxContainer = $PanelContainer/MarginContainer/VBoxContainer/CostContainer
@@ -14,6 +14,7 @@ const PATH: String = "res://Data/buildings/"
 var building_resources: Array[Resource]
 
 func _ready() -> void:
+	player = await Main.get_player()
 	warning.hide()
 	self.hide()
 	confirm.pressed.connect(confirm_pressed)

@@ -22,7 +22,7 @@ var hunger_rate = 0.05
 var thirst_rate = 0.2
 var hunger = 40
 var thirst = 40
-var inventory = {1: {"id": 1, "qty": 2}, 2: {"id": 2, "qty": 3}, 3: {"id": 6, "qty": 64}}
+var inventory = {1: {"id": 1, "qty": 2}, 2: {"id": 2, "qty": 3}, 3: {"id": 7, "qty": 64}}
 
 var facing_direction: String = "S"
 var input_direction: Vector2 = Vector2(0,0)
@@ -174,6 +174,7 @@ func save() -> Dictionary:
 		"parent" : get_parent().get_path(),
 		"pos_x" : position.x,
 		"pos_y" : position.y,
+		"inventory" : inventory,
 		"unlocked_recipes": unlocked_recipes,
 		"hunger_rate": hunger_rate,
 		"thirst_rate": thirst_rate,

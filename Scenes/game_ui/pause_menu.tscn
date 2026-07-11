@@ -12,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vee7v")
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2067780474 groups=["Persist"]]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2067780474]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

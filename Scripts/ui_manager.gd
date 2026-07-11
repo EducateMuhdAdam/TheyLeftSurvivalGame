@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+var player: CharacterBody2D
 @onready var inventory: Control = $Inventory
 @onready var build_menu: Control = $BuildMenu
 @onready var hud: Control = $HUD
@@ -15,15 +16,19 @@ var modeNum: int = 0
 var build_mode: bool = false
 var destroy_mode: bool = false
 var inventory_mode: bool = false
+var placement_mode: bool = false
 
 func _ready() -> void:
+	player = await Main.get_player()
 	pause_menu.main = main
 	inventory.get_panel().reparent(ui_container)
 	EventBus.shared_ui.connect(open_shared_mode)
 	EventBus.toggle_build_mode.connect(set_build_mode)
 	EventBus.toggle_inventory.connect(set_inventory_mode)
 	EventBus.toggle_destroy_mode.connect(set_destroy_mode)
-	
+	EventBus.toggle_placement_mode.connect(set_placement_mode)
+
+
 func activate_one_mode(exception: Variant):
 	var signals = modeSignals.duplicate()
 	if exception is Signal:
@@ -49,7 +54,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 
 func handle_escape() -> void:
-	if build_mode or inventory_mode or destroy_mode:
+	if build_mode or inventory_mode or destroy_mode or placement_mode:
 		activate_one_mode(null)
 	else:
 		main.handle_pause()
@@ -80,6 +85,9 @@ func set_destroy_mode(active: bool) -> void:
 	destroy_mode = active
 	if active:
 		EventBus.mode_display.emit(GlobalEnum.BuildMode.DESTROY)
+
+func set_placement_mode(active: bool) -> void:
+	placement_mode = active
 
 func toggle_build_mode() -> void:
 	if !build_mode:

@@ -32,15 +32,15 @@ func setup_panel() -> void:
 	if !panel:
 		return
 	if food["data"]:
-		panel.food.update_slot(food["data"], 1)
+		panel.food.update_slot(load(food["data"]), 1)
 	if fuel["data"]:
-		panel.fuel.update_slot(fuel["data"], fuel["qty"])
+		panel.fuel.update_slot(load(fuel["data"]), fuel["qty"])
 	panel.building_texture.texture = sprite.texture
 	
 
 func building_action(panel: BuildingPanel) -> void:
-	food = {"data": panel.food.item, "qty": panel.food.quantity}
-	fuel = {"data": panel.fuel.item, "qty": panel.fuel.quantity}
+	food = {"data": panel.food.get_item_path(), "qty": panel.food.quantity}
+	fuel = {"data": panel.fuel.get_item_path(), "qty": panel.fuel.quantity}
 	if panel.food.item and panel.fuel.item:
 		sprite.texture = cp_on
 		panel.building_texture.texture = sprite.texture
@@ -61,7 +61,7 @@ func _on_timer_timeout() -> void:
 	food["data"] = Catalogue.cooking_reference[food["data"].itemID]
 	if panel:
 		panel.building_texture.texture = sprite.texture
-		panel.food.update_slot(food["data"], 1)
+		panel.food.update_slot(load(food["data"]), 1)
 
 func save() -> Dictionary:
 	var save_dict = {

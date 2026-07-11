@@ -6,6 +6,7 @@ extends BuildingPanel
 @onready var texture_rect: TextureRect = $VBoxContainer/TextureRect
 
 func _ready() -> void:
+	print(building.name)
 	fuel.controller = building
 	food.controller = building
 	

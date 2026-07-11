@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var player = get_tree().get_first_node_in_group("Player")
+@onready var player = await Main.get_player()
 @onready var label: Label = $CanvasLayer/Label
 
 const base_text = "[E] to "

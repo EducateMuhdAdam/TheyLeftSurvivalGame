@@ -4,6 +4,7 @@ class_name Building
 # All your stats are now neatly contained inside this single variable
 @export var data: BuildingData
 @export var landlocked: bool = true
+@export var preplaced: bool = false
 
 var building_space: BuildingSpace
 

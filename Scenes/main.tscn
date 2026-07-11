@@ -4,9 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://dya4d0cm2ib24" path="res://Scenes/level_1.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://bbv06qmilxi12" path="res://Scenes/ui_manager.tscn" id="2_bo1nx"]
 
-[node name="main" type="Node2D" unique_id=393134204]
+[node name="main" type="Node2D" unique_id=393134204 node_paths=PackedStringArray("level_root")]
 process_mode = 3
 script = ExtResource("1_8gbba")
+level_root = NodePath("LevelRoot")
 
 [node name="LevelRoot" parent="." unique_id=1101166072 instance=ExtResource("1_jjgbg")]
 process_mode = 1

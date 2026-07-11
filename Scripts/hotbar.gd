@@ -1,6 +1,6 @@
 extends Control
 
-@onready var player = get_tree().get_first_node_in_group("Player")
+@onready var player = await Main.get_player()
 @onready var h_box_container: HBoxContainer = $MarginContainer/HBoxContainer
 @export var slot_scene = preload("res://Scenes/inventory_slot.tscn")
 @export var inventory_scene: Control
@@ -16,9 +16,7 @@ var highlighted_id: int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	highlighted_style.bg_color = Color(0.4, 0.4, 0.2, 0.6)
-	await inventory_scene.ready
-	setup_hotbar()
-	highlight_slot(highlighted_id)
+	inventory_scene.slots_created.connect(setup_hotbar)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("hotbar_next"):
@@ -43,6 +41,7 @@ func setup_hotbar() -> void:
 		h_box_container.add_child(new_slot)
 		inventory_scene.slots[i].slot_updated.connect(update_hotbar)
 		update_hotbar(inventory_scene.slots[i])
+	highlight_slot(highlighted_id)
 		
 func update_hotbar(slot: Slot) -> void:
 	var hotbar_slot: Slot = slots[slot.slotID]
