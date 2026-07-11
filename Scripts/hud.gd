@@ -1,12 +1,13 @@
 extends Control
 
-@onready var player = get_tree().get_first_node_in_group("Player")
+var player: CharacterBody2D
 @onready var hunger_label: Label = $MarginContainer/VBoxContainer/Hunger
 @onready var thirst_label: Label = $MarginContainer/VBoxContainer/Thirst
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	player = await Game.get_player()
 	if player:
 		player.hunger_changed.connect(_on_hunger_update)
 		player.thirst_changed.connect(_on_thirst_update)

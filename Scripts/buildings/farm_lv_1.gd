@@ -72,7 +72,19 @@ func save() -> Dictionary:
 		"parent" : get_parent().get_path(),
 		"pos_x" : position.x, # Vector2 is not supported by JSON
 		"pos_y" : position.y,
-		"plant": plant,
+		"data_path" : data_path,
+		"plant": {"data": unpack_itemID(plant), "qty": plant["qty"]},
 		"progress": progress
 	}
 	return save_dict
+
+func load_trigger() -> void:
+	plant = itemID_to_data_in_dict(plant)
+	if progress:
+		growtime.start()
+		set_item(plant["data"])
+
+func destroy_building() -> void:
+	if plant["data"]:
+		EventBus.add_multiple_item.emit(plant["data"], plant["qty"])
+	queue_free()

@@ -16,7 +16,9 @@ var crafting_buttons = []
 var highlighted: CraftingData
 
 func _ready() -> void:
-	player = await Main.get_player()
+	print("Before Player Loaded")
+	player = await Game.get_player()
+	print("After Panel Loaded")
 	warning.hide()
 	populate_scrollbar()
 	scroll_container.custom_minimum_size.x = max_width

@@ -9,6 +9,7 @@ class_name Building
 var building_space: BuildingSpace
 
 var building_data: BuildingData = null
+var data_path: String
 
 var interact: Callable = func():
 	pass
@@ -51,3 +52,34 @@ func save() -> Dictionary:
 		"pos_y" : position.y
 	}
 	return save_dict
+
+func setup_data(data: Variant) -> void:
+	if data is BuildingData:
+		building_data = data
+	if data is String:
+		data_path = data
+	if building_data:
+		data_path = building_data.resource_path
+	elif data_path:
+		building_data = load(data_path)
+	else:
+		print("building_data not set")
+
+func itemID_to_data_in_dict(dict) -> Dictionary:
+	var switched = {"data": null, "qty" : 0}
+	if dict["data"] != null:
+		switched["data"] = Catalogue.item_catalogue[int(dict["data"])]
+		switched["qty"] = int(dict["qty"])
+	return switched
+
+func unpack_itemID(dict: Dictionary) -> Variant:
+	if dict.has("data") && dict["data"]:
+		return dict["data"].itemID
+	else:
+		return null
+
+func destroy_building() -> void:
+	queue_free()
+
+func load_trigger() -> void:
+	pass

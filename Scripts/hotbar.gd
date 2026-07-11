@@ -1,6 +1,6 @@
 extends Control
 
-@onready var player = await Main.get_player()
+
 @onready var h_box_container: HBoxContainer = $MarginContainer/HBoxContainer
 @export var slot_scene = preload("res://Scenes/inventory_slot.tscn")
 @export var inventory_scene: Control
@@ -13,6 +13,7 @@ const HOTBAR_SIZE: int = 10
 var slots: Dictionary = {}
 var highlighted_id: int = 0
 
+@onready var player = await Game.get_player()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	highlighted_style.bg_color = Color(0.4, 0.4, 0.2, 0.6)

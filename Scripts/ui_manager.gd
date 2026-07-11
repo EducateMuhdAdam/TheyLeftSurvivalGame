@@ -19,7 +19,7 @@ var inventory_mode: bool = false
 var placement_mode: bool = false
 
 func _ready() -> void:
-	player = await Main.get_player()
+	player = await Game.get_player()
 	pause_menu.main = main
 	inventory.get_panel().reparent(ui_container)
 	EventBus.shared_ui.connect(open_shared_mode)

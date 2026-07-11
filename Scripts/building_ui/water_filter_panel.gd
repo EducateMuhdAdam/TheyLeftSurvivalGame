@@ -30,8 +30,4 @@ func building_action() -> void:
 	
 
 func close_panel() -> void:
-	if input.item:
-		EventBus.add_item.emit(input.item)
-	if output.item:
-		EventBus.add_item.emit(output.item)
 	queue_free()

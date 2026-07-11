@@ -20,7 +20,7 @@ config/icon="res://icon.svg"
 EventBus="*uid://dq6ulv2pamo4w"
 InteractionManager="*uid://rd1vvi1471og"
 Catalogue="*uid://1njdb6ycy5lr"
-Main="*uid://hr26gi8fc4dl"
+Game="*uid://cak5hbq7poru2"
 
 [display]
 

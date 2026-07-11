@@ -4,6 +4,7 @@
 [ext_resource type="Resource" uid="uid://c5t76m0ys70rv" path="res://Data/buildings/workbench.tres" id="2_7d6c7"]
 [ext_resource type="Texture2D" uid="uid://hrl6y6btkoja" path="res://Assets/Images/Buildings/Workbench.png" id="3_ahtt5"]
 [ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="4_pu13k"]
+[ext_resource type="Script" uid="uid://cp78fkd8r8mvm" path="res://building_space.gd" id="5_7d6c7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d1pr2"]
 size = Vector2(106, 30)
@@ -24,3 +25,9 @@ metadata/_custom_type_script = "uid://doscx7owdvjqj"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=68713518]
 position = Vector2(0, 15)
 shape = SubResource("RectangleShape2D_d1pr2")
+
+[node name="BuildingSpace" type="Area2D" parent="." unique_id=2008861338]
+script = ExtResource("5_7d6c7")
+sizeX = 2
+sizeY = 1
+metadata/_custom_type_script = "uid://cp78fkd8r8mvm"

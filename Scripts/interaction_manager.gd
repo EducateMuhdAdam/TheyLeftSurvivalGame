@@ -1,12 +1,15 @@
 extends Node2D
 
-@onready var player = await Main.get_player()
+var player: CharacterBody2D
 @onready var label: Label = $CanvasLayer/Label
 
 const base_text = "[E] to "
 
 var active_areas = []
 var can_interact = true
+
+func _ready() -> void:
+	player = await Game.get_player()
 
 func register_area(area: InteractionArea):
 	active_areas.push_back(area)

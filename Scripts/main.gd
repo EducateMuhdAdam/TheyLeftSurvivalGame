@@ -1,27 +1,17 @@
 extends Node2D
 @onready var ui_manager: CanvasLayer = $UIManager
 
-signal save_loaded
-
 var paused: bool = true
 var level_root: LevelRoot
-var loaded: bool = false
 
 func _ready() -> void:
 	level_root = get_tree().current_scene.get_node("LevelRoot")
 	load_game()
-	loaded = true
-	save_loaded.emit()
+	if !Game.player:
+		var player = get_tree().get_first_node_in_group("Player")
+		Game.set_player(player)
 	level_root.building_handler.log_buildings()
 
-func get_player() -> CharacterBody2D:
-	if !loaded:
-		await save_loaded
-	
-	await get_tree().process_frame
-	
-	var p = get_tree().get_first_node_in_group("Player")
-	return p
 	
 func get_root() -> Variant:
 	for child in get_children():
@@ -104,7 +94,9 @@ func load_game():
 		var new_object = load(node_data["filename"]).instantiate()
 		get_node(node_data["parent"]).add_child(new_object)
 		new_object.position = Vector2(node_data["pos_x"], node_data["pos_y"])
-
+		
+		print("Loading Object ", new_object.name, ", InstanceID: ", new_object.get_instance_id())
+		
 		# Now we set the remaining variables.
 		for i in node_data.keys():
 			if i == "filename" or i == "parent" or i == "pos_x" or i == "pos_y":
@@ -113,8 +105,13 @@ func load_game():
 			if i == "inventory":
 				new_object.set(i, convert_keys_to_int(node_data[i]))
 		
+		if new_object.is_in_group("Player"):
+			Game.set_player(new_object)
+		
 		if new_object is Building && !new_object.preplaced:
 			level_root.building_handler.building_list.append(new_object)
+			new_object.setup_data(null) #building data already set
+			new_object.load_trigger()
 
 func convert_keys_to_int(dict: Dictionary) -> Dictionary:
 	var new_dict := {}

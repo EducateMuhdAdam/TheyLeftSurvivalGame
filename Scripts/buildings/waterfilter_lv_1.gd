@@ -82,7 +82,7 @@ func update_sprite() -> void:
 		sprite.texture = wf_empty
 
 func _on_timeout() -> void:
-	print("Dirty: ", dirty, ", Clean: ", clean)
+	#print("Dirty: ", dirty, ", Clean: ", clean)
 	if dirty > 0 and clean < 100:
 		dirty -= 1
 		clean += 1
@@ -98,9 +98,23 @@ func save() -> Dictionary:
 		"parent" : get_parent().get_path(),
 		"pos_x" : position.x, # Vector2 is not supported by JSON
 		"pos_y" : position.y,
-		"input" : input,
-		"output" : output,
+		"data_path" : data_path,
+		"input" : {"data": unpack_itemID(input), "qty": input["qty"]},
+		"output" : {"data": unpack_itemID(output), "qty": output["qty"]},
 		"dirty" : dirty,
 		"clean" : clean
 	}
 	return save_dict
+
+func load_trigger() -> void:
+	input = itemID_to_data_in_dict(input)
+	output = itemID_to_data_in_dict(output)
+	if timer.is_stopped() and dirty > 0 and clean < 100:
+		timer.start(FILTERTIME)
+
+func destroy_building() -> void:
+	if input["data"]:
+		EventBus.add_multiple_item.emit(input["data"], input["qty"])
+	if output["data"]:
+		EventBus.add_multiple_item.emit(output["data"], output["qty"])
+	queue_free()

@@ -3,7 +3,7 @@ extends Node2D
 @export var ObjectContainer: Node2D 
 @export var tilemap: TileMapLayer
 @onready var guides: Node2D = $Guides
-@onready var player: CharacterBody2D = await Main.get_player()
+@onready var player: CharacterBody2D = await Game.get_player()
 
 enum BuildMode {PLACE, DESTROY, OFF}
 
@@ -98,7 +98,7 @@ func destroy_building(building: Variant) -> void:
 	var ingredients: Dictionary = building.building_data.requirement
 	for itemID in ingredients.keys():
 		player.add_inventory(Catalogue.item_catalogue[itemID], ingredients[itemID])
-	building.queue_free()
+	building.destroy_building()
 
 func check_can_place() -> bool:
 	if !guide.building_space:
@@ -137,10 +137,10 @@ func get_building_under_mouse() -> Building:
 
 
 func create_building(building_data: BuildingData) -> void:
-	var new = load(building_data.build_scene_path).instantiate()
+	var new: Building = load(building_data.build_scene_path).instantiate()
 	ObjectContainer.add_child(new)
 	new.global_position = guide.global_position
-	new.building_data = building_data
+	new.setup_data(building_data)
 	building_list.append(new)
 	toggle_placement_mode(false)
 	EventBus.mode_display.emit(GlobalEnum.BuildMode.OFF)

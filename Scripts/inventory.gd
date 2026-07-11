@@ -14,7 +14,7 @@ var item_library: Dictionary = {}
 signal slots_created
 
 func _ready() -> void:
-	player = await Main.get_player()
+	player = await Game.get_player()
 	EventBus.toggle_inventory.connect(toggle_inventory)
 	
 	item_library = Catalogue.item_catalogue

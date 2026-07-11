@@ -8,14 +8,14 @@ var plant: Dictionary = {"data": null, "qty": 0}
 var progress: int
 var panel: Node = null
 
-const TIMETOGROW: int = 120
+const TIMETOGROW: int = 12
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	interaction_area.interact = Callable(self, "_on_interact")
 	growtime.timeout.connect(_on_timer_timeout)
 	if progress:
-		growtime.start()
+		growtime.start(1)
 
 func activate_interaction(active: bool) -> void:
 	interaction_area.active = active
@@ -44,7 +44,7 @@ func building_action(panel: PanelContainer) -> void:
 	if panel.plant.item && panel.check_seed(panel.plant):
 		set_item(panel.plant.item)
 		progress = TIMETOGROW
-		growtime.start(1)
+		growtime.start()
 	else:
 		set_item(null)
 		growtime.stop()
@@ -65,6 +65,7 @@ func _on_timer_timeout() -> void:
 	set_item(plant["data"])
 	if panel:
 		panel.plant.update_slot(plant["data"], 1)
+	growtime.stop()
 
 func save() -> Dictionary:
 	var save_dict = {
@@ -72,7 +73,19 @@ func save() -> Dictionary:
 		"parent" : get_parent().get_path(),
 		"pos_x" : position.x, # Vector2 is not supported by JSON
 		"pos_y" : position.y,
-		"plant": plant,
+		"data_path" : data_path,
+		"plant": {"data": unpack_itemID(plant), "qty": plant["qty"]},
 		"progress": progress
 	}
 	return save_dict
+
+func load_trigger() -> void:
+	plant = itemID_to_data_in_dict(plant)
+	if progress:
+		growtime.start()
+		set_item(plant["data"])
+
+func destroy_building() -> void:
+	if plant["data"]:
+		EventBus.add_multiple_item.emit(plant["data"], plant["qty"])
+	queue_free()

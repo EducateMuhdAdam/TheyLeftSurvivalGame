@@ -14,7 +14,7 @@ const PATH: String = "res://Data/buildings/"
 var building_resources: Array[Resource]
 
 func _ready() -> void:
-	player = await Main.get_player()
+	player = await Game.get_player()
 	warning.hide()
 	self.hide()
 	confirm.pressed.connect(confirm_pressed)
