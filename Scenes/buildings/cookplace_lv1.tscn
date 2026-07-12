@@ -11,7 +11,7 @@ size = Vector2(106, 30)
 
 [node name="CookplaceLv1" type="StaticBody2D" unique_id=949385918 groups=["Buildings", "Persist"]]
 script = ExtResource("1_00brp")
-data = ExtResource("2_00brp")
+building_data = ExtResource("2_00brp")
 metadata/_custom_type_script = "uid://o4ahfg736fic"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2078663593]

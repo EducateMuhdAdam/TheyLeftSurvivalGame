@@ -53,7 +53,9 @@ func highlight_slot(slotID: int) -> void:
 	slots[slotID].add_theme_stylebox_override("panel", highlighted_style)
 	highlighted_id = slotID
 
-func interact_item(itemData: ItemData) -> void:
+func interact_item(itemData: Variant) -> void:
+	if not (itemData is ItemData):
+		return
 	if "Food" in itemData.tags:
 		player.increase_hunger(Catalogue.eating_reference[itemData.itemID])
 		player.remove_one_inventory(highlighted_id)

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BuildingData" format=3 uid="uid://pm0i82nruqsx"]
+
+[ext_resource type="Texture2D" uid="uid://cvk2f7ydaikmx" path="res://Assets/Images/Buildings/Net.png" id="1_ahneo"]
+[ext_resource type="Script" uid="uid://cma7fqff3prkl" path="res://Scripts/building_data.gd" id="2_ac54k"]
+
+[resource]
+script = ExtResource("2_ac54k")
+building_id = 10
+building_name = "Net"
+image = ExtResource("1_ahneo")
+x_size = 1
+build_scene_path = "uid://dbuh17eq4mcwh"
+metadata/_custom_type_script = "uid://cma7fqff3prkl"

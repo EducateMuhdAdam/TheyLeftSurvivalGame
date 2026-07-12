@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BuildingData" format=3 uid="uid://c1mvgk5j87hk7"]
+
+[ext_resource type="Texture2D" uid="uid://b50cskcrhp5ja" path="res://Assets/Images/Buildings/Chest.png" id="1_2gyll"]
+[ext_resource type="Script" uid="uid://cma7fqff3prkl" path="res://Scripts/building_data.gd" id="2_whro6"]
+
+[resource]
+script = ExtResource("2_whro6")
+building_id = 9
+building_name = "Chest"
+image = ExtResource("1_2gyll")
+x_size = 1
+build_scene_path = "uid://cki3duxe2nt5g"
+metadata/_custom_type_script = "uid://cma7fqff3prkl"

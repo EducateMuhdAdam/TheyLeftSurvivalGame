@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cki3duxe2nt5g"]
+
+[ext_resource type="Script" uid="uid://dkixwcspe56py" path="res://Scripts/buildings/storage.gd" id="1_8qkok"]
+[ext_resource type="Resource" uid="uid://c1mvgk5j87hk7" path="res://Data/buildings/chest.tres" id="2_8qkok"]
+[ext_resource type="Texture2D" uid="uid://b50cskcrhp5ja" path="res://Assets/Images/Buildings/Chest.png" id="3_ofjfm"]
+[ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="4_ghbfi"]
+[ext_resource type="Script" uid="uid://cp78fkd8r8mvm" path="res://building_space.gd" id="5_2lh70"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tetnc"]
+size = Vector2(74, 30)
+
+[node name="Chest" type="StaticBody2D" unique_id=1505914045]
+script = ExtResource("1_8qkok")
+NumberOfSlots = 10
+building_data = ExtResource("2_8qkok")
+metadata/_custom_type_script = "uid://dkixwcspe56py"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=260412250]
+position = Vector2(-16, 15)
+scale = Vector2(2, 2)
+texture = ExtResource("3_ofjfm")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=757857675]
+script = ExtResource("4_ghbfi")
+metadata/_custom_type_script = "uid://doscx7owdvjqj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1641794003]
+position = Vector2(-15, 15)
+shape = SubResource("RectangleShape2D_tetnc")
+
+[node name="BuildingSpace" type="Area2D" parent="." unique_id=1261113185]
+script = ExtResource("5_2lh70")
+sizeX = 1
+sizeY = 1
+metadata/_custom_type_script = "uid://cp78fkd8r8mvm"

@@ -11,7 +11,7 @@ size = Vector2(106, 30)
 
 [node name="Building" type="StaticBody2D" unique_id=815552534 groups=["Buildings", "Persist"]]
 script = ExtResource("1_ohiue")
-data = ExtResource("2_kjsx2")
+building_data = ExtResource("2_kjsx2")
 metadata/_custom_type_script = "uid://o4ahfg736fic"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1007269913]

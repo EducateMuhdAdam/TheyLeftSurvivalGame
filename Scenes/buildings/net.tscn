@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dbuh17eq4mcwh"]
+
+[ext_resource type="Script" uid="uid://dkixwcspe56py" path="res://Scripts/buildings/storage.gd" id="1_5ocxb"]
+[ext_resource type="Resource" uid="uid://pm0i82nruqsx" path="res://Data/buildings/net.tres" id="2_5ocxb"]
+[ext_resource type="Texture2D" uid="uid://cvk2f7ydaikmx" path="res://Assets/Images/Buildings/Net.png" id="3_ndogm"]
+[ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="4_3grul"]
+[ext_resource type="Script" uid="uid://cp78fkd8r8mvm" path="res://building_space.gd" id="5_oq2ni"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tetnc"]
+size = Vector2(74, 30)
+
+[node name="Net" type="StaticBody2D" unique_id=1505914045]
+script = ExtResource("1_5ocxb")
+NumberOfSlots = 10
+building_data = ExtResource("2_5ocxb")
+landlocked = false
+metadata/_custom_type_script = "uid://dkixwcspe56py"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=260412250]
+position = Vector2(-16, 15)
+scale = Vector2(2, 2)
+texture = ExtResource("3_ndogm")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=757857675]
+script = ExtResource("4_3grul")
+metadata/_custom_type_script = "uid://doscx7owdvjqj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1641794003]
+position = Vector2(-15, 15)
+shape = SubResource("RectangleShape2D_tetnc")
+
+[node name="BuildingSpace" type="Area2D" parent="." unique_id=1261113185]
+script = ExtResource("5_oq2ni")
+sizeX = 1
+sizeY = 1
+metadata/_custom_type_script = "uid://cp78fkd8r8mvm"
