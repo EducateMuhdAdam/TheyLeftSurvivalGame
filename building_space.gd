@@ -36,6 +36,15 @@ func check_all_tiles(tilemap: TileMapLayer, requirement: Callable) -> bool:
 		
 	return true
 
+func get_tiles_under_building(tilemap: TileMapLayer) -> Array[Dictionary]:
+	var tiles = []
+	var origin = tilemap.local_to_map(tilemap.to_local(global_position))
+	for offset in footprint:
+		var cell = origin + offset
+		var data = {"source_id": tilemap.get_cell_source_id(cell), "atlas_coords": tilemap.get_cell_atlas_coords(cell), "alternative": tilemap.get_cell_alternative_tile(cell), "pos": cell}
+		tiles.append(data)
+	return tiles
+
 func check_blocking() -> bool:
 	for area in blockers:
 		if area is BuildingSpace:
