@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://cp78fkd8r8mvm" path="res://building_space.gd" id="5_oq2ni"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tetnc"]
-size = Vector2(74, 30)
+size = Vector2(74, 60)
 
 [node name="Net" type="StaticBody2D" unique_id=1505914045]
 script = ExtResource("1_5ocxb")

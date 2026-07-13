@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://co5s3i8oc1u7b"]
+
+[ext_resource type="Script" uid="uid://biiry0k3yudo1" path="res://Scripts/buildings/bridge.gd" id="1_g7yor"]
+[ext_resource type="Resource" uid="uid://dty5ymfpcfe3a" path="res://Data/buildings/bridge.tres" id="2_5imys"]
+[ext_resource type="Texture2D" uid="uid://1jivcpebgfbx" path="res://Assets/Images/Buildings/Bridge.png" id="3_cshc0"]
+[ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="4_fe3qk"]
+[ext_resource type="Script" uid="uid://cp78fkd8r8mvm" path="res://building_space.gd" id="5_q2ibc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xk1ef"]
+size = Vector2(74, 30)
+
+[node name="Bridge" type="StaticBody2D" unique_id=2100432228 groups=["Buildings", "Persist"]]
+script = ExtResource("1_g7yor")
+building_data = ExtResource("2_5imys")
+landlocked = false
+metadata/_custom_type_script = "uid://o4ahfg736fic"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=418333759]
+position = Vector2(-16, 15)
+scale = Vector2(2, 2)
+texture = ExtResource("3_cshc0")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1903772078]
+script = ExtResource("4_fe3qk")
+metadata/_custom_type_script = "uid://doscx7owdvjqj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1549025618]
+position = Vector2(-15, 15)
+shape = SubResource("RectangleShape2D_xk1ef")
+
+[node name="BuildingSpace" type="Area2D" parent="." unique_id=773936434]
+script = ExtResource("5_q2ibc")
+sizeX = 1
+sizeY = 1
+metadata/_custom_type_script = "uid://cp78fkd8r8mvm"

@@ -33,15 +33,14 @@ func check_all_tiles(tilemap: TileMapLayer, requirement: Callable) -> bool:
 		var data: TileData = tilemap.get_cell_tile_data(cell)
 		if !requirement.call(data):
 			return false
-		
 	return true
 
 func get_tiles_under_building(tilemap: TileMapLayer) -> Array[Dictionary]:
-	var tiles = []
+	var tiles: Array[Dictionary] = []
 	var origin = tilemap.local_to_map(tilemap.to_local(global_position))
 	for offset in footprint:
 		var cell = origin + offset
-		var data = {"source_id": tilemap.get_cell_source_id(cell), "atlas_coords": tilemap.get_cell_atlas_coords(cell), "alternative": tilemap.get_cell_alternative_tile(cell), "pos": cell}
+		var data = {"source_id": tilemap.get_cell_source_id(cell), "atlas_coords": tilemap.get_cell_atlas_coords(cell), "alternative": tilemap.get_cell_alternative_tile(cell), "cell_pos": cell}
 		tiles.append(data)
 	return tiles
 

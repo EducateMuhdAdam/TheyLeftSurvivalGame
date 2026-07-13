@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BuildingData" format=3 uid="uid://dty5ymfpcfe3a"]
+
+[ext_resource type="Texture2D" uid="uid://1jivcpebgfbx" path="res://Assets/Images/Buildings/Bridge.png" id="1_byiuv"]
+[ext_resource type="Script" uid="uid://cma7fqff3prkl" path="res://Scripts/building_data.gd" id="1_p6vw3"]
+
+[resource]
+script = ExtResource("1_p6vw3")
+building_id = 11
+building_name = "Bridge"
+image = ExtResource("1_byiuv")
+x_size = 1
+build_scene_path = "uid://co5s3i8oc1u7b"
+metadata/_custom_type_script = "uid://cma7fqff3prkl"

@@ -337,8 +337,8 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
-size = Vector2(14, 11)
+[sub_resource type="CircleShape2D" id="CircleShape2D_6t5aa"]
+radius = 5.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1555570297 groups=["Persist", "Player"]]
 script = ExtResource("1_6t5aa")
@@ -351,6 +351,6 @@ autoplay = "idle-S"
 offset = Vector2(0, -15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2099085752]
-position = Vector2(0, -11)
+position = Vector2(0, -10)
 scale = Vector2(2, 2)
-shape = SubResource("RectangleShape2D_cvnsp")
+shape = SubResource("CircleShape2D_6t5aa")

@@ -138,8 +138,8 @@ func get_building_under_mouse() -> Building:
 
 func create_building(building_data: BuildingData) -> void:
 	var new: Building = load(building_data.build_scene_path).instantiate()
-	ObjectContainer.add_child(new)
 	new.global_position = guide.global_position
+	ObjectContainer.add_child(new)
 	new.setup_data(building_data)
 	building_list.append(new)
 	toggle_placement_mode(false)
