@@ -2,6 +2,7 @@ extends Node
 
 var item_catalogue: Dictionary[int, ItemData]
 var crafting_catalogue: Dictionary[int, CraftingData]
+var warp_catalogue: Dictionary[int, WarpData]
 var cooking_reference: Dictionary = {
 	2: 5
 }
@@ -22,6 +23,7 @@ func _ready() -> void:
 	crafting_catalogue = get_crafting_resources()
 	cooking_reference = get_cooking_reference()
 	plant_reference = get_plant_reference()
+	warp_catalogue = get_warp_resources()
 
 func get_cooking_reference() -> Dictionary:
 	var reference = {}
@@ -79,6 +81,33 @@ func get_crafting_resources() -> Dictionary[int, CraftingData]:
 					
 				if scene_resource:
 					var key = scene_resource.craftingID
+					resources[key] = scene_resource
+					print("Successfully loaded: ", scene_path)
+			file_name = dir.get_next()
+			
+		dir.list_dir_end()
+	else:
+		print("An error occurred when trying to access the path.")
+		
+	return resources
+
+func get_warp_resources() -> Dictionary[int, WarpData]:
+	const PATH: String = "res://Data/warpgates/"
+	var resources: Dictionary[int, WarpData] = {}
+	var dir = DirAccess.open(PATH)
+	
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		
+		while file_name != "":
+			# Ignore directories and only grab scene files
+			if !dir.current_is_dir() and file_name.ends_with(".tres"):
+				var scene_path = PATH + "/" + file_name
+				var scene_resource: WarpData = load(scene_path)
+					
+				if scene_resource:
+					var key = scene_resource.warpID
 					resources[key] = scene_resource
 					print("Successfully loaded: ", scene_path)
 			file_name = dir.get_next()

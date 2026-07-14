@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bqrrxhlk4jffs"]
+
+[ext_resource type="Script" uid="uid://c44x58vi5ct2r" path="res://Scripts/warps/town_warp.gd" id="1_6bm8l"]
+[ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="2_2frtq"]
+[ext_resource type="Resource" uid="uid://ndmbk3eyqas5" path="res://Data/warpgates/1_town_warp.tres" id="2_3cauh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3cauh"]
+size = Vector2(72, 40)
+
+[node name="TownWarp" type="Node2D" unique_id=1718563995]
+position = Vector2(482, 26)
+script = ExtResource("1_6bm8l")
+warpData = ExtResource("2_3cauh")
+metadata/_custom_type_script = "uid://6rxpkbjigsp1"
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=219777549]
+script = ExtResource("2_2frtq")
+action_name = "Enter Town"
+metadata/_custom_type_script = "uid://doscx7owdvjqj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=2085322169]
+shape = SubResource("RectangleShape2D_3cauh")

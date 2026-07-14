@@ -6,6 +6,7 @@
 script = ExtResource("1_8nyqy")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1901212311]
+follow_viewport_enabled = true
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=527189846]
 offset_right = 40.0

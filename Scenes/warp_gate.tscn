@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://l863tre3kppv"]
+
+[ext_resource type="Script" uid="uid://6rxpkbjigsp1" path="res://Scripts/warp_gate.gd" id="1_m10ms"]
+
+[node name="WarpGate" type="Node2D" unique_id=1677333612]
+script = ExtResource("1_m10ms")

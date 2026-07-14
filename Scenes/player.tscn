@@ -354,3 +354,5 @@ offset = Vector2(0, -15)
 position = Vector2(0, -10)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_6t5aa")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="." unique_id=647021029]

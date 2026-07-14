@@ -8,6 +8,7 @@ extends CharacterBody2D
 #TODO: Make Fishing
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var rt2d: RemoteTransform2D = $RemoteTransform2D
 
 signal hunger_changed(value)
 signal thirst_changed(value)

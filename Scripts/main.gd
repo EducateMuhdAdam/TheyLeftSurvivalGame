@@ -1,15 +1,18 @@
 extends Node2D
 @onready var ui_manager: CanvasLayer = $UIManager
+@onready var camera: Camera2D = $Camera2D
 
 var paused: bool = true
 var level_root: LevelRoot
 
 func _ready() -> void:
+	EventBus.link_camera.connect(link_camera)
 	level_root = get_tree().current_scene.get_node("LevelRoot")
 	load_game()
 	if !Game.player:
 		var player = get_tree().get_first_node_in_group("Player")
 		Game.set_player(player)
+		EventBus.link_camera.emit(player.rt2d)
 	level_root.building_handler.log_buildings()
 
 	
@@ -120,3 +123,6 @@ func convert_keys_to_int(dict: Dictionary) -> Dictionary:
 		new_dict[int(key)] = dict[key]
 
 	return new_dict
+
+func link_camera(target: RemoteTransform2D) -> void:
+	target.remote_path = camera.get_path()

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ukw2r2od00jg"]
+
+[ext_resource type="Script" uid="uid://cdon6lfl8gwug" path="res://Scripts/warps/factory_entry.gd" id="1_uebm7"]
+[ext_resource type="Resource" uid="uid://6vpr1l2lgif3" path="res://Data/warpgates/2_factory_entry.tres" id="2_4imso"]
+[ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="2_uebm7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4imso"]
+size = Vector2(50, 120)
+
+[node name="FactoryEntry" type="Node2D" unique_id=1521473185]
+script = ExtResource("1_uebm7")
+warpData = ExtResource("2_4imso")
+metadata/_custom_type_script = "uid://6rxpkbjigsp1"
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1249430825]
+script = ExtResource("2_uebm7")
+action_name = "Enter Factory"
+metadata/_custom_type_script = "uid://doscx7owdvjqj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1123425322]
+shape = SubResource("RectangleShape2D_4imso")

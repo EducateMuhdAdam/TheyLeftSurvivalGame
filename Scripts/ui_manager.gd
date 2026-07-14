@@ -41,6 +41,8 @@ func activate_one_mode(exception: Variant):
 	
 	
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("R"):
+		print(player.global_position)
 	if event.is_action_pressed("escape"):
 		handle_escape()
 	if !main.paused:

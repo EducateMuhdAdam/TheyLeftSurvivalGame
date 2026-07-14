@@ -8,6 +8,8 @@ signal toggle_inventory(mode: bool)
 signal mode_display(modeType: GlobalEnum.BuildMode)
 signal shared_ui(panel: PanelContainer, parent: Node)
 
+signal link_camera(rt2d: RemoteTransform2D)
+
 signal add_item(itemData: ItemData)
 signal add_multiple_item(itemData: ItemData, quantity: int)
 signal erase_item(slotID: int)
