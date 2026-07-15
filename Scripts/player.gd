@@ -19,6 +19,7 @@ const INVENTORY_NUM: int = 30
 
 var unlocked_recipes: Array[int] = Catalogue.get_crafting_resources().keys()
 
+var areaData: AreaData
 var hunger_rate = 0.05
 var thirst_rate = 0.2
 var hunger = 40
@@ -29,6 +30,7 @@ var facing_direction: String = "S"
 var input_direction: Vector2 = Vector2(0,0)
 
 func _ready() -> void:
+	EventBus.change_area.connect(set_area_data)
 	EventBus.add_item.connect(add_one_inventory)
 	EventBus.add_multiple_item.connect(add_inventory)
 	EventBus.swap_item.connect(swap_inventory)
@@ -169,12 +171,17 @@ func swap_inventory(ID1: int, ID2: int) -> void:
 		inventory.erase(ID2)
 	update_inventory.emit(inventory)
 
+func set_area_data(ad: AreaData) -> void:
+	print("Set Player Area: ", ad)
+	areaData = ad
+
 func save() -> Dictionary:
 	var save_dict = {
 		"filename" : get_scene_file_path(),
 		"parent" : get_parent().get_path(),
 		"pos_x" : position.x,
 		"pos_y" : position.y,
+		"areaData" : areaData.resource_path,
 		"inventory" : inventory,
 		"unlocked_recipes": unlocked_recipes,
 		"hunger_rate": hunger_rate,

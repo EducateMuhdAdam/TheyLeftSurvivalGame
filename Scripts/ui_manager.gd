@@ -8,6 +8,7 @@ var player: CharacterBody2D
 @onready var ui_container: HBoxContainer = $CenterContainer/UIContainer
 @onready var mode_display: Control = $ModeDisplay
 @onready var pause_menu: Control = $PauseMenu
+@onready var color_rect: ColorRect = $ColorRect
 
 @export var main: Node2D
 
@@ -19,6 +20,7 @@ var inventory_mode: bool = false
 var placement_mode: bool = false
 
 func _ready() -> void:
+	color_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	player = await Game.get_player()
 	pause_menu.main = main
 	inventory.get_panel().reparent(ui_container)

@@ -2,11 +2,16 @@ extends Node2D
 @onready var ui_manager: CanvasLayer = $UIManager
 @onready var camera: Camera2D = $Camera2D
 
+
 var paused: bool = true
 var level_root: LevelRoot
 
 func _ready() -> void:
+	ui_manager.color_rect.modulate.a = 0
 	EventBus.link_camera.connect(link_camera)
+	EventBus.set_camera_limit.connect(set_camera_limit)
+	EventBus.position_camera.connect(position_camera)
+	EventBus.fade_out.connect(fade_out)
 	level_root = get_tree().current_scene.get_node("LevelRoot")
 	load_game()
 	if !Game.player:
@@ -107,9 +112,13 @@ func load_game():
 			new_object.set(i, node_data[i])
 			if i == "inventory":
 				new_object.set(i, convert_keys_to_int(node_data[i]))
-		
+			if i == "areaData":
+				new_object.set(i, load(node_data[i]))
+				
 		if new_object.is_in_group("Player"):
 			Game.set_player(new_object)
+			EventBus.set_camera_limit.emit(new_object.areaData.limit_ltrb)
+			EventBus.position_camera.emit(new_object.global_position)
 		
 		if new_object is Building && !new_object.preplaced:
 			level_root.building_handler.building_list.append(new_object)
@@ -126,3 +135,24 @@ func convert_keys_to_int(dict: Dictionary) -> Dictionary:
 
 func link_camera(target: RemoteTransform2D) -> void:
 	target.remote_path = camera.get_path()
+
+func set_camera_limit(limit_ltrb: Vector4i) -> void:
+	print("Camera Limit: ", limit_ltrb)
+	camera.limit_left = limit_ltrb.x
+	camera.limit_top = limit_ltrb.y
+	camera.limit_right = limit_ltrb.z
+	camera.limit_bottom = limit_ltrb.w
+
+func position_camera(pos: Vector2) -> void:
+	camera.global_position = pos
+
+func fade_out(enter: bool) -> void:
+	if enter:
+		var tween = create_tween()
+		tween.tween_property(ui_manager.color_rect, "modulate:a", 1.0, 0.5) # Fades over 0.5 seconds
+		await tween.finished
+		EventBus.fade_out_finished.emit()
+	else:
+		var tween = create_tween()
+		tween.tween_property(ui_manager.color_rect, "modulate:a", 0.0, 0.5) # Fades over 0.5 seconds
+		await tween.finished

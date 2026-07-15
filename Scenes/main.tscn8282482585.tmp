@@ -14,9 +14,19 @@ process_mode = 1
 [node name="UIManager" parent="." unique_id=29909133 node_paths=PackedStringArray("main") instance=ExtResource("2_bo1nx")]
 main = NodePath("..")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=399404817]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=538618200]
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer" unique_id=399404817]
 limit_left = 0
 limit_top = -32
 limit_right = 1280
 limit_bottom = 736
 position_smoothing_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Camera2D" unique_id=1889300393]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

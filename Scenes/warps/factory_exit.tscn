@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b1wbe2tvacwfs"]
+
+[ext_resource type="Script" uid="uid://37t2pt4kower" path="res://Scripts/warps/factory_exit.gd" id="1_wnsee"]
+[ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="2_8yprf"]
+[ext_resource type="Resource" uid="uid://d0yrp0dqwtssw" path="res://Data/warpgates/3_factory_exit.tres" id="2_v3b8j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3b8j"]
+size = Vector2(48, 48)
+
+[node name="WarpGate" type="Node2D" unique_id=1012971442]
+script = ExtResource("1_wnsee")
+warpData = ExtResource("2_v3b8j")
+metadata/_custom_type_script = "uid://6rxpkbjigsp1"
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1624878644]
+script = ExtResource("2_8yprf")
+action_name = "Exit Factory"
+metadata/_custom_type_script = "uid://doscx7owdvjqj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=501633216]
+shape = SubResource("RectangleShape2D_v3b8j")
