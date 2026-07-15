@@ -18,4 +18,5 @@ action_name = "Exit Factory"
 metadata/_custom_type_script = "uid://doscx7owdvjqj"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=501633216]
+position = Vector2(-80, 0)
 shape = SubResource("RectangleShape2D_v3b8j")
