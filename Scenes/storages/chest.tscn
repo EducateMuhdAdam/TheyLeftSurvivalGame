@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cki3duxe2nt5g"]
 
 [ext_resource type="Script" uid="uid://dkixwcspe56py" path="res://Scripts/buildings/storage.gd" id="1_8qkok"]
-[ext_resource type="Resource" uid="uid://c1mvgk5j87hk7" path="res://Data/buildings/chest.tres" id="2_8qkok"]
+[ext_resource type="Resource" uid="uid://c1mvgk5j87hk7" path="res://Data/buildings/9_chest.tres" id="2_8qkok"]
 [ext_resource type="Texture2D" uid="uid://b50cskcrhp5ja" path="res://Assets/Images/Buildings/Chest.png" id="3_ofjfm"]
 [ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="4_ghbfi"]
 [ext_resource type="Script" uid="uid://cp78fkd8r8mvm" path="res://building_space.gd" id="5_2lh70"]

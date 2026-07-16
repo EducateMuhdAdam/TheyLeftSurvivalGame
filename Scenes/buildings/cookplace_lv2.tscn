@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dd5711ny42xem"]
 
 [ext_resource type="Script" uid="uid://bwuaixaoebxa3" path="res://Scripts/buildings/cookplace_lv_2.gd" id="1_ohiue"]
-[ext_resource type="Resource" uid="uid://8hme33onhrnv" path="res://Data/buildings/cookplace_lv2.tres" id="2_kjsx2"]
+[ext_resource type="Resource" uid="uid://8hme33onhrnv" path="res://Data/buildings/6_cookplace_lv2.tres" id="2_kjsx2"]
 [ext_resource type="Texture2D" uid="uid://cceqpybd2ollt" path="res://Assets/Images/Buildings/CookplaceLv2.png" id="3_ohiue"]
 [ext_resource type="Script" uid="uid://cp78fkd8r8mvm" path="res://building_space.gd" id="4_lf4gg"]
 [ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="5_fo131"]

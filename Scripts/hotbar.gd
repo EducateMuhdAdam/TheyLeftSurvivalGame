@@ -62,3 +62,14 @@ func interact_item(itemData: Variant) -> void:
 	if "Drink" in itemData.tags:
 		player.increase_thirst(Catalogue.drinking_reference[itemData.itemID])
 		player.remove_one_inventory(highlighted_id)
+	if "Message" in itemData.tags:
+		var messageData: MessageData = Catalogue.item_to_message_reference[itemData.itemID]
+		EventBus.open_message.emit(messageData)
+	if "Scrap" in itemData.tags:
+		EventBus.add_item.emit(Catalogue.scrap_reference[itemData.itemID])
+	if itemData.itemID == 1:
+		var level_root = await Game.get_level_root()
+		var tileData: TileData = player.get_tile_data_infront(level_root.main_layer)
+		if tileData != null && tileData.get_custom_data("water"):
+			player.remove_one_inventory(highlighted_id)
+			EventBus.add_item.emit(Catalogue.item_catalogue[4])

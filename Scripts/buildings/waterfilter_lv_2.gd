@@ -25,7 +25,7 @@ func _ready() -> void:
 		timer.start(FILTERTIME)
 
 func _on_interact():
-	panel = load(self.data.ui_scene_path).instantiate()
+	panel = load(self.building_data.ui_scene_path).instantiate()
 	panel.building = self
 	EventBus.shared_ui.emit(panel, self)
 	panel.building_texture.texture = sprite.texture

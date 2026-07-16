@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BuildingData" format=3 uid="uid://dhjsylh6wgfyj"]
+
+[ext_resource type="Texture2D" uid="uid://ctriuy6cd2dr3" path="res://Assets/Images/Buildings/FarmLv2.png" id="1_8e3vb"]
+[ext_resource type="Script" uid="uid://cma7fqff3prkl" path="res://Scripts/building_data.gd" id="2_seuyp"]
+
+[resource]
+script = ExtResource("2_seuyp")
+building_id = 2
+building_name = "Farm"
+image = ExtResource("1_8e3vb")
+requirement = Dictionary[int, int]({
+6: 4
+})
+building_level = 2
+build_scene_path = "uid://cpj7hudur3n8y"
+ui_scene_path = "uid://bjacmw2ktcguw"
+metadata/_custom_type_script = "uid://cma7fqff3prkl"

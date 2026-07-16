@@ -1,15 +1,14 @@
 [gd_resource type="Resource" script_class="CraftingData" format=3 uid="uid://dgbb1ojamnu4p"]
 
-[ext_resource type="Script" uid="uid://drwggvk04tang" path="res://Scripts/crafting_data.gd" id="1_5o17f"]
+[ext_resource type="Script" uid="uid://drwggvk04tang" path="res://Scripts/crafting_data.gd" id="1_pwr03"]
 
 [resource]
-script = ExtResource("1_5o17f")
+script = ExtResource("1_pwr03")
 craftingID = 2
 recipe = Dictionary[int, int]({
-1: 1,
-2: 1
+12: 4
 })
 product = Dictionary[int, int]({
-7: 1
+10: 1
 })
 metadata/_custom_type_script = "uid://drwggvk04tang"

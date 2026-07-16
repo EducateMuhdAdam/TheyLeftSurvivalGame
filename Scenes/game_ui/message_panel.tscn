@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bmbauu25vp4kb"]
+
+[ext_resource type="Script" uid="uid://7kkyarf365kc" path="res://Scripts/message_panel.gd" id="1_32pyp"]
+
+[node name="MessagePanel" type="PanelContainer" unique_id=1270926145]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_32pyp")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=840663170]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=1076982912]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer" unique_id=1262842947]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=2035134237]
+layout_mode = 2
+text = "Message Title (01/01/2300)"
+
+[node name="Message" type="RichTextLabel" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=5749303]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel egestas odio. Integer mauris tellus, accumsan id ligula ut, commodo bibendum nibh. Quisque fermentum pellentesque nibh non rutrum. Praesent gravida suscipit elit a pellentesque. Ut placerat sapien libero, sit amet sodales erat elementum vitae. Phasellus viverra arcu auctor rhoncus tincidunt. Cras venenatis scelerisque sapien.
+
+Nam sed placerat nibh. Vestibulum condimentum dignissim purus, tristique pellentesque turpis porta nec. Duis pulvinar justo ut dolor feugiat, vitae mollis dui mollis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis felis id nunc euismod tristique. Etiam tristique erat pretium lacus volutpat, non lacinia quam pulvinar. Sed ultrices nibh vel mauris mollis ultricies. Nulla cursus laoreet imperdiet. Suspendisse at mauris molestie, sodales orci at, condimentum magna. Phasellus tincidunt, arcu eu auctor consectetur, ante mi lobortis nibh, eget pretium tellus enim ullamcorper turpis. Pellentesque eget lorem quam. Praesent dignissim accumsan massa, quis faucibus nisi convallis sed. Sed sit amet lectus ullamcorper, egestas dolor et, tincidunt purus.
+
+Sed ac sagittis massa. Praesent lobortis suscipit sapien, sit amet pharetra eros dictum at. Integer gravida lobortis turpis, aliquam feugiat erat gravida a. Nam eu commodo nunc, vel aliquet dui. Donec semper enim id hendrerit pretium. Quisque eget mattis sapien, in semper purus. Sed ac mi convallis quam dictum accumsan. In quis egestas ipsum. Mauris vel varius velit, quis tempus mauris. Donec et ultrices risus. Sed dolor tellus, euismod vitae porta ut, volutpat sit amet lorem. Pellentesque eget ex dui. Donec molestie urna nisl, at molestie ex faucibus nec. Sed sed imperdiet ligula, maximus consequat sapien. Mauris tellus ipsum, vulputate at sodales id, maximus in dolor. Cras eros ex, maximus id arcu non, cursus eleifend sem."
+fit_content = true

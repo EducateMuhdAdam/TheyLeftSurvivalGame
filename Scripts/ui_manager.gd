@@ -11,9 +11,10 @@ var player: CharacterBody2D
 @onready var color_rect: ColorRect = $ColorRect
 
 @export var main: Node2D
-
+var messagePanelScene = preload("res://Scenes/game_ui/message_panel.tscn")
 var modeSignals: Array[Signal] = [EventBus.toggle_build_mode, EventBus.toggle_destroy_mode, EventBus.toggle_placement_mode, EventBus.toggle_inventory]
 var modeNum: int = 0
+var single_panel: PanelContainer
 var build_mode: bool = false
 var destroy_mode: bool = false
 var inventory_mode: bool = false
@@ -24,11 +25,13 @@ func _ready() -> void:
 	player = await Game.get_player()
 	pause_menu.main = main
 	inventory.get_panel().reparent(ui_container)
+	EventBus.single_ui.connect(open_single_mode)
 	EventBus.shared_ui.connect(open_shared_mode)
 	EventBus.toggle_build_mode.connect(set_build_mode)
 	EventBus.toggle_inventory.connect(set_inventory_mode)
 	EventBus.toggle_destroy_mode.connect(set_destroy_mode)
 	EventBus.toggle_placement_mode.connect(set_placement_mode)
+	EventBus.open_message.connect(show_message)
 
 
 func activate_one_mode(exception: Variant):
@@ -109,6 +112,8 @@ func set_inventory(is_on: bool) -> void:
 	if is_on:
 		activate_one_mode(EventBus.toggle_inventory)
 	else:
+		if not(inventory.get_panel() in ui_container.get_children()):
+			ui_container.add_child(inventory.get_panel())
 		activate_one_mode(null)
 
 func set_build_menu(is_on: bool) -> void:
@@ -122,8 +127,20 @@ func open_shared_mode(node: PanelContainer, building: Node) -> void:
 	ui_container.add_child(node)
 	toggle_inventory()
 
+func open_single_mode(node: PanelContainer) -> void:
+	if inventory.get_panel() in ui_container.get_children():
+		ui_container.remove_child(inventory.get_panel())
+	ui_container.add_child(node)
+	single_panel = node
+	toggle_inventory()
+
 func show_pause_menu(show: bool) -> void:
 	if show:
 		pause_menu.show()
 	else:
 		pause_menu.hide()
+
+func show_message(messageData: MessageData) -> void:
+	var msgPanel = messagePanelScene.instantiate()
+	msgPanel.messageData = messageData
+	EventBus.single_ui.emit(msgPanel)

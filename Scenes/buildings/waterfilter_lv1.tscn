@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bjmd5tpf06bi1" path="res://Scripts/buildings/waterfilter_lv_1.gd" id="1_kfvdm"]
 [ext_resource type="Texture2D" uid="uid://ctur5kxlbvyfy" path="res://Assets/Images/Buildings/WaterFilterLv1.png" id="2_ar0vy"]
-[ext_resource type="Resource" uid="uid://knrp4o6exuav" path="res://Data/buildings/waterfilter_lv1.tres" id="2_kfvdm"]
+[ext_resource type="Resource" uid="uid://knrp4o6exuav" path="res://Data/buildings/3_waterfilter_lv1.tres" id="2_kfvdm"]
 [ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="4_44h15"]
 [ext_resource type="Script" uid="uid://cp78fkd8r8mvm" path="res://building_space.gd" id="5_44h15"]
 

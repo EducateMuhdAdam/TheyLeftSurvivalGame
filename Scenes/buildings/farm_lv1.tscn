@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://vrswfvbjcs31" path="res://Scripts/buildings/farm_lv_1.gd" id="1_fter2"]
 [ext_resource type="Texture2D" uid="uid://jol6ct5qi280" path="res://Assets/Images/Buildings/FarmLv1.png" id="2_1og72"]
-[ext_resource type="Resource" uid="uid://4xy1tl26rviw" path="res://Data/buildings/farm_lv1.tres" id="2_swnle"]
+[ext_resource type="Resource" uid="uid://4xy1tl26rviw" path="res://Data/buildings/1_farm_lv1.tres" id="2_swnle"]
 [ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="3_fter2"]
 [ext_resource type="Script" uid="uid://cp78fkd8r8mvm" path="res://building_space.gd" id="5_pkckn"]
 

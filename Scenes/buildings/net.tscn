@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dbuh17eq4mcwh"]
 
-[ext_resource type="Script" uid="uid://dkixwcspe56py" path="res://Scripts/buildings/storage.gd" id="1_5ocxb"]
-[ext_resource type="Resource" uid="uid://pm0i82nruqsx" path="res://Data/buildings/net.tres" id="2_5ocxb"]
+[ext_resource type="Script" uid="uid://b0p3gv3dbp121" path="res://Scripts/buildings/net.gd" id="1_5ocxb"]
+[ext_resource type="Resource" uid="uid://pm0i82nruqsx" path="res://Data/buildings/10_net.tres" id="2_5ocxb"]
 [ext_resource type="Texture2D" uid="uid://cvk2f7ydaikmx" path="res://Assets/Images/Buildings/Net.png" id="3_ndogm"]
 [ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="4_3grul"]
 [ext_resource type="Script" uid="uid://cp78fkd8r8mvm" path="res://building_space.gd" id="5_oq2ni"]
@@ -34,3 +34,9 @@ script = ExtResource("5_oq2ni")
 sizeX = 1
 sizeY = 1
 metadata/_custom_type_script = "uid://cp78fkd8r8mvm"
+
+[node name="Timer" type="Timer" parent="." unique_id=792862397]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

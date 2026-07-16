@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bqxyyovm4v62t"]
+
+[ext_resource type="Texture2D" uid="uid://d1j87vkc44771" path="res://Assets/Images/Items/Note.png" id="1_x4byb"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="2_xt4nb"]
+
+[resource]
+script = ExtResource("2_xt4nb")
+itemID = 101
+itemName = "Test Note"
+image = ExtResource("1_x4byb")
+tags = Array[String](["Message"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

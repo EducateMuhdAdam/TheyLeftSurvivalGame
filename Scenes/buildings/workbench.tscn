@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c7gqauh6jvf37"]
 
 [ext_resource type="Script" uid="uid://deui20l447md6" path="res://Scripts/building_ui/workbench.gd" id="1_0scvb"]
-[ext_resource type="Resource" uid="uid://c5t76m0ys70rv" path="res://Data/buildings/workbench.tres" id="2_7d6c7"]
+[ext_resource type="Resource" uid="uid://c5t76m0ys70rv" path="res://Data/buildings/8_workbench.tres" id="2_7d6c7"]
 [ext_resource type="Texture2D" uid="uid://hrl6y6btkoja" path="res://Assets/Images/Buildings/Workbench.png" id="3_ahtt5"]
 [ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="4_pu13k"]
 [ext_resource type="Script" uid="uid://cp78fkd8r8mvm" path="res://building_space.gd" id="5_7d6c7"]

@@ -8,6 +8,10 @@ script = ExtResource("1_p6vw3")
 building_id = 11
 building_name = "Bridge"
 image = ExtResource("1_byiuv")
+requirement = Dictionary[int, int]({
+6: 4,
+10: 2
+})
 x_size = 1
 build_scene_path = "uid://co5s3i8oc1u7b"
 metadata/_custom_type_script = "uid://cma7fqff3prkl"

@@ -76,9 +76,11 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	return self 
 
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
-	return data is Slot and data != self and requirement.call(data) and can_interact
+	return data && (data is Slot and data != self and requirement.call(data) and can_interact)
 	
 func _drop_data(at_position: Vector2, origin_slot: Variant) -> void:
+	if !origin_slot:
+		return
 	if one_item:
 		one_item_seq(origin_slot)
 	else:

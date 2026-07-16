@@ -21,7 +21,7 @@ func activate_interaction(active: bool) -> void:
 	interaction_area.active = active
 
 func _on_interact():
-	panel = load(self.data.ui_scene_path).instantiate()
+	panel = load(self.building_data.ui_scene_path).instantiate()
 	panel.building = self
 	EventBus.shared_ui.emit(panel, self)
 	setup_panel()

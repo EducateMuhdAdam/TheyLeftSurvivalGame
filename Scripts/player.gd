@@ -28,8 +28,20 @@ var inventory = {1: {"id": 1, "qty": 2}, 2: {"id": 2, "qty": 3}, 3: {"id": 6, "q
 
 var facing_direction: String = "S"
 var input_direction: Vector2 = Vector2(0,0)
+const direction_offset: Dictionary = {
+	"N" : Vector2i(0, -1),
+	"S" : Vector2i(0, 1),
+	"W" : Vector2i(-1, 0),
+	"E" : Vector2i(1, 0),
+	"NE": Vector2i(1, -1),
+	"NW": Vector2i(-1, -1),
+	"SE": Vector2i(1, 1),
+	"SW": Vector2i(-1, 1)
+}
 
 func _ready() -> void:
+	if !areaData:
+		areaData = load("res://Data/areas/1_empty_lot.tres") #SetDefaultHere
 	EventBus.change_area.connect(set_area_data)
 	EventBus.add_item.connect(add_one_inventory)
 	EventBus.add_multiple_item.connect(add_inventory)
@@ -174,6 +186,12 @@ func swap_inventory(ID1: int, ID2: int) -> void:
 func set_area_data(ad: AreaData) -> void:
 	print("Set Player Area: ", ad)
 	areaData = ad
+
+func get_tile_data_infront(tilemap: TileMapLayer) -> TileData:
+	var origin = tilemap.local_to_map(tilemap.to_local(global_position))
+	var offset = direction_offset[facing_direction]
+	var cell = origin + offset
+	return tilemap.get_cell_tile_data(cell)
 
 func save() -> Dictionary:
 	var save_dict = {

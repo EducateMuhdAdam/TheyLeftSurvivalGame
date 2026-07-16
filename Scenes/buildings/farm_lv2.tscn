@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cpj7hudur3n8y"]
 
 [ext_resource type="Script" uid="uid://c84fkghsaivr3" path="res://Scripts/buildings/farm_lv_2.gd" id="1_q4aee"]
-[ext_resource type="Resource" uid="uid://dhjsylh6wgfyj" path="res://Data/buildings/farm_lv2.tres" id="2_o5w8q"]
+[ext_resource type="Resource" uid="uid://dhjsylh6wgfyj" path="res://Data/buildings/2_farm_lv2.tres" id="2_o5w8q"]
 [ext_resource type="Texture2D" uid="uid://ctriuy6cd2dr3" path="res://Assets/Images/Buildings/FarmLv2.png" id="3_326me"]
 [ext_resource type="Script" uid="uid://cp78fkd8r8mvm" path="res://building_space.gd" id="4_47hrv"]
 [ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="5_bt5pv"]

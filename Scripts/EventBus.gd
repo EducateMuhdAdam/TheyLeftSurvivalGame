@@ -7,6 +7,8 @@ signal toggle_destroy_mode(mode: bool)
 signal toggle_inventory(mode: bool)
 signal mode_display(modeType: GlobalEnum.BuildMode)
 signal shared_ui(panel: PanelContainer, parent: Node)
+signal single_ui(panel: PanelContainer)
+signal open_message(messageData: MessageData)
 
 signal link_camera(rt2d: RemoteTransform2D)
 signal set_camera_limit(limit_ltrb: Vector4i)

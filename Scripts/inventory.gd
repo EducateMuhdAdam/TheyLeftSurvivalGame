@@ -25,7 +25,10 @@ func _ready() -> void:
 	slots_created.emit()
 
 func get_panel() -> PanelContainer:
-	return $PanelContainer
+	if !panel_container:
+		return $PanelContainer
+	else:
+		return panel_container
 
 func setup_inventory_grid() -> void:
 	for i in range(0, player.INVENTORY_NUM):

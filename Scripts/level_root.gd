@@ -4,6 +4,7 @@ class_name LevelRoot
 @export var building_handler: Node2D = get_node_or_null("BuildingHandler")
 @export var item_handler: Node2D = get_node_or_null("ItemHandler")
 @export var collision_layer: TileMapLayer
+@export var main_layer: TileMapLayer
 
 func _ready() -> void:
 	Game.set_level_root(self)

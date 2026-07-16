@@ -21,5 +21,5 @@ func handle_close_panel(node: Node) -> void:
 	if node.has_method("close_panel"):
 		node.close_panel()
 	else:
-		print("Close Panel Not Found")
+		print("Close Panel Not Found For ", node)
 		node.queue_free()

@@ -7,7 +7,7 @@ extends Node2D
 
 enum BuildMode {PLACE, DESTROY, OFF}
 
-var reference: BuildingData = preload("res://Data/buildings/farm_lv1.tres") #Default
+var reference: BuildingData = preload("res://Data/buildings/1_farm_lv1.tres") #Default
 var guide: Building
 var highlighted: Building
 var mode: BuildMode = BuildMode.OFF

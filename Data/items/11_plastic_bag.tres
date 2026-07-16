@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://pqc3i13u0boh"]
+
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="1_fu67a"]
+[ext_resource type="Texture2D" uid="uid://b0nuioua8ifyf" path="res://Assets/Images/Items/plastic bag.png" id="1_qliy3"]
+
+[resource]
+script = ExtResource("1_fu67a")
+itemID = 11
+itemName = "Plastic Bag"
+image = ExtResource("1_qliy3")
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

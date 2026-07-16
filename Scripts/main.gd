@@ -117,6 +117,7 @@ func load_game():
 				
 		if new_object.is_in_group("Player"):
 			Game.set_player(new_object)
+			EventBus.link_camera.emit(new_object.rt2d)
 			EventBus.set_camera_limit.emit(new_object.areaData.limit_ltrb)
 			EventBus.position_camera.emit(new_object.global_position)
 		

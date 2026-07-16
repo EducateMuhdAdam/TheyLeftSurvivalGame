@@ -3,6 +3,7 @@ extends Node
 var item_catalogue: Dictionary[int, ItemData]
 var crafting_catalogue: Dictionary[int, CraftingData]
 var warp_catalogue: Dictionary[int, WarpData]
+var message_catalogue: Dictionary[int, MessageData]
 var cooking_reference: Dictionary = {
 	2: 5
 }
@@ -17,6 +18,13 @@ var eating_reference: Dictionary = {
 var drinking_reference: Dictionary = {
 	3: 60.0
 }
+var item_to_message_reference: Dictionary = {
+	101: 1
+}
+
+var scrap_reference: Dictionary = {
+	3: 1
+}
 
 func _ready() -> void:
 	item_catalogue = get_item_resources()
@@ -24,6 +32,9 @@ func _ready() -> void:
 	cooking_reference = get_cooking_reference()
 	plant_reference = get_plant_reference()
 	warp_catalogue = get_warp_resources()
+	message_catalogue = get_message_resources()
+	item_to_message_reference = get_item_to_message_reference()
+	scrap_reference = get_scrap_reference()
 
 func get_cooking_reference() -> Dictionary:
 	var reference = {}
@@ -35,6 +46,12 @@ func get_plant_reference() -> Dictionary:
 	var reference = {}
 	for key in plant_reference.keys():
 		reference[key] = item_catalogue[plant_reference[key]]
+	return reference
+
+func get_scrap_reference() -> Dictionary:
+	var reference = {}
+	for key in scrap_reference.keys():
+		reference[key] = item_catalogue[scrap_reference[key]]
 	return reference
 
 func get_item_resources() -> Dictionary[int, ItemData]:
@@ -117,3 +134,36 @@ func get_warp_resources() -> Dictionary[int, WarpData]:
 		print("An error occurred when trying to access the path.")
 		
 	return resources
+
+func get_message_resources() -> Dictionary[int, MessageData]:
+	const PATH: String = "res://Data/messages/"
+	var resources: Dictionary[int, MessageData] = {}
+	var dir = DirAccess.open(PATH)
+	
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		
+		while file_name != "":
+			# Ignore directories and only grab scene files
+			if !dir.current_is_dir() and file_name.ends_with(".tres"):
+				var scene_path = PATH + "/" + file_name
+				var scene_resource: MessageData = load(scene_path)
+					
+				if scene_resource:
+					var key = scene_resource.messageID
+					resources[key] = scene_resource
+					print("Successfully loaded: ", scene_path)
+			file_name = dir.get_next()
+			
+		dir.list_dir_end()
+	else:
+		print("An error occurred when trying to access the path.")
+		
+	return resources
+
+func get_item_to_message_reference() -> Dictionary:
+	var reference = {}
+	for key in item_to_message_reference.keys():
+		reference[key] = message_catalogue[item_to_message_reference[key]]
+	return reference
