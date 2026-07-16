@@ -8,6 +8,7 @@ class_name Building
 
 var building_space: BuildingSpace
 
+var active: bool = true
 var data_path: String
 
 var interact: Callable = func():

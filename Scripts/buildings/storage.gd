@@ -13,8 +13,9 @@ func _ready() -> void:
 			add_inventory(Catalogue.item_catalogue[key], preplaced_inv[key])
 	else:
 		inventory = {}
-	add_to_group("Buildings")
-	add_to_group("Persist")
+	if active:
+		add_to_group("Buildings")
+		add_to_group("Persist")
 	for child in get_children():
 		if child is InteractionArea:
 			child.interact = Callable(self, "open_panel")

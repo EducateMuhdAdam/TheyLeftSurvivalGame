@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BuildingData" format=3 uid="uid://bnec4sba7h1ym"]
+
+[ext_resource type="Texture2D" uid="uid://cordpyrfmnmw2" path="res://Assets/Images/Plants/Reeds3.png" id="1_065rt"]
+[ext_resource type="Script" uid="uid://cma7fqff3prkl" path="res://Scripts/building_data.gd" id="1_kw2gr"]
+
+[resource]
+script = ExtResource("1_kw2gr")
+building_id = 13
+building_name = "Reed"
+image = ExtResource("1_065rt")
+requirement = Dictionary[int, int]({
+13: 1
+})
+x_size = 1
+build_scene_path = "uid://canjha8qc2hqd"
+metadata/_custom_type_script = "uid://cma7fqff3prkl"

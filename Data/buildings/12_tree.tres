@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BuildingData" format=3 uid="uid://ycas2073s376"]
+
+[ext_resource type="Texture2D" uid="uid://dnukxnlh8adnx" path="res://Assets/Images/Plants/Tree3.png" id="1_d38qb"]
+[ext_resource type="Script" uid="uid://cma7fqff3prkl" path="res://Scripts/building_data.gd" id="1_orp4r"]
+
+[resource]
+script = ExtResource("1_orp4r")
+building_id = 12
+building_name = "Tree"
+image = ExtResource("1_d38qb")
+requirement = Dictionary[int, int]({
+15: 1
+})
+build_scene_path = "uid://bfw11gbc3xke0"
+metadata/_custom_type_script = "uid://cma7fqff3prkl"

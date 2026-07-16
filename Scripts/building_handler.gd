@@ -112,6 +112,7 @@ func setup_guide() -> void:
 	if guide:
 		guide.queue_free()
 	guide = load(reference.build_scene_path).instantiate()
+	guide.active = false
 	guides.add_child(guide)
 	guide.remove_from_group("Persist")
 	guide.collision_mask = 2

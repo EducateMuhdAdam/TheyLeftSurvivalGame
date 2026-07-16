@@ -494,7 +494,8 @@ itemData = ExtResource("6_xrdnt")
 position = Vector2(64, 32)
 preplaced_inv = Dictionary[int, int]({
 1: 3,
-11: 1
+11: 1,
+15: 1
 })
 
 [node name="DropedItem4" parent="ObjectContainer" unique_id=1496412853 instance=ExtResource("3_6444e")]

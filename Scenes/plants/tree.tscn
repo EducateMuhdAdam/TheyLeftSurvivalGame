@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bfw11gbc3xke0"]
+
+[ext_resource type="Script" uid="uid://ddrlmv6uvqf8x" path="res://Scripts/plant.gd" id="1_qia2a"]
+[ext_resource type="Texture2D" uid="uid://ce5e1xm2i0y0w" path="res://Assets/Images/Plants/Tree1.png" id="2_0dvg1"]
+[ext_resource type="Texture2D" uid="uid://b1xy8kklg25mt" path="res://Assets/Images/Plants/Tree2.png" id="3_eaqm8"]
+[ext_resource type="Texture2D" uid="uid://dnukxnlh8adnx" path="res://Assets/Images/Plants/Tree3.png" id="4_juqhc"]
+[ext_resource type="Resource" uid="uid://ycas2073s376" path="res://Data/buildings/12_tree.tres" id="5_0dvg1"]
+[ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="5_o1q8i"]
+[ext_resource type="Script" uid="uid://cp78fkd8r8mvm" path="res://building_space.gd" id="6_4vtig"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c6eak"]
+size = Vector2(106, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0dvg1"]
+size = Vector2(32, 30)
+
+[node name="Plant" type="StaticBody2D" unique_id=1462237481]
+script = ExtResource("1_qia2a")
+textures = Dictionary[int, Texture2D]({
+0: ExtResource("2_0dvg1"),
+1: ExtResource("3_eaqm8"),
+2: ExtResource("4_juqhc")
+})
+time_to_grow = 300
+harvest = Dictionary[int, int]({
+6: 6,
+15: 2
+})
+building_data = ExtResource("5_0dvg1")
+metadata/_custom_type_script = "uid://ddrlmv6uvqf8x"
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1110511226]
+script = ExtResource("5_o1q8i")
+metadata/_custom_type_script = "uid://doscx7owdvjqj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1767741931]
+position = Vector2(0, 15)
+shape = SubResource("RectangleShape2D_c6eak")
+
+[node name="BuildingSpace" type="Area2D" parent="." unique_id=1095183509]
+script = ExtResource("6_4vtig")
+sizeX = 2
+sizeY = 1
+metadata/_custom_type_script = "uid://cp78fkd8r8mvm"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=970357866]
+position = Vector2(0, -16)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0dvg1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1984579467]
+position = Vector2(0, 15)
+shape = SubResource("RectangleShape2D_0dvg1")

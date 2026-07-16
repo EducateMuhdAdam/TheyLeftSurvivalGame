@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://k0ik1yiwl7th"]
+
+[ext_resource type="Texture2D" uid="uid://dleon5qoattnm" path="res://Assets/Images/Items/pinecone.png" id="1_s5gdr"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="1_v2raf"]
+
+[resource]
+script = ExtResource("1_v2raf")
+itemID = 15
+itemName = "Pinecone"
+image = ExtResource("1_s5gdr")
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"
