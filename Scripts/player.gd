@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 #TODO: Create Default Error File For Item Not Found
 #TODO: Make The buildings Function
@@ -9,6 +10,7 @@ extends CharacterBody2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var rt2d: RemoteTransform2D = $RemoteTransform2D
+@onready var message_label: Label = $MessageLabel
 
 signal hunger_changed(value)
 signal thirst_changed(value)
@@ -24,7 +26,7 @@ var hunger_rate = 0.05
 var thirst_rate = 0.2
 var hunger = 40
 var thirst = 40
-var inventory = {1: {"id": 1, "qty": 2}, 2: {"id": 13, "qty": 3}, 3: {"id": 6, "qty": 64}, 4: {"id": 15, "qty": 8}}
+var inventory = {1: {"id": 1, "qty": 2}, 2: {"id": 13, "qty": 3}, 3: {"id": 6, "qty": 64}, 4: {"id": 10, "qty": 64}, 5: {"id": 201, "qty": 1}}
 
 var facing_direction: String = "S"
 var input_direction: Vector2 = Vector2(0,0)
@@ -48,6 +50,7 @@ func _ready() -> void:
 	EventBus.swap_item.connect(swap_inventory)
 	EventBus.erase_item.connect(remove_inventory)
 	EventBus.remove_item.connect(remove_one_inventory)
+	EventBus.show_fadeaway.connect(show_message)
 	hunger_changed.emit(hunger)
 	thirst_changed.emit(thirst)
 	update_inventory.emit(inventory)
@@ -192,6 +195,35 @@ func get_tile_data_infront(tilemap: TileMapLayer) -> TileData:
 	var offset = direction_offset[facing_direction]
 	var cell = origin + offset
 	return tilemap.get_cell_tile_data(cell)
+
+#MESSAGE POPUP
+func show_message(text: String):
+	message_label.text = text
+	message_label.visible = true
+
+	# Reset appearance
+	message_label.position = Vector2(0, -54)
+	message_label.position.x -= message_label.size.x / 2
+	message_label.modulate = Color.WHITE
+
+	var tween = create_tween()
+	tween.set_parallel(true)
+	# Float upward
+	tween.tween_property(
+		message_label,
+		"position",
+		message_label.position + Vector2(0, -30),
+		2
+	)
+	# Fade out
+	tween.tween_property(
+		message_label,
+		"modulate:a",
+		0.0,
+		2
+	)
+	await tween.finished
+	message_label.visible = false
 
 func save() -> Dictionary:
 	var save_dict = {

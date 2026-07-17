@@ -23,5 +23,5 @@ func reparent_collisions(area: Area2D) -> void:
 			child.reparent(area)
 
 func trigger_event() -> void:
-	print("Event ", eventID, " Signaled")
+	#print("Event ", eventID, " Signaled")
 	EventBus.execute_event.emit(eventID)

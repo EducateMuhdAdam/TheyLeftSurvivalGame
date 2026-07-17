@@ -11,6 +11,7 @@ size = Vector2(72, 40)
 position = Vector2(482, 26)
 script = ExtResource("1_6bm8l")
 warpData = ExtResource("2_3cauh")
+unlocked = false
 metadata/_custom_type_script = "uid://6rxpkbjigsp1"
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=219777549]

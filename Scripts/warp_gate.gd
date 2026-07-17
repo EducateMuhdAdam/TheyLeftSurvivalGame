@@ -21,7 +21,10 @@ func warp(target: Node2D) -> void:
 	EventBus.fade_out.emit(false)
 
 func unlock_event() -> void:
-	pass
+	unlocked = true
+
+func fail_event() -> void:
+	EventBus.show_fadeaway.emit("Requirement Not Met")
 
 func _on_interact() -> void:
 	if unlocked:
@@ -29,4 +32,4 @@ func _on_interact() -> void:
 	elif warp_requirement():
 		unlock_event()
 	else:
-		print("Requirement Not Met")
+		fail_event()

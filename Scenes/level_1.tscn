@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://blog5v035ocuu" path="res://Scenes/storages/dumpster.tscn" id="8_chwpn"]
 [ext_resource type="Resource" uid="uid://bqxyyovm4v62t" path="res://Data/items/101_note.tres" id="10_oovug"]
 [ext_resource type="PackedScene" uid="uid://bqrrxhlk4jffs" path="res://Scenes/warps/town_warp.tscn" id="12_6r07y"]
+[ext_resource type="Resource" uid="uid://ba8xe2tx1la8d" path="res://Data/items/201_town_key.tres" id="12_pjppf"]
 [ext_resource type="PackedScene" uid="uid://ukw2r2od00jg" path="res://Scenes/warps/factory_entry.tscn" id="13_6ioyp"]
 [ext_resource type="PackedScene" uid="uid://4isb5wavasoc" path="res://Scenes/event_handler.tscn" id="13_8yhm2"]
 [ext_resource type="PackedScene" uid="uid://b1wbe2tvacwfs" path="res://Scenes/warps/factory_exit.tscn" id="14_6ioyp"]
@@ -399,6 +400,10 @@ preplaced_inv = Dictionary[int, int]({
 [node name="DropedItem4" parent="ObjectContainer" unique_id=1496412853 instance=ExtResource("3_6444e")]
 position = Vector2(2391, 327)
 itemData = ExtResource("10_oovug")
+
+[node name="DropedItem5" parent="ObjectContainer" unique_id=564430663 instance=ExtResource("3_6444e")]
+position = Vector2(2394, 591)
+itemData = ExtResource("12_pjppf")
 
 [node name="BuildingHandler" parent="." unique_id=322601886 node_paths=PackedStringArray("ObjectContainer", "tilemap") instance=ExtResource("3_xfk5q")]
 ObjectContainer = NodePath("../ObjectContainer")

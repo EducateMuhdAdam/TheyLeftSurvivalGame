@@ -30,10 +30,10 @@ func handle_event(eventID: int) -> void:
 		2:	
 			#Open Door to Town
 			var dict: Dictionary[Vector2i, Vector2i] = {
-				Vector2i(14, -1): Vector2i(4, 11), 
-				Vector2i(15, -1): Vector2i(5, 11), 
-				Vector2i(14, 0): Vector2i(4,12), 
-				Vector2i(15, 0): Vector2i(5, 12)
+				Vector2i(14, -1): Vector2i(6, 11), 
+				Vector2i(15, -1): Vector2i(7, 11), 
+				Vector2i(14, 0): Vector2i(6,12), 
+				Vector2i(15, 0): Vector2i(7, 12)
 				}
 			level_root.change_tile_from_dict(level_root.decoration_layer, dict)
 		_:

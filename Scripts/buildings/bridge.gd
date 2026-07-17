@@ -24,7 +24,7 @@ func save() -> Dictionary:
 
 func destroy_building() -> void:
 	if player in building_space.get_overlapping_bodies():
-		print("Can't Delete, Player is too close!")
+		EventBus.show_fadeaway.emit("Can't Delete, Player is too close!")
 		return
 	var lr: LevelRoot = await Game.get_level_root()
 	if tiles.size() > 0:
