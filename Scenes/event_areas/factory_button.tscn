@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bq800mlns7a78"]
+
+[ext_resource type="Script" uid="uid://cst83fv2lg23b" path="res://Scripts/event_area.gd" id="1_mtk2i"]
+[ext_resource type="Texture2D" uid="uid://dsyn286ly036h" path="res://Assets/Images/Objects/Button.png" id="2_p0ttk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hyxi"]
+size = Vector2(40, 40)
+
+[node name="EventArea" type="Area2D" unique_id=461801527]
+script = ExtResource("1_mtk2i")
+eventID = 1
+interactable = true
+metadata/_custom_type_script = "uid://cst83fv2lg23b"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=618144987]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_2hyxi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=562850109]
+texture = ExtResource("2_p0ttk")

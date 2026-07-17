@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_vnhyh")
 areaID = 2
-limit_ltrb = Vector4i(1472, -32, 2752, 736)
+limit_ltrb = Vector4i(1472, 0, 2752, 736)
 metadata/_custom_type_script = "uid://cufgboip46nps"

@@ -16,9 +16,7 @@ var crafting_buttons = []
 var highlighted: CraftingData
 
 func _ready() -> void:
-	print("Before Player Loaded")
 	player = await Game.get_player()
-	print("After Panel Loaded")
 	warning.hide()
 	populate_scrollbar()
 	scroll_container.custom_minimum_size.x = max_width
@@ -47,7 +45,7 @@ func _on_confirm_pressed() -> void:
 	var found_slots: Array[int]
 	for itemID in highlighted.recipe.keys():
 		var slot = player.find_item_quantity(itemID, highlighted.recipe[itemID])
-		if slot:
+		if slot != null:
 			found_slots.append(slot)
 	if found_slots.size() == highlighted.recipe.size():
 		get_product()

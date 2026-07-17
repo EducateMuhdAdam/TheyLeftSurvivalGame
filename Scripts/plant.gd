@@ -16,9 +16,10 @@ func _ready() -> void:
 	if !progress:
 		progress = time_to_grow
 	if active:
-		add_child(timer)
 		add_to_group("Persist")
 		add_to_group("Buildings")
+		timer.autostart = true
+	activate_collision(active)	
 	interaction_area = get_interaction_area()
 	timer.wait_time = 1
 	timer.timeout.connect(_on_timeout)
@@ -26,7 +27,7 @@ func _ready() -> void:
 	interaction_area.action_name = "Harvest"
 	interaction_area.interact = Callable(self, "_on_interact")
 	is_stage_different() # Set The Stage on init
-	timer.start()
+	add_child(timer)
 
 func get_interaction_area() -> Variant:
 	for node in get_children():
@@ -65,14 +66,13 @@ func _on_timeout() -> void:
 	interaction_area.active = true
 	timer.stop()
 
-func _on_interact() -> void:
-	destroy_building()
+func get_placement_requirement() -> Callable:
+	return is_soil
 
-func destroy_building() -> void:
-	if progress < 1:
-		for key in harvest:
+func _on_interact() -> void:
+	for key in harvest:
 			EventBus.add_multiple_item.emit(Catalogue.item_catalogue[key], harvest[key])
-	queue_free()
+	destroy_building()
 
 func save() -> Dictionary:
 	var save_dict = {

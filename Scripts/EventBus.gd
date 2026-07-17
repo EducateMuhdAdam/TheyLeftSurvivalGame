@@ -10,6 +10,8 @@ signal shared_ui(panel: PanelContainer, parent: Node)
 signal single_ui(panel: PanelContainer)
 signal open_message(messageData: MessageData)
 
+signal execute_event(eventID: int)
+
 signal link_camera(rt2d: RemoteTransform2D)
 signal set_camera_limit(limit_ltrb: Vector4i)
 signal position_camera(pos: Vector2)

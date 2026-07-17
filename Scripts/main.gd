@@ -107,6 +107,8 @@ func load_game():
 		
 		# Now we set the remaining variables.
 		for i in node_data.keys():
+			if i == "child_index":
+				new_object.get_parent().move_child(new_object, node_data["child_index"])
 			if i == "filename" or i == "parent" or i == "pos_x" or i == "pos_y":
 				continue
 			new_object.set(i, node_data[i])
@@ -114,6 +116,8 @@ func load_game():
 				new_object.set(i, convert_keys_to_int(node_data[i]))
 			if i == "areaData":
 				new_object.set(i, load(node_data[i]))
+			if i == "changed_tiles":
+				new_object.changed_tiles = new_object.fix_dict(node_data[i])
 				
 		if new_object.is_in_group("Player"):
 			Game.set_player(new_object)
@@ -157,3 +161,4 @@ func fade_out(enter: bool) -> void:
 		var tween = create_tween()
 		tween.tween_property(ui_manager.color_rect, "modulate:a", 0.0, 0.5) # Fades over 0.5 seconds
 		await tween.finished
+		EventBus.fade_out_finished.emit()

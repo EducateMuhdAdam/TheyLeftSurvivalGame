@@ -29,6 +29,7 @@ func _ready() -> void:
 func update_slot(newItem: Resource, qty: int) -> void:
 	set_item(newItem)
 	set_quantity(qty)
+	
 
 func update_player() -> void:
 	if item:
@@ -86,6 +87,11 @@ func _drop_data(at_position: Vector2, origin_slot: Variant) -> void:
 	else:
 		swap_item_seq(origin_slot)
 
+func _get_tooltip(at_position: Vector2) -> String:
+	if item == null:
+		return ""
+	return "%s\n%s" % [item.itemName, item.itemDescription]
+
 func get_item_path() -> Variant:
 	if item:
 		return item.resource_path
@@ -135,3 +141,11 @@ func clone() -> PanelContainer:
 	new_slot.item = item
 	new_slot.quantity = quantity
 	return new_slot
+
+func fit_to_size(sprite: TextureRect, max_size: Vector2) -> void:
+	if sprite.texture == null:
+		return
+	var tex_size = sprite.texture.get_size()
+	var scale_factor = min(max_size.x / tex_size.x,max_size.y / tex_size.y)
+	scale_factor = min(scale_factor, 1.0)
+	sprite.scale = Vector2.ONE * scale_factor

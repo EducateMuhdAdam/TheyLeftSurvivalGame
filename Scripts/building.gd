@@ -31,6 +31,12 @@ func activate_interaction(active: bool) -> void:
 			return
 	print("InteractionArea not set")
 
+func activate_collision(active: bool) -> void:
+	for child in get_children():
+		if child is CollisionShape2D:
+			child.disabled = !active
+			
+
 func get_placement_requirement() -> Callable:
 	if landlocked:
 		return is_land
@@ -41,7 +47,10 @@ func is_water(data: TileData) -> bool:
 	return data != null && data.get_custom_data("water")
 
 func is_land(data: TileData) -> bool:
-	return data != null && !data.get_custom_data("water")
+	return data != null && data.get_custom_data("ground")
+
+func is_soil(data: TileData) -> bool:
+	return data != null && data.get_custom_data("soil")
 
 func save() -> Dictionary:
 	print("Save Not Set Up For Building")
