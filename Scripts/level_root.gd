@@ -27,3 +27,7 @@ func change_tile(tilemap: TileMapLayer, cell_pos: Vector2i, atlas_coords: Vector
 	)
 	if tilemap.has_method("log_change"):
 		tilemap.log_change({"cell_pos": cell_pos, "atlas_coords": atlas_coords})
+		
+func change_tile_from_dict(tilemap: TileMapLayer, dict: Dictionary[Vector2i, Vector2i]) -> void:
+	for key in dict.keys():
+		change_tile(tilemap, key, dict[key])
