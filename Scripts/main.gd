@@ -118,6 +118,9 @@ func load_game():
 				new_object.set(i, load(node_data[i]))
 			if i == "changed_tiles":
 				new_object.changed_tiles = new_object.fix_dict(node_data[i])
+			if i == "itemData" and new_object is DroppedItem:
+				new_object.set_itemData(load(node_data[i]))
+				
 				
 		if new_object.is_in_group("Player"):
 			Game.set_player(new_object)

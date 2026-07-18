@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ddk6j21lufh4w"]
+
+[ext_resource type="Resource" uid="uid://4j058uwobwdj" path="res://Data/warpgates/4_town_to_lot.tres" id="2_qemws"]
+[ext_resource type="Script" uid="uid://d3tf5qpfwe67p" path="res://Scripts/warps/town_to_lot.gd" id="3_36oo1"]
+[ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="3_foyai"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mov6q"]
+size = Vector2(40, 40)
+
+[node name="WarpGate" type="Node2D" unique_id=738846336]
+script = ExtResource("3_36oo1")
+warpData = ExtResource("2_qemws")
+metadata/_custom_type_script = "uid://6rxpkbjigsp1"
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=234360244]
+script = ExtResource("3_foyai")
+metadata/_custom_type_script = "uid://doscx7owdvjqj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=638913523]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_mov6q")
