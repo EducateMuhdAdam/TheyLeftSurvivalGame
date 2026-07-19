@@ -116,8 +116,9 @@ func load_game():
 				new_object.set(i, convert_keys_to_int(node_data[i]))
 			if i == "areaData":
 				new_object.set(i, load(node_data[i]))
-			if i == "changed_tiles":
-				new_object.changed_tiles = new_object.fix_dict(node_data[i])
+			if i == "layer_saves":
+				new_object.layer_saves = node_data[i]
+				new_object.set_layer()
 			if i == "itemData" and new_object is DroppedItem:
 				new_object.set_itemData(load(node_data[i]))
 				

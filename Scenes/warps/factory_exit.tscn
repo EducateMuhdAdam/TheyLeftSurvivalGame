@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v3b8j"]
 size = Vector2(48, 72)
 
-[node name="WarpGate" type="Node2D" unique_id=1012971442]
+[node name="WarpGate" type="Node2D" unique_id=1012971442 groups=["Persist"]]
 script = ExtResource("1_wnsee")
 warpData = ExtResource("2_v3b8j")
 metadata/_custom_type_script = "uid://6rxpkbjigsp1"

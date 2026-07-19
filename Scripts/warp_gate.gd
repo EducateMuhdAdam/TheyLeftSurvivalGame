@@ -33,3 +33,13 @@ func _on_interact() -> void:
 		unlock_event()
 	else:
 		fail_event()
+
+func save() -> Dictionary:
+	var save_dict = {
+		"filename" : get_scene_file_path(),
+		"parent" : get_parent().get_path(),
+		"pos_x" : position.x,
+		"pos_y" : position.y,
+		"unlocked": unlocked
+	}
+	return save_dict

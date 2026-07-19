@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dvaqxrsdnnmcu"]
+
+[ext_resource type="Script" uid="uid://c6leqku504rl2" path="res://testing/quest_area.gd" id="1_ac8rp"]
+[ext_resource type="Resource" uid="uid://xdvwyhkekvwt" path="res://Data/item_quests/1_key.tres" id="2_i6eo3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6eo3"]
+size = Vector2(40, 40)
+
+[node name="KeyInsert" type="Area2D" unique_id=1109088516]
+script = ExtResource("1_ac8rp")
+eventID = 2
+itemQuestData = ExtResource("2_i6eo3")
+metadata/_custom_type_script = "uid://c6leqku504rl2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=201113901]
+shape = SubResource("RectangleShape2D_i6eo3")

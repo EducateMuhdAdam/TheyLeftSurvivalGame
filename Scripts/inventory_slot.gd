@@ -112,10 +112,16 @@ func swap_item_seq(origin_slot: Variant) -> void:
 		return
 	
 	if controller is Building:
-		EventBus.erase_item.emit(origin_slot.slotID)
+		#EventBus.erase_item.emit(origin_slot.slotID)
 		building_action.call()
 	if origin_slot.controller is Building:
 		origin_slot.building_action.call()
+	if controller is QuestArea:
+		#EventBus.erase_item.emit(origin_slot.slotID)
+		building_action.call()
+	if origin_slot.controller is QuestArea:
+		origin_slot.building_action.call()
+		
 
 func one_item_seq(origin_slot: Variant) -> void:
 	if item:

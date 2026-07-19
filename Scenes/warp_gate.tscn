@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://6rxpkbjigsp1" path="res://Scripts/warp_gate.gd" id="1_m10ms"]
 
-[node name="WarpGate" type="Node2D" unique_id=1677333612]
+[node name="WarpGate" type="Node2D" unique_id=1677333612 groups=["Persist"]]
 script = ExtResource("1_m10ms")

@@ -27,6 +27,7 @@ func log_change(dict: Dictionary) -> void:
 		print("Failed to log tile change: Key mismatch")
 		return
 	_changed_tiles[dict["cell_pos"]] = dict
+	EventBus.log_layer.emit(self)
 
 func parse_vector2i(s: String) -> Vector2i:
 	s = s.trim_prefix("(").trim_suffix(")")
@@ -49,14 +50,12 @@ func fix_dict(dict: Dictionary) -> Dictionary[Vector2i, Dictionary]:
 				log[key2] = parse_vector2i(log[key2])
 		fixed[new_key] = log
 	return fixed
-	
-func save() -> Dictionary:
-	var save_dict = {
-		"filename" : get_scene_file_path(),
-		"parent" : get_parent().get_path(),
-		"pos_x" : position.x,
-		"pos_y" : position.y,
-		"child_index": get_index(),
-		"changed_tiles": _changed_tiles
-	}
-	return save_dict
+
+func change_tile(cell_pos: Vector2i, atlas_coords: Vector2i):
+	set_cell(
+		cell_pos,
+		0,
+		atlas_coords,
+		0
+	)
+	log_change({"cell_pos": cell_pos, "atlas_coords": atlas_coords})

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dq0v5brkvqlh7"]
+
+[ext_resource type="Script" uid="uid://c6leqku504rl2" path="res://testing/quest_area.gd" id="1_b1oo6"]
+
+[node name="QuestArea" type="Area2D" unique_id=1091574976]
+script = ExtResource("1_b1oo6")
+metadata/_custom_type_script = "uid://doscx7owdvjqj"

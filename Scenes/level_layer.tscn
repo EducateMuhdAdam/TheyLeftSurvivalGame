@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://daktlrj1kiidd" path="res://Scripts/level_layer.gd" id="1_gl4ax"]
 
-[node name="LevelLayer" type="TileMapLayer" unique_id=1034242802 groups=["Persist"]]
+[node name="LevelLayer" type="TileMapLayer" unique_id=1034242802]
 script = ExtResource("1_gl4ax")
