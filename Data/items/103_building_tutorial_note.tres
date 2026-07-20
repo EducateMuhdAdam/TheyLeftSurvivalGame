@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://ba1n6wam374xp"]
+
+[ext_resource type="Texture2D" uid="uid://d1j87vkc44771" path="res://Assets/Images/Items/Note.png" id="1_8kg75"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="1_xixql"]
+
+[resource]
+script = ExtResource("1_xixql")
+itemID = 103
+itemName = "Building Tutorial"
+itemDescription = "A Note, It looks like it was made specifically for you"
+image = ExtResource("1_8kg75")
+tags = Array[String](["Message"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

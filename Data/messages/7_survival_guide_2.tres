@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MessageData" format=3 uid="uid://bmx1mi6j11rn3"]
+
+[ext_resource type="Script" uid="uid://clg6sgwgkl1xk" path="res://Scripts/message_data.gd" id="1_kfsb8"]
+
+[resource]
+script = ExtResource("1_kfsb8")
+messageID = 7
+title = "Survival Basics 101: Food"
+message = "I see you got yourself a good catch there cadet but don't just eat it straight from the reel, You'll get salmonella! (Especially with these water conditions) 
+
+Simply, gather 3 rocks and 4 sticks. rub some of those sticks together to create a fire and use one to poke your catch
+
+Cook it over the fire for a few minutes and I'll guarentee you'll be more satisfied!"
+metadata/_custom_type_script = "uid://clg6sgwgkl1xk"

@@ -20,13 +20,14 @@ const MOVE_SPEED: float = 200
 const INVENTORY_NUM: int = 30
 
 var unlocked_recipes: Array[int] = Catalogue.get_crafting_resources().keys()
+var unlocked_buildings: Array[int] = [8, 9]
 
 var areaData: AreaData
 var hunger_rate = 0.05
 var thirst_rate = 0.2
 var hunger = 40
 var thirst = 40
-var inventory = {1: {"id": 1, "qty": 2}, 2: {"id": 13, "qty": 3}, 3: {"id": 6, "qty": 64}, 4: {"id": 10, "qty": 64}, 5: {"id": 201, "qty": 1}}
+var inventory = {0: {"id": 9, "qty": 1}}
 
 var facing_direction: String = "S"
 var input_direction: Vector2 = Vector2(0,0)
@@ -43,7 +44,7 @@ const direction_offset: Dictionary = {
 
 func _ready() -> void:
 	if !areaData:
-		areaData = load("res://Data/areas/1_empty_lot.tres") #SetDefaultHere
+		areaData = load("res://Data/areas/4_tutorial.tres") #SetDefaultHere
 	EventBus.change_area.connect(set_area_data)
 	EventBus.add_item.connect(add_one_inventory)
 	EventBus.add_multiple_item.connect(add_inventory)
@@ -51,9 +52,12 @@ func _ready() -> void:
 	EventBus.erase_item.connect(remove_inventory)
 	EventBus.remove_item.connect(remove_one_inventory)
 	EventBus.show_fadeaway.connect(show_message)
+	EventBus.unlock_building.connect(unlock_building)
+	EventBus.unlock_crafting.connect(unlock_crafting)
 	hunger_changed.emit(hunger)
 	thirst_changed.emit(thirst)
 	update_inventory.emit(inventory)
+	
 
 func _process(delta: float) -> void:
 	
@@ -93,6 +97,30 @@ func _physics_process(delta: float) -> void:
 	velocity = input_direction * MOVE_SPEED
 	
 	move_and_slide()
+
+func array_to_arrayint(arr: Array) -> Array[int]:
+	var new: Array[int] = []
+	for id in arr:
+		new.append(int(id))
+	return new
+
+func unlock_building(bID: Variant) -> void:
+	if bID is Array:
+		for ID in bID:
+			if not ID in unlocked_buildings:
+				unlocked_buildings.append(ID)
+	else:
+		if not bID in unlocked_buildings:
+			unlocked_buildings.append(bID)
+
+func unlock_crafting(cID: Variant) -> void:
+	if cID is Array[int]:
+		for ID in cID:
+			if not ID in unlocked_recipes:
+				unlocked_recipes.append(ID)
+	else:
+		if not cID in unlocked_recipes:
+			unlocked_recipes.append(cID)
 
 func decrease_hunger(delta: float) -> void:
 	hunger = max(hunger - (hunger_rate * delta), 0) 
@@ -234,6 +262,7 @@ func save() -> Dictionary:
 		"areaData" : areaData.resource_path,
 		"inventory" : inventory,
 		"unlocked_recipes": unlocked_recipes,
+		"unlocked_buildings": unlocked_buildings,
 		"hunger_rate": hunger_rate,
 		"thirst_rate": thirst_rate,
 		"hunger": hunger,

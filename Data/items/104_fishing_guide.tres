@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://0apf5cusyj7v"]
+
+[ext_resource type="Texture2D" uid="uid://d1j87vkc44771" path="res://Assets/Images/Items/Note.png" id="1_crj6w"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="1_gjwlb"]
+
+[resource]
+script = ExtResource("1_gjwlb")
+itemID = 104
+itemName = "Net Blueprint"
+itemDescription = "It features a schematic of a net and descriptions from the author"
+image = ExtResource("1_crj6w")
+tags = Array[String](["Message", "BuildingRecipe"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

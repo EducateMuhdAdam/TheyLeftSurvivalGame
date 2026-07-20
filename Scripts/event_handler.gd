@@ -36,5 +36,13 @@ func handle_event(eventID: int) -> void:
 				Vector2i(15, 0): Vector2i(7, 12)
 				}
 			level_root.change_tile_from_dict(level_root.decoration_layer, dict)
+		3:
+			var area: AreaData = load("res://Data/areas/1_empty_lot.tres")
+			EventBus.fade_out.emit(true)
+			await EventBus.fade_out_finished
+			player.global_position = Vector2(680, 680)
+			EventBus.change_area.emit(area)
+			EventBus.set_camera_limit.emit(area.limit_ltrb)
+			EventBus.fade_out.emit(false)
 		_:
 			print("Event ID ", eventID, " not found")

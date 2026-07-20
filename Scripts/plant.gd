@@ -4,6 +4,7 @@ class_name Plant
 @export var textures: Dictionary[Stage, Texture2D]
 @export var time_to_grow: int
 @export var harvest: Dictionary[int, int]
+@export var grown: bool = false
 
 var progress: int
 var interaction_area: InteractionArea
@@ -13,6 +14,8 @@ enum Stage{CHILD, TEEN, ADULT}
 var timer: Timer = Timer.new()
 
 func _ready() -> void:
+	if grown:
+		progress = 1
 	if !progress:
 		progress = time_to_grow
 	if active:

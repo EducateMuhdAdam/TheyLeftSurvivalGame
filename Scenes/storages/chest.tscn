@@ -9,6 +9,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tetnc"]
 size = Vector2(74, 60)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qkok"]
+size = Vector2(28, 10)
+
 [node name="Chest" type="StaticBody2D" unique_id=1505914045]
 script = ExtResource("1_8qkok")
 NumberOfSlots = 10
@@ -33,3 +36,7 @@ script = ExtResource("5_2lh70")
 sizeX = 1
 sizeY = 1
 metadata/_custom_type_script = "uid://cp78fkd8r8mvm"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=604823550]
+position = Vector2(-16, 24)
+shape = SubResource("RectangleShape2D_8qkok")

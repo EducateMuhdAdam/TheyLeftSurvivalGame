@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="MessageData" format=3 uid="uid://ck6niqnba3ur6"]
+
+[ext_resource type="Script" uid="uid://clg6sgwgkl1xk" path="res://Scripts/message_data.gd" id="1_uf15e"]
+
+[resource]
+script = ExtResource("1_uf15e")
+messageID = 3
+title = "Building Tutorial"
+message = "Hello, hope your cryo-awakening went well. Lets do some warm-ups by testing your building capabilities
+
+Press [B] to Open The Build Menu
+
+Select Workbench and press confirm, its always free! 
+
+Then Press [X] to enter destroy mode
+
+Remove the chest that is blocking the lever and you will recieve resources in return. interact with the workbench  to turn the wood into sticks and use it to fix the lever to get out!
+
+To summarize:
+[B] for Build Mode
+[E] to Interact Buildings
+[X] for Destroy Mode"
+metadata/_custom_type_script = "uid://clg6sgwgkl1xk"

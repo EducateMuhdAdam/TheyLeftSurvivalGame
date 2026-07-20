@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MessageData" format=3 uid="uid://di0qesw7r6hnq"]
+
+[ext_resource type="Script" uid="uid://clg6sgwgkl1xk" path="res://Scripts/message_data.gd" id="1_jvohp"]
+
+[resource]
+script = ExtResource("1_jvohp")
+messageID = 4
+title = "Survival Basics 101: Water"
+message = "Any living thing requires 2 important things, Water and Food
+
+If you're lucky, you might happen to be next to a river, BUT BEFORE YOU DRINK IT. You need to filter it first an easy way to do it is to build a filtration machine:
+
+You need 1 plastic bag, 2 sticks and a container like a plastic bottle
+
+Build it, use another container stand next to water, and grab it [RMB]. and insert it into the machine. It's that simple!"
+metadata/_custom_type_script = "uid://clg6sgwgkl1xk"

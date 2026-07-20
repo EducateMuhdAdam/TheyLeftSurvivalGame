@@ -3,9 +3,13 @@ extends Storage
 @onready var timer: Timer = $Timer
 const percent_chance: float = 50
 
+var i: int = 0
 var item_pool: Dictionary[int, float] = {
 	2: 20,
-	9: 80
+	9: 60,
+	14: 60,
+	11: 65,
+	4: 15
 }
 
 func _on_timer_timeout() -> void:
@@ -21,7 +25,24 @@ func _on_timer_timeout() -> void:
 			selected_index = key
 			if random_weight <= 0:
 				break
-
+		if i == 5:
+			var player: Player = await Game.get_player()
+			if not 5 in player.unlocked_buildings:
+				add_inventory(Catalogue.item_catalogue[106], 1)
 		add_inventory(Catalogue.item_catalogue[selected_index], 1)
+		i += 1
 		if panel:
 			panel.update_storage()
+
+func save() -> Dictionary:
+	var save_dict = {
+		"filename" : get_scene_file_path(),
+		"parent" : get_parent().get_path(),
+		"pos_x" : position.x, # Vector2 is not supported by JSON
+		"pos_y" : position.y,
+		"data_path" : data_path,
+		"inventory" : inventory,
+		"NumberOfSlots" : NumberOfSlots,
+		"i" : i
+	}
+	return save_dict

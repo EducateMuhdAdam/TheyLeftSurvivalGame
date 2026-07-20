@@ -47,7 +47,7 @@ func activate_one_mode(exception: Variant):
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("R"):
-		EventBus.show_fadeaway.emit("Hello, World! This is a fadeaway message")
+		print(player.unlocked_buildings)
 	if event.is_action_pressed("escape"):
 		handle_escape()
 	if !main.paused:

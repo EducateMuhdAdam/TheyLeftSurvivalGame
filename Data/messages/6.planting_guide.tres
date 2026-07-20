@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MessageData" format=3 uid="uid://cxcueg4bmg7ab"]
+
+[ext_resource type="Script" uid="uid://clg6sgwgkl1xk" path="res://Scripts/message_data.gd" id="1_c14nc"]
+
+[resource]
+script = ExtResource("1_c14nc")
+messageID = 6
+title = "Chapter 1: Basics"
+message = "Growing a plant is relatively easy! just find a seed from a plant and bury it in the ground.
+
+These comes in different sizes like a pinecone or very small seeds from reeds"
+metadata/_custom_type_script = "uid://clg6sgwgkl1xk"

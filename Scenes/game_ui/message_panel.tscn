@@ -2,9 +2,22 @@
 
 [ext_resource type="Script" uid="uid://7kkyarf365kc" path="res://Scripts/message_panel.gd" id="1_32pyp"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_32pyp"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.7529412)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [node name="MessagePanel" type="PanelContainer" unique_id=1270926145]
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_32pyp")
 script = ExtResource("1_32pyp")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=840663170]

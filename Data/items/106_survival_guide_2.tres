@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cwce6vty17typ"]
+
+[ext_resource type="Texture2D" uid="uid://d1j87vkc44771" path="res://Assets/Images/Items/Note.png" id="1_wjdbo"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="1_xcwr8"]
+
+[resource]
+script = ExtResource("1_xcwr8")
+itemID = 106
+itemName = "Survival Guide vol.II"
+itemDescription = "Another survival guide by Chris Boris"
+image = ExtResource("1_wjdbo")
+tags = Array[String](["Message", "BuildingRecipe"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

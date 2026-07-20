@@ -68,6 +68,9 @@ func handle_quit() -> void:
 
 func load_game():
 	if not FileAccess.file_exists("user://savegame.save"):
+		for node in level_root.building_handler.ObjectContainer.get_children():
+			if node is Building && !node.preplaced:
+				level_root.building_handler.building_list.append(node)
 		return # Error! We don't have a save to load.
 
 	# We need to revert the game state so we're not cloning objects
@@ -121,6 +124,10 @@ func load_game():
 				new_object.set_layer()
 			if i == "itemData" and new_object is DroppedItem:
 				new_object.set_itemData(load(node_data[i]))
+			if i == "unlocked_buildings":
+				new_object.unlocked_buildings = new_object.array_to_arrayint(node_data[i]) 
+			if i == "unlocked_recipes":
+				new_object.unlocked_recipes = new_object.array_to_arrayint(node_data[i]) 
 				
 				
 		if new_object.is_in_group("Player"):

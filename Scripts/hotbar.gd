@@ -67,6 +67,8 @@ func interact_item(itemData: Variant) -> void:
 		EventBus.open_message.emit(messageData)
 	if "Scrap" in itemData.tags:
 		EventBus.add_item.emit(Catalogue.scrap_reference[itemData.itemID])
+	if "BuildingRecipe" in itemData.tags:
+		EventBus.unlock_building.emit(Catalogue.building_recipe_reference[itemData.itemID])
 	if itemData.itemID == 1:
 		var level_root = await Game.get_level_root()
 		var tileData: TileData = player.get_tile_data_infront(level_root.main_layer)

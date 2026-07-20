@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MessageData" format=3 uid="uid://eukf7bubmxs5"]
+
+[ext_resource type="Script" uid="uid://clg6sgwgkl1xk" path="res://Scripts/message_data.gd" id="1_sqmpo"]
+
+[resource]
+script = ExtResource("1_sqmpo")
+messageID = 5
+title = "Survivor's Journal"
+message = "Survival Guide Vol. III
+I, Chris Boris here will share a cool survival tip for you all. I have created a simple fishing net using only ropes and wood.
+
+*Below lists instructions on how to build a fishing net*"
+metadata/_custom_type_script = "uid://clg6sgwgkl1xk"

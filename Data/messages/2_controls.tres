@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MessageData" format=3 uid="uid://v32aresn78hx"]
+
+[ext_resource type="Script" uid="uid://clg6sgwgkl1xk" path="res://Scripts/message_data.gd" id="1_xn2vk"]
+
+[resource]
+script = ExtResource("1_xn2vk")
+messageID = 2
+title = "Controls"
+message = "[W][A][S][D] to Move
+[E] to Interact Buildings/Items
+[Right Mouse Button] on highlighted item in hotbar to use"
+metadata/_custom_type_script = "uid://clg6sgwgkl1xk"

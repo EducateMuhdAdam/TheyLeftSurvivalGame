@@ -59,7 +59,7 @@ func _on_timer_timeout() -> void:
 	food["data"] = Catalogue.cooking_reference[food["data"].itemID]
 	if panel:
 		panel.building_texture.texture = sprite.texture
-		panel.food.update_slot(Catalogue.cooking_reference[food["data"].itemID], 1)
+		panel.food.update_slot(food["data"], 1)
 	cooktime.stop()
 
 func save() -> Dictionary:

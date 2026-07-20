@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AreaData" format=3 uid="uid://crqatndrj86e2"]
+
+[ext_resource type="Script" uid="uid://cufgboip46nps" path="res://Scripts/area_data.gd" id="1_4h6k2"]
+
+[resource]
+script = ExtResource("1_4h6k2")
+areaID = 4
+limit_ltrb = Vector4i(0, 864, 1312, 1601)
+metadata/_custom_type_script = "uid://cufgboip46nps"
