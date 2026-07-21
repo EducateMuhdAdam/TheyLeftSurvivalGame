@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WarpData" format=3 uid="uid://clhh7mnpjf7q6"]
+
+[ext_resource type="Resource" uid="uid://dl48s0t023vv3" path="res://Data/areas/3_town.tres" id="1_4tnih"]
+[ext_resource type="Script" uid="uid://bmqtvvr8hep8j" path="res://Scripts/warp_data.gd" id="1_ignvo"]
+
+[resource]
+script = ExtResource("1_ignvo")
+warpID = 7
+origin = Vector2i(384, -930)
+area_data = ExtResource("1_4tnih")
+metadata/_custom_type_script = "uid://bmqtvvr8hep8j"

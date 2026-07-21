@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bct66yfq04cxf"]
+
+[ext_resource type="Script" uid="uid://6rxpkbjigsp1" path="res://Scripts/warp_gate.gd" id="1_vcmkp"]
+[ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="2_38b78"]
+[ext_resource type="Resource" uid="uid://1aldgjjjnhag" path="res://Data/warpgates/5_greenhouse_entrance.tres" id="2_336l7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_336l7"]
+size = Vector2(40, 40)
+
+[node name="GreenhouseEntrance" type="Node2D" unique_id=1595717924]
+script = ExtResource("1_vcmkp")
+warpData = ExtResource("2_336l7")
+metadata/_custom_type_script = "uid://6rxpkbjigsp1"
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=2017559249]
+script = ExtResource("2_38b78")
+action_name = "Enter Greenhouse"
+metadata/_custom_type_script = "uid://doscx7owdvjqj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1275916552]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_336l7")
