@@ -20,14 +20,14 @@ const MOVE_SPEED: float = 200
 const INVENTORY_NUM: int = 30
 
 var unlocked_recipes: Array[int] = Catalogue.get_crafting_resources().keys()
-var unlocked_buildings: Array[int] = [8, 9]
+var unlocked_buildings: Array[int] = [8, 9, 11]
 
 var areaData: AreaData
 var hunger_rate = 0.05
 var thirst_rate = 0.2
 var hunger = 40
 var thirst = 40
-var inventory = {0: {"id": 9, "qty": 1}}
+var inventory = {0: {"id": 9, "qty": 1}, 1: {"id": 6, "qty": 64}, 2: {"id": 10, "qty": 64}}
 
 var facing_direction: String = "S"
 var input_direction: Vector2 = Vector2(0,0)

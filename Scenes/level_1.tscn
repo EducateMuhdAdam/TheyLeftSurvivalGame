@@ -28,6 +28,14 @@
 [ext_resource type="PackedScene" uid="uid://ddk6j21lufh4w" path="res://Scenes/warps/town_to_lot.tscn" id="19_yltlr"]
 [ext_resource type="PackedScene" uid="uid://cfqeyva7u7ftl" path="res://Scenes/layer_persist.tscn" id="20_6ssoq"]
 [ext_resource type="Resource" uid="uid://0apf5cusyj7v" path="res://Data/items/104_fishing_guide.tres" id="20_u0op5"]
+[ext_resource type="PackedScene" uid="uid://bct66yfq04cxf" path="res://Scenes/warps/greenhouse_entrance.tscn" id="20_xub2v"]
+[ext_resource type="PackedScene" uid="uid://bhixiy0kvpqny" path="res://Scenes/warps/town_2_walkway.tscn" id="22_x5u8r"]
+[ext_resource type="PackedScene" uid="uid://calfd4nnat7sm" path="res://Scenes/warps/mine_entrance.tscn" id="23_nwpk5"]
+[ext_resource type="PackedScene" uid="uid://5x2gwicx2is7" path="res://Scenes/warps/radiostation_2_walkway.tscn" id="24_bd6hb"]
+[ext_resource type="PackedScene" uid="uid://byiqd8ajwsy72" path="res://Scenes/warps/mines_exit.tscn" id="24_x5u8r"]
+[ext_resource type="PackedScene" uid="uid://733ov1hj0adw" path="res://Scenes/warps/walkway_2_town.tscn" id="25_x68w5"]
+[ext_resource type="PackedScene" uid="uid://b00oewrlr7aci" path="res://Scenes/warps/walkway_2_radiotower.tscn" id="26_vyomg"]
+[ext_resource type="PackedScene" uid="uid://bwnju8k0lpdq2" path="res://Scenes/warps/greenhouse_exit.tscn" id="27_xcdlm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xfk5q"]
 texture = ExtResource("2_8ffim")
@@ -923,16 +931,14 @@ texture = ExtResource("3_imks0")
 6:15/0 = 0
 6:16/0 = 0
 9:16/0 = 0
-9:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, 8, -6, 3, 8, 3, 8, 1, -8, 1, -8, 8)
 9:17/0 = 0
-9:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -6, -8, -6, 8, -8, 8)
+9:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 1, 8, 1, 8, 8, -8, 8)
 10:16/0 = 0
-10:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 1, 8, 1, 8, 3, -8, 3)
 11:16/0 = 0
-11:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 1, 8, 1, 8, 8, 6, 8, 6, 3, -8, 3)
 11:17/0 = 0
-11:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 6, -8, 6, 8, 8, 8)
+11:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 1, 8, 1, 8, 8, -8, 8)
 10:17/0 = 0
+10:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 1, 8, 1, 8, 8, -8, 8)
 9:15/0 = 0
 9:14/0 = 0
 10:14/0 = 0
@@ -1064,8 +1070,11 @@ texture = ExtResource("3_imks0")
 8:15/0 = 0
 8:16/0 = 0
 9:19/0 = 0
+9:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 10:19/0 = 0
+10:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 11:19/0 = 0
+11:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 6:14/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_6r07y"]
@@ -1177,9 +1186,33 @@ preplaced = true
 position = Vector2(593, 565)
 itemData = ExtResource("19_u0op5")
 
+[node name="GreenhouseEntrance" parent="ObjectContainer" unique_id=1595717924 instance=ExtResource("20_xub2v")]
+position = Vector2(928, -831)
+
 [node name="DropedItem8" parent="ObjectContainer" unique_id=14364142 instance=ExtResource("3_6444e")]
 position = Vector2(181, 205)
 itemData = ExtResource("20_u0op5")
+
+[node name="Town2Walkway" parent="ObjectContainer" unique_id=381674599 instance=ExtResource("22_x5u8r")]
+position = Vector2(384, -961)
+
+[node name="MineEntrance" parent="ObjectContainer" unique_id=36974125 instance=ExtResource("23_nwpk5")]
+position = Vector2(1647, -832)
+
+[node name="Radiostation2Walkway" parent="ObjectContainer" unique_id=1697534425 instance=ExtResource("24_bd6hb")]
+position = Vector2(672.25256, -2912.7466)
+
+[node name="Walkway2Town" parent="ObjectContainer" unique_id=1296321272 instance=ExtResource("25_x68w5")]
+position = Vector2(675.2594, -1154.1025)
+
+[node name="Walkway2Radiotower" parent="ObjectContainer" unique_id=527685532 instance=ExtResource("26_vyomg")]
+position = Vector2(672, -2585)
+
+[node name="GreenhouseExit" parent="ObjectContainer" unique_id=363229230 instance=ExtResource("27_xcdlm")]
+position = Vector2(2737, -1158)
+
+[node name="MinesExit" parent="ObjectContainer" unique_id=1634299652 instance=ExtResource("24_x5u8r")]
+position = Vector2(2256.496, -691.4004)
 
 [node name="BuildingHandler" parent="." unique_id=322601886 node_paths=PackedStringArray("ObjectContainer", "tilemap") instance=ExtResource("3_xfk5q")]
 ObjectContainer = NodePath("../ObjectContainer")
@@ -1207,10 +1240,10 @@ position = Vector2(226, -331)
 [node name="Limit Tester" type="Camera2D" parent="." unique_id=1617574440]
 visible = false
 enabled = false
-limit_left = 0
-limit_top = 864
-limit_right = 1312
-limit_bottom = 1601
+limit_left = -704
+limit_top = -3872
+limit_right = 2016
+limit_bottom = -2912
 
 [node name="LayerPersist" parent="." unique_id=1108023738 instance=ExtResource("20_6ssoq")]
 

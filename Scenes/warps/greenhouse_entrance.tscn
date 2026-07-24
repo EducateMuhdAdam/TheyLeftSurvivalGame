@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bct66yfq04cxf"]
 
-[ext_resource type="Script" uid="uid://6rxpkbjigsp1" path="res://Scripts/warp_gate.gd" id="1_vcmkp"]
+[ext_resource type="Script" uid="uid://brtvll2481arv" path="res://Scripts/warps/greenhouse_entrance.gd" id="1_38b78"]
 [ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="2_38b78"]
 [ext_resource type="Resource" uid="uid://1aldgjjjnhag" path="res://Data/warpgates/5_greenhouse_entrance.tres" id="2_336l7"]
 
@@ -8,7 +8,7 @@
 size = Vector2(40, 40)
 
 [node name="GreenhouseEntrance" type="Node2D" unique_id=1595717924]
-script = ExtResource("1_vcmkp")
+script = ExtResource("1_38b78")
 warpData = ExtResource("2_336l7")
 metadata/_custom_type_script = "uid://6rxpkbjigsp1"
 

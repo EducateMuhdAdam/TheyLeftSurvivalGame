@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b00oewrlr7aci"]
+
+[ext_resource type="Script" uid="uid://oyquuwgvx05j" path="res://Scripts/warps/walkway_2_radiotower.gd" id="1_woqmv"]
+[ext_resource type="Resource" uid="uid://cqliof3krdnjd" path="res://Data/warpgates/11_walkway_2_radiotower.tres" id="2_woqmv"]
+[ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="3_foeep"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_336l7"]
+size = Vector2(164, 40)
+
+[node name="Walkway2Radiotower" type="Node2D" unique_id=1595717924]
+script = ExtResource("1_woqmv")
+warpData = ExtResource("2_woqmv")
+metadata/_custom_type_script = "uid://6rxpkbjigsp1"
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=2017559249]
+script = ExtResource("3_foeep")
+action_name = "Go to Radio Station"
+metadata/_custom_type_script = "uid://doscx7owdvjqj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1275916552]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_336l7")

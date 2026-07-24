@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://calfd4nnat7sm"]
 
-[ext_resource type="Script" uid="uid://6rxpkbjigsp1" path="res://Scripts/warp_gate.gd" id="1_mc06a"]
+[ext_resource type="Script" uid="uid://di15kj701o7ao" path="res://Scripts/warps/mine_entrance.gd" id="1_mc06a"]
 [ext_resource type="Resource" uid="uid://cqyvunnqcm0t5" path="res://Data/warpgates/6_mine_entrance.tres" id="2_mc06a"]
 [ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="3_b652k"]
 

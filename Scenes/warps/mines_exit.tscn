@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://byiqd8ajwsy72"]
+
+[ext_resource type="Script" uid="uid://4yk8w2jy4l6m" path="res://Scripts/warps/mines_exit.gd" id="1_vl7vk"]
+[ext_resource type="Resource" uid="uid://dv0qkqxedljfs" path="res://Data/warpgates/8_mines_exit.tres" id="2_vl7vk"]
+[ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="3_tvws1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vl7vk"]
+size = Vector2(80, 80)
+
+[node name="MinesExit" type="Node2D" unique_id=1595717924]
+script = ExtResource("1_vl7vk")
+warpData = ExtResource("2_vl7vk")
+metadata/_custom_type_script = "uid://6rxpkbjigsp1"
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=2017559249]
+script = ExtResource("3_tvws1")
+action_name = "Exit Mines"
+metadata/_custom_type_script = "uid://doscx7owdvjqj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1275916552]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_vl7vk")

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="WarpData" format=3 uid="uid://dv0qkqxedljfs"]
+
+[ext_resource type="Resource" uid="uid://c4l13dfe226hr" path="res://Data/areas/5_mines.tres" id="1_igkc2"]
+[ext_resource type="Script" uid="uid://bmqtvvr8hep8j" path="res://Scripts/warp_data.gd" id="1_xukxp"]
+
+[resource]
+script = ExtResource("1_xukxp")
+warpID = 8
+destination_gate = 6
+origin = Vector2i(2256, -660)
+area_data = ExtResource("1_igkc2")
+metadata/_custom_type_script = "uid://bmqtvvr8hep8j"

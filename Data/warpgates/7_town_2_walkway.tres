@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_ignvo")
 warpID = 7
-origin = Vector2i(384, -930)
+destination_gate = 10
+origin = Vector2i(384, -900)
 area_data = ExtResource("1_4tnih")
 metadata/_custom_type_script = "uid://bmqtvvr8hep8j"

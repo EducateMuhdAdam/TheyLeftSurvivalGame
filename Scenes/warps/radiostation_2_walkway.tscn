@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://5x2gwicx2is7"]
+
+[ext_resource type="Script" uid="uid://c4k7st46qpj3x" path="res://Scripts/warps/radiostation_2_walkway.gd" id="1_006ky"]
+[ext_resource type="Resource" uid="uid://br1c2awbardac" path="res://Data/warpgates/12_radiostation_2_walkway.tres" id="2_006ky"]
+[ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="3_nvrmf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_336l7"]
+size = Vector2(164, 40)
+
+[node name="Radiostation2Walkway" type="Node2D" unique_id=1595717924]
+script = ExtResource("1_006ky")
+warpData = ExtResource("2_006ky")
+metadata/_custom_type_script = "uid://6rxpkbjigsp1"
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=2017559249]
+script = ExtResource("3_nvrmf")
+action_name = "Exit Greenhouse"
+metadata/_custom_type_script = "uid://doscx7owdvjqj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1275916552]
+position = Vector2(0, -20)
+shape = SubResource("RectangleShape2D_336l7")

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="WarpData" format=3 uid="uid://cqliof3krdnjd"]
+
+[ext_resource type="Script" uid="uid://bmqtvvr8hep8j" path="res://Scripts/warp_data.gd" id="1_1tigc"]
+[ext_resource type="Resource" uid="uid://wfay3objids1" path="res://Data/areas/7_walkway.tres" id="1_djfpf"]
+
+[resource]
+script = ExtResource("1_1tigc")
+warpID = 11
+destination_gate = 12
+origin = Vector2i(669, -2557)
+area_data = ExtResource("1_djfpf")
+metadata/_custom_type_script = "uid://bmqtvvr8hep8j"

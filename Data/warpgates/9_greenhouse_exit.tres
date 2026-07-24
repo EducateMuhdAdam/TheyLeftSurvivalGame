@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="WarpData" format=3 uid="uid://321hbteaby5j"]
+
+[ext_resource type="Script" uid="uid://bmqtvvr8hep8j" path="res://Scripts/warp_data.gd" id="1_ulqr7"]
+[ext_resource type="Resource" uid="uid://vxlu7r40kqi5" path="res://Data/areas/6_greenhouse.tres" id="1_wmhlg"]
+
+[resource]
+script = ExtResource("1_ulqr7")
+warpID = 9
+destination_gate = 5
+origin = Vector2i(2737, -1188)
+area_data = ExtResource("1_wmhlg")
+metadata/_custom_type_script = "uid://bmqtvvr8hep8j"

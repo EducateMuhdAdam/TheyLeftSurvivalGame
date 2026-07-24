@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bhixiy0kvpqny"]
 
-[ext_resource type="Script" uid="uid://6rxpkbjigsp1" path="res://Scripts/warp_gate.gd" id="1_j4l75"]
+[ext_resource type="Script" uid="uid://pny3qhlgsrw6" path="res://Scripts/warps/town_2_walkway.gd" id="1_j4l75"]
 [ext_resource type="Resource" uid="uid://clhh7mnpjf7q6" path="res://Data/warpgates/7_town_2_walkway.tres" id="2_j4l75"]
 [ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="3_4d0dp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_336l7"]
-size = Vector2(40, 40)
+size = Vector2(164, 40)
 
 [node name="Town2Walkway" type="Node2D" unique_id=1595717924]
 script = ExtResource("1_j4l75")

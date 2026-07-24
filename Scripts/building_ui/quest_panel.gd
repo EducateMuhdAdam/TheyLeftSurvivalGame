@@ -60,6 +60,7 @@ func check_quest() -> void:
 			slot.set_quantity(slot.quantity - qty_consumed)
 		EventBus.toggle_inventory.emit(false)
 		building.active = false
+		queue_free()
 
 func close_panel() -> void:
 	for slotID: int in tribute_slots.keys():
