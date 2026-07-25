@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dkcdn50ys2b63"]
+
+[ext_resource type="Texture2D" uid="uid://bnny1goypbekx" path="res://Assets/Images/Items/CookedCabbage.png" id="1_gfvht"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="1_n8iy0"]
+
+[resource]
+script = ExtResource("1_n8iy0")
+itemID = 26
+itemName = "Cooked Cabbage"
+itemDescription = "For some reason, you feel like this would go well with poultry and chilli"
+image = ExtResource("1_gfvht")
+tags = Array[String](["Food"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

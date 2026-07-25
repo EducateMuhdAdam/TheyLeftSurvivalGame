@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bijlgvs5ada4e"]
+
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="1_mkfot"]
+[ext_resource type="Texture2D" uid="uid://dtncwq4lwgy5n" path="res://Assets/Images/Items/Potato.png" id="1_yfptc"]
+
+[resource]
+script = ExtResource("1_mkfot")
+itemID = 25
+itemName = "Potato"
+itemDescription = "so this is where the chips are coming from"
+image = ExtResource("1_yfptc")
+tags = Array[String](["Food", "Uncooked"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

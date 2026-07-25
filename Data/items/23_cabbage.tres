@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://7mjp0v3wp7ny"]
+
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="1_poetr"]
+[ext_resource type="Texture2D" uid="uid://t5pthvjildcn" path="res://Assets/Images/Items/Cabbage.png" id="1_qj76o"]
+
+[resource]
+script = ExtResource("1_poetr")
+itemID = 23
+itemName = "Cabbage"
+itemDescription = "A ball of leaf! cromch"
+image = ExtResource("1_qj76o")
+tags = Array[String](["Food", "Uncooked"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

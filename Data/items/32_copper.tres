@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cm8oqmdx3ey56"]
+
+[ext_resource type="Texture2D" uid="uid://p4nl68iih73d" path="res://Assets/Images/Items/copper.png" id="1_frrpe"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="1_rx7kf"]
+
+[resource]
+script = ExtResource("1_rx7kf")
+itemID = 32
+itemName = "Copper"
+itemDescription = "It is a maleable and conductive material, I could use this for wiring"
+image = ExtResource("1_frrpe")
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://yt8igwekp77b"]
+
+[ext_resource type="Texture2D" uid="uid://bng4xnyfr0g0h" path="res://Assets/Images/Items/Tomato_Seeds.png" id="1_bpprr"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="2_kyqjn"]
+
+[resource]
+script = ExtResource("2_kyqjn")
+itemID = 19
+itemName = "Tomato Seeds"
+itemDescription = "I could plant this in a farm for food!"
+image = ExtResource("1_bpprr")
+tags = Array[String](["Seed"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

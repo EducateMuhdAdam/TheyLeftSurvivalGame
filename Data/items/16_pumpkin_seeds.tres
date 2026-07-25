@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bawpg1wwrenf0"]
+
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="1_48hqg"]
+[ext_resource type="Texture2D" uid="uid://bqxffpe23dcmg" path="res://Assets/Images/Items/Pumpkin_Seeds.png" id="1_rfwy8"]
+
+[resource]
+script = ExtResource("1_48hqg")
+itemID = 16
+itemName = "Pumpkin Seeds"
+itemDescription = "I could plant this in a farm for food!"
+image = ExtResource("1_rfwy8")
+tags = Array[String](["Seed"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

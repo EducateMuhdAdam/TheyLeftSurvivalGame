@@ -15,6 +15,14 @@ func _ready():
 		panel.itemQuestData = itemQuestData
 		EventBus.shared_ui.emit(panel, self)
 
+func set_active(actv: bool) -> void:
+	if !actv:
+		active = false
+		InteractionManager.unregister_area(self)
+	else:
+		active = true
+	
+
 func save() -> Dictionary:
 	var save_dict = {
 		"filename" : get_scene_file_path(),

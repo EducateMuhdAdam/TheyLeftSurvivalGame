@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bue2puruvrefs"]
+
+[ext_resource type="Texture2D" uid="uid://b22oidu6q8a5k" path="res://Assets/Images/Items/Carrot.png" id="1_pqr55"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="1_trqkr"]
+
+[resource]
+script = ExtResource("1_trqkr")
+itemID = 24
+itemName = "Carrot"
+itemDescription = "Whats up doc!"
+image = ExtResource("1_pqr55")
+tags = Array[String](["Food", "Uncooked"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

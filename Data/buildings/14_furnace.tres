@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BuildingData" format=3 uid="uid://dle8i62gqp2js"]
+
+[ext_resource type="Texture2D" uid="uid://d2rqgsaj7sxye" path="res://Assets/Images/Buildings/Furnace.png" id="1_qisdk"]
+[ext_resource type="Script" uid="uid://cma7fqff3prkl" path="res://Scripts/building_data.gd" id="1_yeowg"]
+
+[resource]
+script = ExtResource("1_yeowg")
+building_id = 14
+building_name = "Furnace"
+image = ExtResource("1_qisdk")
+requirement = Dictionary[int, int]({
+31: 1,
+35: 3
+})
+build_scene_path = "uid://bnihahhcm3ynx"
+ui_scene_path = "uid://bo7ka48p4ctnb"
+metadata/_custom_type_script = "uid://cma7fqff3prkl"

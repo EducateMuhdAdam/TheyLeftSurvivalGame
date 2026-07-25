@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dtj1lps33wvs0"]
+
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="1_ubkde"]
+[ext_resource type="Texture2D" uid="uid://cpsgknmoippog" path="res://Assets/Images/Items/Pumpkin.png" id="1_xjesd"]
+
+[resource]
+script = ExtResource("1_ubkde")
+itemID = 22
+itemName = "Pumpkin"
+itemDescription = "Spooky ooky pump-kin, send shivers down your spine."
+image = ExtResource("1_xjesd")
+tags = Array[String](["Food"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

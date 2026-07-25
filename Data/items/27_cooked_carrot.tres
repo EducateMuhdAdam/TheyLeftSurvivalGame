@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bt033tfei1wov"]
+
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="1_664jd"]
+[ext_resource type="Texture2D" uid="uid://cupxfjor8v1he" path="res://Assets/Images/Items/CookedCarrot.png" id="1_qxatu"]
+
+[resource]
+script = ExtResource("1_664jd")
+itemID = 27
+itemName = "Cooked Carrot"
+itemDescription = "A bit softer than when it was uncooked"
+image = ExtResource("1_qxatu")
+tags = Array[String](["Food"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

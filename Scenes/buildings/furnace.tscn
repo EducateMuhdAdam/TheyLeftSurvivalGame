@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bnihahhcm3ynx"]
+
+[ext_resource type="Script" uid="uid://ds6oetrca2wdm" path="res://Scripts/buildings/furnace.gd" id="1_rmceq"]
+[ext_resource type="Resource" uid="uid://dle8i62gqp2js" path="res://Data/buildings/14_furnace.tres" id="2_kldsy"]
+[ext_resource type="Texture2D" uid="uid://d2rqgsaj7sxye" path="res://Assets/Images/Buildings/Furnace.png" id="2_rmceq"]
+[ext_resource type="Script" uid="uid://doscx7owdvjqj" path="res://Scripts/interaction_area.gd" id="4_6r6fw"]
+[ext_resource type="Script" uid="uid://cp78fkd8r8mvm" path="res://building_space.gd" id="5_xkxth"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5tla"]
+size = Vector2(106, 30)
+
+[node name="Furnace" type="StaticBody2D" unique_id=949385918 groups=["Buildings", "Persist"]]
+script = ExtResource("1_rmceq")
+building_data = ExtResource("2_kldsy")
+metadata/_custom_type_script = "uid://o4ahfg736fic"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2078663593]
+scale = Vector2(2, 2)
+texture = ExtResource("2_rmceq")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=2113105923]
+visible = false
+script = ExtResource("4_6r6fw")
+metadata/_custom_type_script = "uid://doscx7owdvjqj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1899029515]
+position = Vector2(0, 15)
+shape = SubResource("RectangleShape2D_u5tla")
+
+[node name="Cooktime" type="Timer" parent="." unique_id=815946362]
+wait_time = 10.0
+
+[node name="BuildingSpace" type="Area2D" parent="." unique_id=715912874]
+script = ExtResource("5_xkxth")
+sizeX = 2
+sizeY = 1
+metadata/_custom_type_script = "uid://cp78fkd8r8mvm"

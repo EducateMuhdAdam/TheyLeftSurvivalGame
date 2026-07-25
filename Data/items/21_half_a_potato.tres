@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://ckgrchr8bbv8w"]
+
+[ext_resource type="Texture2D" uid="uid://d38a3oy40w8ta" path="res://Assets/Images/Items/HalfPotato.png" id="1_m1udg"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="2_g585e"]
+
+[resource]
+script = ExtResource("2_g585e")
+itemID = 21
+itemName = "Half A Potato"
+itemDescription = "I could plant this in a farm for food!"
+image = ExtResource("1_m1udg")
+tags = Array[String](["Seed"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dagetgk5hh0i3"]
+
+[ext_resource type="Texture2D" uid="uid://shy465mcxx71" path="res://Assets/Images/Items/Carrot_Seeds.png" id="1_pcx7x"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="2_slmhn"]
+
+[resource]
+script = ExtResource("2_slmhn")
+itemID = 18
+itemName = "Carrot Seeds"
+itemDescription = "I could plant this in a farm for food!"
+image = ExtResource("1_pcx7x")
+tags = Array[String](["Seed"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

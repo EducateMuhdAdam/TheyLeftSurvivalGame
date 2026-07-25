@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://mvpyt3m4nkhr"]
+
+[ext_resource type="Texture2D" uid="uid://d3hahl3sg28p1" path="res://Assets/Images/Items/Clay.png" id="1_35kpj"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="1_auabv"]
+
+[resource]
+script = ExtResource("1_auabv")
+itemID = 34
+itemName = "Clay"
+itemDescription = "Its disintegrating in my hands. I think it could harden if I heat it up"
+image = ExtResource("1_35kpj")
+tags = Array[String](["Uncooked", "Raw"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

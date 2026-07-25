@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c5ff5fitd4ao0"]
+
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="1_7skvo"]
+[ext_resource type="Texture2D" uid="uid://dshy32jgcqate" path="res://Assets/Images/Items/iron ore.png" id="1_bmvja"]
+
+[resource]
+script = ExtResource("1_7skvo")
+itemID = 29
+itemName = "Iron Ore"
+itemDescription = "I could refine this in a furnace somewhere"
+image = ExtResource("1_bmvja")
+tags = Array[String](["Raw"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

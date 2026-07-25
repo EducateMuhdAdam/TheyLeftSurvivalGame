@@ -6,15 +6,38 @@ var warp_catalogue: Dictionary[int, WarpData]
 var message_catalogue: Dictionary[int, MessageData]
 var building_catalogue: Dictionary[int, BuildingData]
 var cooking_reference: Dictionary = {
-	2: 5
+	2: 5,
+	23: 26,
+	24: 27,
+	25: 28,
+	34: 35
+}
+var smelting_reference: Dictionary = {
+	34: 35,
+	29: 31,
+	30: 32
 }
 var plant_reference: Dictionary = {
-	7: 8
+	16: 22,
+	17: 23,
+	18: 24,
+	19: 8,
+	20: 24,
+	21: 25
+	
 }
 var eating_reference: Dictionary = {
 	2: 15.0,
-	5: 60.0,
-	8: 25.0
+	5: 40.0,
+	8: 25.0,
+	22: 40.0,
+	23: 20.0,
+	24: 15.0,
+	25: 10.0,
+	26: 35.0,
+	27: 30.0,
+	28: 40.0,
+	36: 10.0
 }
 var drinking_reference: Dictionary = {
 	3: 60.0
@@ -52,6 +75,7 @@ func _ready() -> void:
 	item_to_message_reference = get_item_to_message_reference()
 	scrap_reference = get_scrap_reference()
 	building_catalogue = get_building_resources()
+	smelting_reference = get_smelting_reference()
 
 func get_cooking_reference() -> Dictionary:
 	var reference = {}
@@ -69,6 +93,12 @@ func get_scrap_reference() -> Dictionary:
 	var reference = {}
 	for key in scrap_reference.keys():
 		reference[key] = item_catalogue[scrap_reference[key]]
+	return reference
+
+func get_smelting_reference() -> Dictionary:
+	var reference = {}
+	for key in smelting_reference.keys():
+		reference[key] = item_catalogue[smelting_reference[key]]
 	return reference
 
 func get_item_resources() -> Dictionary[int, ItemData]:

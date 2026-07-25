@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cd7uip7his4j6"]
+
+[ext_resource type="Texture2D" uid="uid://byqunp1t5july" path="res://Assets/Images/Items/chips.png" id="1_8q3c2"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="2_et4w5"]
+
+[resource]
+script = ExtResource("2_et4w5")
+itemID = 36
+itemName = "Bag of Chips"
+itemDescription = "I usually wouldn't eat things off the ground but I am pretty hungry"
+image = ExtResource("1_8q3c2")
+tags = Array[String](["Food"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

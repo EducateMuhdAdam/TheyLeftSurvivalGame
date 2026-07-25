@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bwfgnhtl0c7gf"]
+
+[ext_resource type="Texture2D" uid="uid://b2m5tjtnsuwto" path="res://Assets/Images/Items/iron.png" id="1_5twb2"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="2_1kdkr"]
+
+[resource]
+script = ExtResource("2_1kdkr")
+itemID = 31
+itemName = "Iron"
+itemDescription = "Hard, Cold, Steel. All the possibilities."
+image = ExtResource("1_5twb2")
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

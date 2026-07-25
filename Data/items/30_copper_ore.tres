@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bde1cj7uu5raa"]
+
+[ext_resource type="Texture2D" uid="uid://cr8lvqiwby6u4" path="res://Assets/Images/Items/Copper Ore.png" id="1_qg3j8"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="2_vvgwd"]
+
+[resource]
+script = ExtResource("2_vvgwd")
+itemID = 30
+itemName = "Copper Ore"
+itemDescription = "I could refine this in a furnace somewhere"
+image = ExtResource("1_qg3j8")
+tags = Array[String](["Raw"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

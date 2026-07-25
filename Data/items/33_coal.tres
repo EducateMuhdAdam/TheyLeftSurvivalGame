@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://chrvi6yhvr046"]
+
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="1_dh8un"]
+[ext_resource type="Texture2D" uid="uid://b2vuk18os4bcw" path="res://Assets/Images/Items/coal.png" id="1_rsm1r"]
+
+[resource]
+script = ExtResource("1_dh8un")
+itemID = 33
+itemName = "Coal"
+itemDescription = "I'm not on the naughty list am I? Though, this is a good gift right now, actually"
+image = ExtResource("1_rsm1r")
+tags = Array[String](["Fuel"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

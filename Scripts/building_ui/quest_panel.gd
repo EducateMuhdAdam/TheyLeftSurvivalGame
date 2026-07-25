@@ -59,7 +59,7 @@ func check_quest() -> void:
 			var qty_consumed: int = itemQuestData.requirements[slot.item.itemID]
 			slot.set_quantity(slot.quantity - qty_consumed)
 		EventBus.toggle_inventory.emit(false)
-		building.active = false
+		building.set_active(false)
 		queue_free()
 
 func close_panel() -> void:

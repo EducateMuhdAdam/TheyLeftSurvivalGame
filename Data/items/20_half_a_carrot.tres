@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dxp7ftp4nycuk"]
+
+[ext_resource type="Texture2D" uid="uid://dk1x465p8bsk3" path="res://Assets/Images/Items/HalfCarrot.png" id="1_ftasq"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="2_dqoh2"]
+
+[resource]
+script = ExtResource("2_dqoh2")
+itemID = 20
+itemName = "Half A Carrot"
+itemDescription = "I could plant this in a farm for food!"
+image = ExtResource("1_ftasq")
+tags = Array[String](["Seed"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

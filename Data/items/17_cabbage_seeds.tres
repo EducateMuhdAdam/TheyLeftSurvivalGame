@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cm17nefuys1vi"]
+
+[ext_resource type="Texture2D" uid="uid://b7slegoph5k8y" path="res://Assets/Images/Items/Cabbage_Seeds.png" id="1_7krsi"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="2_87ckb"]
+
+[resource]
+script = ExtResource("2_87ckb")
+itemID = 17
+itemName = "Cabbage Seeds"
+itemDescription = "I could plant this in a farm for food!"
+image = ExtResource("1_7krsi")
+tags = Array[String](["Seed"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"
