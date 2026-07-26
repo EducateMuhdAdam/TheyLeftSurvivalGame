@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemQuestData" format=3 uid="uid://cl5dbap8ikx3u"]
+
+[ext_resource type="Script" uid="uid://jwysrfnhplyf" path="res://Scripts/item_quest_data.gd" id="1_3xpr3"]
+
+[resource]
+script = ExtResource("1_3xpr3")
+itemQuestID = 4
+requirements = Dictionary[int, int]({
+33: 16,
+37: 12,
+38: 6
+})
+metadata/_custom_type_script = "uid://jwysrfnhplyf"

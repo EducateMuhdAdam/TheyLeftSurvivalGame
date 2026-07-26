@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bgu31ek2saank"]
+
+[ext_resource type="Texture2D" uid="uid://b4arim8mwrl8p" path="res://Assets/Images/Items/Can.png" id="1_pg2vx"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="2_shmc8"]
+
+[resource]
+script = ExtResource("2_shmc8")
+itemID = 39
+itemName = "Alluminium Can"
+itemDescription = "Sadly there is no drinks in this. Not like it would taste good anyways"
+image = ExtResource("1_pg2vx")
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

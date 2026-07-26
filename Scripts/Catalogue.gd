@@ -15,7 +15,8 @@ var cooking_reference: Dictionary = {
 var smelting_reference: Dictionary = {
 	34: 35,
 	29: 31,
-	30: 32
+	30: 32,
+	39: 40
 }
 var plant_reference: Dictionary = {
 	16: 22,

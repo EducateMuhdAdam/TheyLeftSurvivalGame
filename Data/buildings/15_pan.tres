@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BuildingData" format=3 uid="uid://biwo6a17qx33s"]
+
+[ext_resource type="Texture2D" uid="uid://cr2xe2kj5wx53" path="res://Assets/Images/Buildings/Pan.png" id="1_a4ki7"]
+[ext_resource type="Script" uid="uid://cma7fqff3prkl" path="res://Scripts/building_data.gd" id="2_jqd8q"]
+
+[resource]
+script = ExtResource("2_jqd8q")
+building_id = 15
+building_name = "Net"
+image = ExtResource("1_a4ki7")
+requirement = Dictionary[int, int]({
+10: 1,
+39: 3
+})
+x_size = 1
+build_scene_path = "uid://dp4n6pdvccpmc"
+metadata/_custom_type_script = "uid://cma7fqff3prkl"

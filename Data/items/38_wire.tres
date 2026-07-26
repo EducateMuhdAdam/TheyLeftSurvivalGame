@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bq0febck01h0g"]
+
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="1_1s7mr"]
+[ext_resource type="Texture2D" uid="uid://bxba5eo8n6nhp" path="res://Assets/Images/Items/Wire.png" id="1_fjr5d"]
+
+[resource]
+script = ExtResource("1_1s7mr")
+itemID = 38
+itemName = "Wire"
+itemDescription = "Harnest and redirect the magical power of lightning!"
+image = ExtResource("1_fjr5d")
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

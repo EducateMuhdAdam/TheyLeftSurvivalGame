@@ -2,7 +2,7 @@ extends Node2D
 
 
 var level_root: LevelRoot
-var player: CharacterBody2D
+var player: Player
 
 func _ready() -> void:
 	level_root = await Game.get_level_root()
@@ -44,5 +44,32 @@ func handle_event(eventID: int) -> void:
 			EventBus.change_area.emit(area)
 			EventBus.set_camera_limit.emit(area.limit_ltrb)
 			EventBus.fade_out.emit(false)
+		4:
+			var area: AreaData = load("res://Data/areas/3_town.tres")
+			var bonbon = level_root.registered_objects["BonBon"]
+			EventBus.fade_out.emit(true)
+			await EventBus.fade_out_finished
+			EventBus.link_camera.emit(bonbon.rt2d)
+			EventBus.set_camera_limit.emit(area.limit_ltrb)
+			EventBus.fade_out.emit(false)
+			await EventBus.fade_out_finished
+			await get_tree().create_timer(2.0).timeout
+			
+			var tween := create_tween()
+			tween.set_trans(Tween.TRANS_SINE)
+			tween.set_ease(Tween.EASE_OUT)
+			tween.tween_property(bonbon, "position:y", bonbon.position.y - 200, 1)
+			await tween.finished
+			
+			EventBus.fade_out.emit(true)
+			await EventBus.fade_out_finished
+			EventBus.link_camera.emit(player.rt2d)
+			EventBus.set_camera_limit.emit(player.areaData.limit_ltrb)
+			EventBus.fade_out.emit(false)
+			bonbon.queue_free()
+		5:
+			EventBus.fade_out.emit(true)
+			await EventBus.fade_out_finished
+			print("You Win! Yippie!")
 		_:
 			print("Event ID ", eventID, " not found")

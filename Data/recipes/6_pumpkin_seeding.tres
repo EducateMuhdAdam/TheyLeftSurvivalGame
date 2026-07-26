@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CraftingData" format=3 uid="uid://c1d3quqa2ntdx"]
+
+[ext_resource type="Script" uid="uid://drwggvk04tang" path="res://Scripts/crafting_data.gd" id="1_6wxc7"]
+
+[resource]
+script = ExtResource("1_6wxc7")
+craftingID = 6
+recipe = Dictionary[int, int]({
+22: 1
+})
+product = Dictionary[int, int]({
+16: 2
+})
+metadata/_custom_type_script = "uid://drwggvk04tang"

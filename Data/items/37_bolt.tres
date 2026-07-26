@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cg638tmfmq4yw"]
+
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="1_3ifre"]
+[ext_resource type="Texture2D" uid="uid://dcsjbnhjqaokd" path="res://Assets/Images/Items/bolt.png" id="1_p08ak"]
+
+[resource]
+script = ExtResource("1_3ifre")
+itemID = 37
+itemName = "Bolt"
+itemDescription = "bolts to secure mechanical parts in place. I could use this for the radio tower"
+image = ExtResource("1_p08ak")
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

@@ -7,6 +7,11 @@ class_name LevelRoot
 @export var main_layer: TileMapLayer
 @export var decoration_layer: TileMapLayer
 
+var registered_objects: Dictionary[String, Node2D]
+
+func register_object(objectName: String, object: Node2D) -> void:
+	registered_objects[objectName] = object
+
 func _ready() -> void:
 	Game.set_level_root(self)
 

@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://447hrobxxsy1"]
+
+[ext_resource type="Texture2D" uid="uid://w21y2ax6fqwo" path="res://Assets/Images/Objects/BonBon.png" id="1_bo4fe"]
+[ext_resource type="Script" uid="uid://brif80pkljqbw" path="res://Scripts/quests/bon_bon.gd" id="1_pks88"]
+[ext_resource type="Script" uid="uid://c6leqku504rl2" path="res://testing/quest_area.gd" id="2_pks88"]
+[ext_resource type="Resource" uid="uid://xe5exxna8xyy" path="res://Data/item_quests/3_bonbon_quest.tres" id="3_gvnnu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y6402"]
+size = Vector2(96, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vocka"]
+size = Vector2(58, 40)
+
+[node name="BonBon" type="StaticBody2D" unique_id=734767006 groups=["Persist"]]
+script = ExtResource("1_pks88")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=978570964]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_y6402")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=735946312]
+position = Vector2(0, -8)
+scale = Vector2(2, 2)
+texture = ExtResource("1_bo4fe")
+
+[node name="QuestArea" type="Area2D" parent="." unique_id=1372397633]
+script = ExtResource("2_pks88")
+eventID = 4
+itemQuestData = ExtResource("3_gvnnu")
+metadata/_custom_type_script = "uid://c6leqku504rl2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="QuestArea" unique_id=2091291648]
+position = Vector2(0, 17)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_vocka")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="." unique_id=172220043]

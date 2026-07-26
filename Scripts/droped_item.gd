@@ -6,6 +6,7 @@ class_name DroppedItem
 
 @export var itemData: ItemData
 @export var quantity: int = 1
+@export var persisting: bool = true
 var interact: Callable = func():
 	pass
 
@@ -13,7 +14,8 @@ const MAX_SIZE: int = 32
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	add_to_group("Persist")
+	if persisting:
+		add_to_group("Persist")
 	print(itemData)
 	if itemData:
 		set_itemData(itemData)

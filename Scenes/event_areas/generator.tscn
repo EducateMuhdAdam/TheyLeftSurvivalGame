@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cbesm0rrl8fuo"]
+
+[ext_resource type="Texture2D" uid="uid://eakdqcqteakg" path="res://Assets/Images/Objects/generaator.png" id="1_0n16k"]
+[ext_resource type="Script" uid="uid://c6leqku504rl2" path="res://testing/quest_area.gd" id="2_mdjcb"]
+[ext_resource type="Resource" uid="uid://cl5dbap8ikx3u" path="res://Data/item_quests/4_radio_tower.tres" id="3_l15d0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfe6b"]
+size = Vector2(80, 40)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=679029017]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1432610550]
+position = Vector2(0, -60)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("1_0n16k")
+
+[node name="QuestArea" type="Area2D" parent="." unique_id=1931957570]
+script = ExtResource("2_mdjcb")
+eventID = 5
+itemQuestData = ExtResource("3_l15d0")
+metadata/_custom_type_script = "uid://c6leqku504rl2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="QuestArea" unique_id=1820088094]
+shape = SubResource("RectangleShape2D_rfe6b")
