@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="MessageData" format=3 uid="uid://cbtrrrrfx5ft5"]
+
+[ext_resource type="Script" uid="uid://clg6sgwgkl1xk" path="res://Scripts/message_data.gd" id="1_tft5w"]
+
+[resource]
+script = ExtResource("1_tft5w")
+messageID = 10
+title = "Mysterious Note"
+message = "*There are crude drawings of what seems to be food with tally marks next to it, it describes*
+
+[Fish over fire] 20 tally marks
+[A Pumpkin] 10 tally marks
+[A Cabbage] 10 tally marks and
+[A Carrot] 10 tally marks
+
+*Some words can also be understood*
+
+No Energy, Can't Move, Will die in winter.
+"
+metadata/_custom_type_script = "uid://clg6sgwgkl1xk"

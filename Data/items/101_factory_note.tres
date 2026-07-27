@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_xt4nb")
 itemID = 101
-itemName = "Test Note"
+itemName = "Factory Note"
 image = ExtResource("1_x4byb")
 tags = Array[String](["Message"])
 metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

@@ -49,17 +49,32 @@ var item_to_message_reference: Dictionary = {
 	103: 3,
 	104: 5,
 	105: 6,
-	106: 7
+	106: 7,
+	107: 2,
+	108: 8,
+	109: 9,
+	110: 10,
+	111: 11,
+	112: 12,
+	113: 13,
+	114: 14,
+	115: 15
 }
 
 var building_recipe_reference: Dictionary = {
 	102: 3,
 	104: 10,
 	105: [12, 13],
-	106: 5
+	106: 5,
+	108: [1, 2],
+	111: 14,
+	113: 15,
+	114: [4, 6]
 }
 
 var crafting_recipe_reference: Dictionary = {
+	108: [3, 4, 5, 6, 7],
+	115: [8, 9]
 }
 
 var scrap_reference: Dictionary = {

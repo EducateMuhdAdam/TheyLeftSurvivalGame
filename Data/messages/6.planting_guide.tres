@@ -8,5 +8,8 @@ messageID = 6
 title = "Chapter 1: Basics"
 message = "Growing a plant is relatively easy! just find a seed from a plant and bury it in the ground.
 
-These comes in different sizes like a pinecone or very small seeds from reeds"
+These comes in different sizes like a pinecone or very small seeds from reeds
+
+[NEW Building: Tree]
+[NEW Building: Reeds]"
 metadata/_custom_type_script = "uid://clg6sgwgkl1xk"

@@ -8,7 +8,8 @@ var item_pool: Dictionary[int, float] = {
 	30: 30.0,
 	14: 80.0,
 	29: 20.0,
-	34: 60.0
+	34: 60.0,
+	33: 50.0
 }
 
 func _on_timer_timeout() -> void:

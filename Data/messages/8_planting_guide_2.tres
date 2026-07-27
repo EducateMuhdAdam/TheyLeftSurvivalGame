@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="MessageData" format=3 uid="uid://b7slftermyrj8"]
+
+[ext_resource type="Script" uid="uid://clg6sgwgkl1xk" path="res://Scripts/message_data.gd" id="1_00mhf"]
+
+[resource]
+script = ExtResource("1_00mhf")
+messageID = 8
+title = "Chapter 5: Agriculture"
+message = "The secret to having a constant stream of vegetables to sell is that each plant has a way to reproduce and repopulate. Each fruit usually contains more seeds that you can plant and grow more of. Its basically exponential growth!
+
+With a few exceptions of course. Some plants grow vegetatively, which means you just need to cut the fruit in half and plant it. Examples are carrots and potatoes.
+
+*The next page details specific instructions on how to extract the seeds from the produce*
+
+some space, water and sunlight is all it needs to grow.So start making space and  grow your own food!
+
+[NEW Crafting Recepies Unlocked: Seeds]
+[NEW building: Farm Lv1]"
+metadata/_custom_type_script = "uid://clg6sgwgkl1xk"

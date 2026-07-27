@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://blog5v035ocuu" path="res://Scenes/storages/dumpster.tscn" id="8_chwpn"]
 [ext_resource type="PackedScene" uid="uid://447hrobxxsy1" path="res://Scenes/event_areas/bon_bon.tscn" id="8_yaxpm"]
 [ext_resource type="PackedScene" uid="uid://cbesm0rrl8fuo" path="res://Scenes/event_areas/generator.tscn" id="9_8f0cu"]
-[ext_resource type="Resource" uid="uid://bqxyyovm4v62t" path="res://Data/items/101_note.tres" id="10_oovug"]
+[ext_resource type="Resource" uid="uid://bqxyyovm4v62t" path="res://Data/items/101_factory_note.tres" id="10_oovug"]
 [ext_resource type="Resource" uid="uid://ti1183svm2bp" path="res://Data/items/14_rock.tres" id="11_u5cqy"]
 [ext_resource type="PackedScene" uid="uid://bqrrxhlk4jffs" path="res://Scenes/warps/town_warp.tscn" id="12_6r07y"]
 [ext_resource type="Resource" uid="uid://ba8xe2tx1la8d" path="res://Data/items/201_town_key.tres" id="12_pjppf"]
@@ -41,6 +41,7 @@
 [ext_resource type="Resource" uid="uid://pqc3i13u0boh" path="res://Data/items/11_plastic_bag.tres" id="28_kpjai"]
 [ext_resource type="Resource" uid="uid://cd7uip7his4j6" path="res://Data/items/36_chips.tres" id="29_yaxpm"]
 [ext_resource type="Resource" uid="uid://027efauysjhb" path="res://Data/items/1_empty_bottle.tres" id="30_8f0cu"]
+[ext_resource type="Resource" uid="uid://dpj6drkuxhka5" path="res://Data/items/115_Radio_Tower_Fix.tres" id="30_h3d7q"]
 [ext_resource type="Resource" uid="uid://be007ap3n1opi" path="res://Data/items/10_rope.tres" id="31_g6dp3"]
 [ext_resource type="PackedScene" uid="uid://bd7s6bvdboikd" path="res://Scenes/storages/Barrel.tscn" id="32_5ceot"]
 [ext_resource type="Resource" uid="uid://bawpg1wwrenf0" path="res://Data/items/16_pumpkin_seeds.tres" id="33_lcsmq"]
@@ -49,6 +50,12 @@
 [ext_resource type="Resource" uid="uid://ckgrchr8bbv8w" path="res://Data/items/21_half_a_potato.tres" id="36_g6dp3"]
 [ext_resource type="Resource" uid="uid://yt8igwekp77b" path="res://Data/items/19_tomato_seeds.tres" id="36_nx6ne"]
 [ext_resource type="PackedScene" uid="uid://bnihahhcm3ynx" path="res://Scenes/buildings/furnace.tscn" id="38_mdi36"]
+[ext_resource type="Resource" uid="uid://fyggddgmn3bm" path="res://Data/items/108_planting_guide_2.tres" id="43_6axy7"]
+[ext_resource type="Resource" uid="uid://c81stxpdvtlc0" path="res://Data/items/109_Greenhouse_Closure_Notice.tres" id="44_wnaei"]
+[ext_resource type="Resource" uid="uid://btci1k3o5bcxs" path="res://Data/items/111_Refining_Instructions.tres" id="45_cocpr"]
+[ext_resource type="Resource" uid="uid://bophscbmwpl34" path="res://Data/items/110_bonbon_note.tres" id="46_hhyfv"]
+[ext_resource type="Resource" uid="uid://bb7esm3ejadw2" path="res://Data/items/112_Health_and_Safety_Notice.tres" id="47_jpel7"]
+[ext_resource type="Resource" uid="uid://d2q8ebd5kwfwa" path="res://Data/items/113_Message_For_Steve.tres" id="48_c1od4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xfk5q"]
 texture = ExtResource("2_8ffim")
@@ -1234,7 +1241,14 @@ position = Vector2(2737, -1158)
 
 [node name="Chest2" parent="ObjectContainer" unique_id=2134002387 instance=ExtResource("16_vr6f4")]
 position = Vector2(3390, -549)
+preplaced_inv = Dictionary[int, int]({
+114: 1
+})
 preplaced = true
+
+[node name="DropedItem" parent="ObjectContainer/Chest2" unique_id=1929194511 instance=ExtResource("3_6444e")]
+position = Vector2(-2654, -2753)
+itemData = ExtResource("30_h3d7q")
 
 [node name="DropedItem13" parent="ObjectContainer" unique_id=1154688348 instance=ExtResource("3_6444e")]
 position = Vector2(2652.1, -664.4)
@@ -1333,6 +1347,30 @@ preplaced = true
 [node name="DropedItem23" parent="ObjectContainer" unique_id=1501396986 instance=ExtResource("3_6444e")]
 position = Vector2(231.41321, -445.09915)
 itemData = ExtResource("4_lsmp6")
+
+[node name="DropedItem25" parent="ObjectContainer" unique_id=1582332196 instance=ExtResource("3_6444e")]
+position = Vector2(2689.1672, -1608.5072)
+itemData = ExtResource("43_6axy7")
+
+[node name="DropedItem26" parent="ObjectContainer" unique_id=56913189 instance=ExtResource("3_6444e")]
+position = Vector2(886, -835)
+itemData = ExtResource("44_wnaei")
+
+[node name="DropedItem28" parent="ObjectContainer" unique_id=383403366 instance=ExtResource("3_6444e")]
+position = Vector2(2924.847, -692.6033)
+itemData = ExtResource("45_cocpr")
+
+[node name="DropedItem27" parent="ObjectContainer" unique_id=1315689748 instance=ExtResource("3_6444e")]
+position = Vector2(381.73514, -832.83606)
+itemData = ExtResource("46_hhyfv")
+
+[node name="DropedItem29" parent="ObjectContainer" unique_id=1106621954 instance=ExtResource("3_6444e")]
+position = Vector2(1605, -836)
+itemData = ExtResource("47_jpel7")
+
+[node name="DropedItem30" parent="ObjectContainer" unique_id=1272371597 instance=ExtResource("3_6444e")]
+position = Vector2(3123.9749, -519.7768)
+itemData = ExtResource("48_c1od4")
 
 [node name="BuildingHandler" parent="." unique_id=322601886 node_paths=PackedStringArray("ObjectContainer", "tilemap") instance=ExtResource("3_xfk5q")]
 ObjectContainer = NodePath("../ObjectContainer")

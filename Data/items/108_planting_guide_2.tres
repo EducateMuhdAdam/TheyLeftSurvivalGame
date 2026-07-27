@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://fyggddgmn3bm"]
+
+[ext_resource type="Texture2D" uid="uid://d1j87vkc44771" path="res://Assets/Images/Items/Note.png" id="1_3utcs"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="2_8g6xr"]
+
+[resource]
+script = ExtResource("2_8g6xr")
+itemID = 108
+itemName = "Green Thumb: Farmer's Guide Vol.II"
+itemDescription = "A Book About Farming"
+image = ExtResource("1_3utcs")
+tags = Array[String](["Message", "BuildingRecipe", "CraftingRecipe"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

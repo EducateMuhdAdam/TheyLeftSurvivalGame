@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dpj6drkuxhka5"]
+
+[ext_resource type="Texture2D" uid="uid://d1j87vkc44771" path="res://Assets/Images/Items/Note.png" id="1_3cbjb"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="2_ayo2s"]
+
+[resource]
+script = ExtResource("2_ayo2s")
+itemID = 115
+itemName = "Tape Recorder"
+itemDescription = "This seems like it helped alot of people. Now me."
+image = ExtResource("1_3cbjb")
+tags = Array[String](["Message", "CraftingRecipe"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

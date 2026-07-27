@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MessageData" format=3 uid="uid://djx664b1agkvx"]
+
+[ext_resource type="Script" uid="uid://clg6sgwgkl1xk" path="res://Scripts/message_data.gd" id="1_ejge7"]
+
+[resource]
+script = ExtResource("1_ejge7")
+messageID = 11
+title = "Change of Mining Structural Operations"
+message = "Message from the big man upstairs. Raw materials will need to be refined on-site using the furnaces provided. if production is stagnated due to the lack of furnaces, then use clay to turn into bricks for more furnaces
+
+*Below describes instructions on how to make furnaces from bricks*
+
+This will streamline the production of metals needed for The Ascension as transportation of raw materials to the refining facility is no longer needed. Instead, transportation trucks will now need to deliver directly to site
+
+[NEW Building Unlocked: Furnace]"
+metadata/_custom_type_script = "uid://clg6sgwgkl1xk"

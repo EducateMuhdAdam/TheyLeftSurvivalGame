@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="MessageData" format=3 uid="uid://cqc0faqprp6in"]
+
+[ext_resource type="Script" uid="uid://clg6sgwgkl1xk" path="res://Scripts/message_data.gd" id="1_n2mby"]
+
+[resource]
+script = ExtResource("1_n2mby")
+messageID = 14
+title = "Rescue Will Come"
+message = "Will here hope my message in a bottle reaches downstream, my theory is correct, the water from the mining section does grow bigger up north which means it eventually leads outside but the journey is far
+
+Hauling all the injured here might not be the best move. I will reach emergency services to clear up the rubble blocking the entrance but I'm afraid I don't know how long this journey will take
+
+Once water supplies run out try to make a makeshift water filter using the rocks, some sand you can find lying around and coal stacked on a layer. That'll remove the contaminants
+
+As for food, please ration the food available, you can make a pot from all the iron we already have to cook whats raw from the barbaque were supposed to have.
+
+[NEW Building: Water Filter Lv2]
+[NEW Building: Cookplace Lv2]"
+metadata/_custom_type_script = "uid://clg6sgwgkl1xk"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bj27i7jvufpm2"]
+
+[ext_resource type="Texture2D" uid="uid://d1j87vkc44771" path="res://Assets/Images/Items/Note.png" id="1_gmb0y"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="2_eg4v3"]
+
+[resource]
+script = ExtResource("2_eg4v3")
+itemID = 107
+itemName = "Contols"
+itemDescription = "Honestly this wont show up in game LOL. This entry was just to match the ID starting from 8"
+image = ExtResource("1_gmb0y")
+tags = Array[String](["Message"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

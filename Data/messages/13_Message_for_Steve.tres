@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="MessageData" format=3 uid="uid://30d1wakuhuhw"]
+
+[ext_resource type="Script" uid="uid://clg6sgwgkl1xk" path="res://Scripts/message_data.gd" id="1_d42dn"]
+
+[resource]
+script = ExtResource("1_d42dn")
+messageID = 13
+title = "For Steve Brian"
+message = "Bro if you see this you gotta bring all those cans you found.  
+
+The company that owns this mines forgot to turn off their AI operated digging machine before they got shut down and it has been just going at it for weeks! 
+
+With the cans you can melt it, mold it to a large surface area and poke holes into it so it catches all the ore and drains the water. Were gonna be filthy rich!
+
+Also reply to me where you live at, radio tower has not been working for a while now, I don't know when they're gonna fix it
+
+Your pal,
+Alex
+
+[NEW Building: Pan]"
+metadata/_custom_type_script = "uid://clg6sgwgkl1xk"

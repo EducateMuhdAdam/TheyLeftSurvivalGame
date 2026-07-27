@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="MessageData" format=3 uid="uid://bjkdejgoc5y63"]
+
+[ext_resource type="Script" uid="uid://clg6sgwgkl1xk" path="res://Scripts/message_data.gd" id="1_mluah"]
+
+[resource]
+script = ExtResource("1_mluah")
+messageID = 15
+title = "Radio Tower Maintanance Delay"
+message = "*A Tape Recorder, Theres a recorded message inside*
+
+Monthly Maintanance of the radio tower will need to be postponed... uh...  indefinitely. the materials that are required to fix some issues are being used for The Ascension and the market price for those skyrocketed. 
+
+Honestly, if these billionaires care for the safety and embetterment of the human race then they should help fix the problems of the world with resources they have. Instead, they decide to scurry off into the unknown looking for paradise.
+
+Anyways, sorry for the rant. The tower will still work but I estimate the wires will wear out in a couple of weeks and some bolts were missing from the components making it fall out of place.
+
+Hey, once I can get some copper, aluminum and plastic to manufacture some wire and some iron to make the bolts you can put some coal inside and power the baby up
+
+[NEW Crafting Recipe: Wire]
+[NEW Crafting Recipe: Bolts]"
+metadata/_custom_type_script = "uid://clg6sgwgkl1xk"

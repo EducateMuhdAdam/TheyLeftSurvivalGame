@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c81stxpdvtlc0"]
+
+[ext_resource type="Texture2D" uid="uid://d1j87vkc44771" path="res://Assets/Images/Items/Note.png" id="1_f08dn"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="2_5ibjp"]
+
+[resource]
+script = ExtResource("2_5ibjp")
+itemID = 109
+itemName = "Greenhouse Closure Notice"
+itemDescription = "Found in front of the greenhouse..."
+image = ExtResource("1_f08dn")
+tags = Array[String](["Message"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"

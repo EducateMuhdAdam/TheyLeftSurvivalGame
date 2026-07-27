@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MessageData" format=3 uid="uid://cgr2nh3hjb5ej"]
+
+[ext_resource type="Script" uid="uid://clg6sgwgkl1xk" path="res://Scripts/message_data.gd" id="1_bqtag"]
+
+[resource]
+script = ExtResource("1_bqtag")
+messageID = 12
+title = "Mines Closure Notice"
+message = "After the events of 8th July 2297 that caused the deaths of 17 miners. The mines will be permanently closed. The area will be off-limits to the public. If residents around this area encounter symptoms of dizziness, weakness, vomiting, headaches or loss of memory please seek professional help from a hosptial nearby."
+metadata/_custom_type_script = "uid://clg6sgwgkl1xk"

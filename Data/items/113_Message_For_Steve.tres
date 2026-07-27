@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://d2q8ebd5kwfwa"]
+
+[ext_resource type="Texture2D" uid="uid://d1j87vkc44771" path="res://Assets/Images/Items/Note.png" id="1_p1d00"]
+[ext_resource type="Script" uid="uid://bp7fkj5m6p3ji" path="res://Scripts/item_data.gd" id="2_5nv2q"]
+
+[resource]
+script = ExtResource("2_5nv2q")
+itemID = 113
+itemName = "A Message for a Friend"
+itemDescription = "Its for Steve, but I don't know any Steve so I might as well read the message and tell him if I do find him."
+image = ExtResource("1_p1d00")
+tags = Array[String](["Message", "BuildingRecipe"])
+metadata/_custom_type_script = "uid://bp7fkj5m6p3ji"
