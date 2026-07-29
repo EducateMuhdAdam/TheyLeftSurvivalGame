@@ -25,6 +25,8 @@ func handle_event(eventID: int) -> void:
 			await get_tree().create_timer(2.0).timeout
 			EventBus.fade_out.emit(true)
 			await EventBus.fade_out_finished
+			EventBus.play_video.emit("res://Assets/Videos/They Left Chapter 1 End.ogv")
+			await EventBus.video_finished
 			EventBus.set_camera_limit.emit(player.areaData.limit_ltrb)
 			EventBus.fade_out.emit(false)
 		2:	
@@ -40,6 +42,8 @@ func handle_event(eventID: int) -> void:
 			var area: AreaData = load("res://Data/areas/1_empty_lot.tres")
 			EventBus.fade_out.emit(true)
 			await EventBus.fade_out_finished
+			EventBus.play_video.emit("res://Assets/Videos/They Left Chapter 1 Intro.ogv")
+			await EventBus.video_finished
 			player.global_position = Vector2(680, 680)
 			EventBus.change_area.emit(area)
 			EventBus.set_camera_limit.emit(area.limit_ltrb)

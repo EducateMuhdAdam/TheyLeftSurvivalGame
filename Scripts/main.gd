@@ -1,24 +1,22 @@
 extends Node2D
-@onready var ui_manager: CanvasLayer = $UIManager
 @onready var camera: Camera2D = $Camera2D
+@onready var title_screen: CanvasLayer = $"Title Screen"
 
-
+var ui_manager: CanvasLayer
+var level_scene = preload("res://Scenes/level_1.tscn")
+var ui_manager_scene = preload("res://Scenes/ui_manager.tscn")
 var paused: bool = true
 var level_root: LevelRoot
 
 func _ready() -> void:
-	ui_manager.color_rect.modulate.a = 0
+	title_screen.quit_button.pressed.connect(handle_quit)
+	title_screen.continue_button.pressed.connect(setup_level)
+	title_screen.new_game_button.pressed.connect(setup_level)
 	EventBus.link_camera.connect(link_camera)
 	EventBus.set_camera_limit.connect(set_camera_limit)
 	EventBus.position_camera.connect(position_camera)
 	EventBus.fade_out.connect(fade_out)
-	level_root = get_tree().current_scene.get_node("LevelRoot")
-	load_game()
-	if !Game.player:
-		var player = get_tree().get_first_node_in_group("Player")
-		Game.set_player(player)
-		EventBus.link_camera.emit(player.rt2d)
-	level_root.building_handler.log_buildings()
+	
 
 	
 func get_root() -> Variant:
@@ -66,11 +64,26 @@ func handle_save():
 func handle_quit() -> void:
 	get_tree().quit()
 
+func setup_level() -> void:
+	level_root = level_scene.instantiate()
+	ui_manager = ui_manager_scene.instantiate()
+	ui_manager.main = self
+	add_child(level_root)
+	add_child(ui_manager)
+	title_screen.hide()
+	load_game()
+	if !Game.player:
+		var player = get_tree().get_first_node_in_group("Player")
+		Game.set_player(player)
+		EventBus.link_camera.emit(player.rt2d)
+	level_root.building_handler.log_buildings()
+
 func load_game():
 	if not FileAccess.file_exists("user://savegame.save"):
 		for node in level_root.building_handler.ObjectContainer.get_children():
 			if node is Building && !node.preplaced:
 				level_root.building_handler.building_list.append(node)
+		
 		return # Error! We don't have a save to load.
 
 	# We need to revert the game state so we're not cloning objects

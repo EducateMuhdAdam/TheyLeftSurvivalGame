@@ -1,18 +1,11 @@
 [gd_scene format=3 uid="uid://fatlix04u4yj"]
 
 [ext_resource type="Script" uid="uid://hr26gi8fc4dl" path="res://Scripts/main.gd" id="1_8gbba"]
-[ext_resource type="PackedScene" uid="uid://dya4d0cm2ib24" path="res://Scenes/level_1.tscn" id="1_jjgbg"]
-[ext_resource type="PackedScene" uid="uid://bbv06qmilxi12" path="res://Scenes/ui_manager.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://d13u8tdleg6my" path="res://Scenes/game_ui/title_screen.tscn" id="2_bo1nx"]
 
 [node name="main" type="Node2D" unique_id=393134204]
 process_mode = 3
 script = ExtResource("1_8gbba")
-
-[node name="LevelRoot" parent="." unique_id=1101166072 instance=ExtResource("1_jjgbg")]
-process_mode = 1
-
-[node name="UIManager" parent="." unique_id=29909133 node_paths=PackedStringArray("main") instance=ExtResource("2_bo1nx")]
-main = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=399404817]
 limit_left = 0
@@ -20,3 +13,5 @@ limit_top = 864
 limit_right = 1312
 limit_bottom = 1601
 position_smoothing_enabled = true
+
+[node name="Title Screen" parent="." unique_id=1332321968 instance=ExtResource("2_bo1nx")]

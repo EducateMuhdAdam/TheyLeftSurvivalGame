@@ -28,3 +28,7 @@ signal remove_item(slotID: int)
 signal change_area(areaData: AreaData)
 signal unlock_crafting(craftingID: Variant)
 signal unlock_building(buildingID: Variant)
+
+
+signal play_video(path: String)
+signal video_finished

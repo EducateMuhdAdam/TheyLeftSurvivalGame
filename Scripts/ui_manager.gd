@@ -5,6 +5,7 @@ var player: CharacterBody2D
 @onready var build_menu: Control = $BuildMenu
 @onready var hud: Control = $HUD
 
+@onready var video_stream_player: VideoStreamPlayer = $VideoStreamPlayer
 @onready var ui_container: HBoxContainer = $CenterContainer/UIContainer
 @onready var mode_display: Control = $ModeDisplay
 @onready var pause_menu: Control = $PauseMenu
@@ -20,7 +21,11 @@ var destroy_mode: bool = false
 var inventory_mode: bool = false
 var placement_mode: bool = false
 
+
 func _ready() -> void:
+	video_stream_player.hide()
+	video_stream_player.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	color_rect.modulate.a = 0
 	color_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	player = await Game.get_player()
 	pause_menu.main = main
@@ -32,6 +37,7 @@ func _ready() -> void:
 	EventBus.toggle_destroy_mode.connect(set_destroy_mode)
 	EventBus.toggle_placement_mode.connect(set_placement_mode)
 	EventBus.open_message.connect(show_message)
+	EventBus.play_video.connect(play_video)
 
 
 func activate_one_mode(exception: Variant):
@@ -144,3 +150,13 @@ func show_message(messageData: MessageData) -> void:
 	var msgPanel = messagePanelScene.instantiate()
 	msgPanel.messageData = messageData
 	EventBus.single_ui.emit(msgPanel)
+
+func play_video(path: String) -> void:
+	print("Playing Video: " + path)
+	video_stream_player.stream = load(path)
+	video_stream_player.show()
+	video_stream_player.play()
+	
+	await video_stream_player.finished
+	video_stream_player.hide()
+	EventBus.video_finished.emit()
