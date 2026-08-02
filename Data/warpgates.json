@@ -1,0 +1,38 @@
+{
+	"1": {
+		"path": "res://Data/warpgates/1_town_warp.tres"
+	},
+	"10": {
+		"path": "res://Data/warpgates/10_walkway_2_town.tres"
+	},
+	"11": {
+		"path": "res://Data/warpgates/11_walkway_2_radiotower.tres"
+	},
+	"12": {
+		"path": "res://Data/warpgates/12_radiostation_2_walkway.tres"
+	},
+	"2": {
+		"path": "res://Data/warpgates/2_factory_entry.tres"
+	},
+	"3": {
+		"path": "res://Data/warpgates/3_factory_exit.tres"
+	},
+	"4": {
+		"path": "res://Data/warpgates/4_town_to_lot.tres"
+	},
+	"5": {
+		"path": "res://Data/warpgates/5_greenhouse_entrance.tres"
+	},
+	"6": {
+		"path": "res://Data/warpgates/6_mine_entrance.tres"
+	},
+	"7": {
+		"path": "res://Data/warpgates/7_town_2_walkway.tres"
+	},
+	"8": {
+		"path": "res://Data/warpgates/8_mines_exit.tres"
+	},
+	"9": {
+		"path": "res://Data/warpgates/9_greenhouse_exit.tres"
+	}
+}

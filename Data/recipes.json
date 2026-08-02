@@ -1,0 +1,29 @@
+{
+	"1": {
+		"path": "res://Data/recipes/1_wood_stick.tres"
+	},
+	"2": {
+		"path": "res://Data/recipes/2_reed_rope.tres"
+	},
+	"3": {
+		"path": "res://Data/recipes/3_split_potato.tres"
+	},
+	"4": {
+		"path": "res://Data/recipes/4_split_carrot.tres"
+	},
+	"5": {
+		"path": "res://Data/recipes/5_cabbage_seeding.tres"
+	},
+	"6": {
+		"path": "res://Data/recipes/6_pumpkin_seeding.tres"
+	},
+	"7": {
+		"path": "res://Data/recipes/7_tomato_seeding.tres"
+	},
+	"8": {
+		"path": "res://Data/recipes/8_bolts_construction.tres"
+	},
+	"9": {
+		"path": "res://Data/recipes/9_wire_construction.tres"
+	}
+}

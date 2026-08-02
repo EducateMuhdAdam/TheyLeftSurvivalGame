@@ -83,6 +83,8 @@ var scrap_reference: Dictionary = {
 
 func _ready() -> void:
 	item_catalogue = get_item_resources()
+	print(item_catalogue.keys())
+	print(item_catalogue.size())
 	crafting_catalogue = get_crafting_resources()
 	cooking_reference = get_cooking_reference()
 	plant_reference = get_plant_reference()
@@ -117,139 +119,134 @@ func get_smelting_reference() -> Dictionary:
 		reference[key] = item_catalogue[smelting_reference[key]]
 	return reference
 
-func get_item_resources() -> Dictionary[int, ItemData]:
-	const PATH: String = "res://Data/items/"
-	var resources: Dictionary[int, ItemData] = {}
+func item2():
+	var file_name
+	const PATH := "res://Data/items/"
+
 	var dir = DirAccess.open(PATH)
-	
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		
-		while file_name != "":
-			# Ignore directories and only grab scene files
-			if !dir.current_is_dir() and file_name.ends_with(".tres"):
-				var scene_path = PATH + "/" + file_name
-				var scene_resource = load(scene_path)
-					
-				if scene_resource:
-					var key = scene_resource.itemID
-					resources[key] = scene_resource
-					print("Successfully loaded: ", scene_path)
-			file_name = dir.get_next()
-			
-		dir.list_dir_end()
+
+	print("Dir:", dir)
+
+	if dir == null:
+		print("Couldn't open directory!")
 	else:
-		print("An error occurred when trying to access the path.")
-		
+		dir.list_dir_begin()
+		file_name = dir.get_next()
+
+	while file_name != "":
+		print("Found:", file_name)
+		file_name = dir.get_next()
+
+	dir.list_dir_end()
+
+func get_item_resources() -> Dictionary[int, ItemData]:
+	const PATH: String = "res://Data/items.json"
+	var resources: Dictionary[int, ItemData] = {}
+	var file = FileAccess.open(
+		PATH,
+		FileAccess.READ
+	)
+
+	var json = JSON.parse_string(file.get_as_text())
+
+
+	for id in json.keys():
+
+		var resource: ItemData = load(
+			json[id]["path"]
+		)
+
+		resources[int(id)] = resource
+
+
 	return resources
 
 func get_crafting_resources() -> Dictionary[int, CraftingData]:
-	const PATH: String = "res://Data/recipes/"
+	const PATH: String = "res://Data/recipes.json"
 	var resources: Dictionary[int, CraftingData] = {}
-	var dir = DirAccess.open(PATH)
-	
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		
-		while file_name != "":
-			# Ignore directories and only grab scene files
-			if !dir.current_is_dir() and file_name.ends_with(".tres"):
-				var scene_path = PATH + "/" + file_name
-				var scene_resource: CraftingData = load(scene_path)
-					
-				if scene_resource:
-					var key = scene_resource.craftingID
-					resources[key] = scene_resource
-					print("Successfully loaded: ", scene_path)
-			file_name = dir.get_next()
-			
-		dir.list_dir_end()
-	else:
-		print("An error occurred when trying to access the path.")
-		
+	var file = FileAccess.open(
+		PATH,
+		FileAccess.READ
+	)
+
+	var json = JSON.parse_string(file.get_as_text())
+
+
+	for id in json.keys():
+
+		var resource: CraftingData = load(
+			json[id]["path"]
+		)
+
+		resources[int(id)] = resource
+
+
 	return resources
 
 func get_warp_resources() -> Dictionary[int, WarpData]:
-	const PATH: String = "res://Data/warpgates/"
+	const PATH: String = "res://Data/warpgates.json"
 	var resources: Dictionary[int, WarpData] = {}
-	var dir = DirAccess.open(PATH)
-	
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		
-		while file_name != "":
-			# Ignore directories and only grab scene files
-			if !dir.current_is_dir() and file_name.ends_with(".tres"):
-				var scene_path = PATH + "/" + file_name
-				var scene_resource: WarpData = load(scene_path)
-					
-				if scene_resource:
-					var key = scene_resource.warpID
-					resources[key] = scene_resource
-					print("Successfully loaded: ", scene_path)
-			file_name = dir.get_next()
-			
-		dir.list_dir_end()
-	else:
-		print("An error occurred when trying to access the path.")
-		
+	var file = FileAccess.open(
+		PATH,
+		FileAccess.READ
+	)
+
+	var json = JSON.parse_string(file.get_as_text())
+
+
+	for id in json.keys():
+
+		var resource: WarpData = load(
+			json[id]["path"]
+		)
+
+		resources[int(id)] = resource
+
+
 	return resources
 
 func get_message_resources() -> Dictionary[int, MessageData]:
-	const PATH: String = "res://Data/messages/"
+	const PATH: String = "res://Data/messages.json"
 	var resources: Dictionary[int, MessageData] = {}
-	var dir = DirAccess.open(PATH)
-	
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		
-		while file_name != "":
-			# Ignore directories and only grab scene files
-			if !dir.current_is_dir() and file_name.ends_with(".tres"):
-				var scene_path = PATH + "/" + file_name
-				var scene_resource: MessageData = load(scene_path)
-					
-				if scene_resource:
-					var key = scene_resource.messageID
-					resources[key] = scene_resource
-					print("Successfully loaded: ", scene_path)
-			file_name = dir.get_next()
-			
-		dir.list_dir_end()
-	else:
-		print("An error occurred when trying to access the path.")
-		
+	var file = FileAccess.open(
+		PATH,
+		FileAccess.READ
+	)
+
+	var json = JSON.parse_string(file.get_as_text())
+
+
+	for id in json.keys():
+
+		var resource: MessageData = load(
+			json[id]["path"]
+		)
+
+		resources[int(id)] = resource
+
+
 	return resources
 
 func get_building_resources() -> Dictionary[int, BuildingData]:
-	const PATH: String = "res://Data/buildings/"
+	const PATH: String = "res://Data/buildings.json"
 	var resources: Dictionary[int, BuildingData] = {}
-	var dir = DirAccess.open(PATH)
-	
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		
-		while file_name != "":
-			# Ignore directories and only grab scene files
-			if !dir.current_is_dir() and file_name.ends_with(".tres"):
-				var scene_path = PATH + "/" + file_name
-				var scene_resource = load(scene_path)
-					
-				if scene_resource:
-					var key = scene_resource.building_id
-					resources[key] = scene_resource
-					print("Successfully loaded: ", scene_path)
-			file_name = dir.get_next()
-			
-		dir.list_dir_end()
-	else:
-		print("An error occurred when trying to access the path.")
-		
+	var file = FileAccess.open(
+		PATH,
+		FileAccess.READ
+	)
+
+	var json = JSON.parse_string(file.get_as_text())
+
+
+	for id in json.keys():
+
+		var resource: BuildingData = load(
+			json[id]["path"]
+		)
+
+		resources[int(id)] = resource
+
+
 	return resources
 
 func get_item_to_message_reference() -> Dictionary:

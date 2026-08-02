@@ -1,0 +1,47 @@
+{
+	"1": {
+		"path": "res://Data/messages/1_factory_note.tres"
+	},
+	"10": {
+		"path": "res://Data/messages/10_bobon_note.tres"
+	},
+	"11": {
+		"path": "res://Data/messages/11_Refining_Instructions.tres"
+	},
+	"12": {
+		"path": "res://Data/messages/12_Health_and_Safety_Notice.tres"
+	},
+	"13": {
+		"path": "res://Data/messages/13_Message_for_Steve.tres"
+	},
+	"14": {
+		"path": "res://Data/messages/14_Mines_Survivor.tres"
+	},
+	"15": {
+		"path": "res://Data/messages/15_Radio_Tower_Fix.tres"
+	},
+	"2": {
+		"path": "res://Data/messages/2_controls.tres"
+	},
+	"3": {
+		"path": "res://Data/messages/3_building_tutorial.tres"
+	},
+	"4": {
+		"path": "res://Data/messages/4_survival_guide.tres"
+	},
+	"5": {
+		"path": "res://Data/messages/5_net_blueprint.tres"
+	},
+	"6": {
+		"path": "res://Data/messages/6.planting_guide.tres"
+	},
+	"7": {
+		"path": "res://Data/messages/7_survival_guide_2.tres"
+	},
+	"8": {
+		"path": "res://Data/messages/8_planting_guide_2.tres"
+	},
+	"9": {
+		"path": "res://Data/messages/9_Greenhouse_Closure.tres"
+	}
+}

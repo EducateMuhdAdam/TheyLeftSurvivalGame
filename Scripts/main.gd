@@ -77,6 +77,8 @@ func setup_new_level() -> void:
 	setup_level()
 
 func setup_level() -> void:
+	if !Catalogue.is_node_ready():
+		await Catalogue.ready
 	level_root = level_scene.instantiate()
 	ui_manager = ui_manager_scene.instantiate()
 	ui_manager.main = self

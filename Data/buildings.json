@@ -1,0 +1,44 @@
+{
+	"1": {
+		"path": "res://Data/buildings/1_farm_lv1.tres"
+	},
+	"10": {
+		"path": "res://Data/buildings/10_net.tres"
+	},
+	"11": {
+		"path": "res://Data/buildings/11_bridge.tres"
+	},
+	"12": {
+		"path": "res://Data/buildings/12_tree.tres"
+	},
+	"13": {
+		"path": "res://Data/buildings/13_reed.tres"
+	},
+	"14": {
+		"path": "res://Data/buildings/14_furnace.tres"
+	},
+	"15": {
+		"path": "res://Data/buildings/15_pan.tres"
+	},
+	"2": {
+		"path": "res://Data/buildings/2_farm_lv2.tres"
+	},
+	"3": {
+		"path": "res://Data/buildings/3_waterfilter_lv1.tres"
+	},
+	"4": {
+		"path": "res://Data/buildings/4_waterfilter_lv2.tres"
+	},
+	"5": {
+		"path": "res://Data/buildings/5_cookplace_lv1.tres"
+	},
+	"6": {
+		"path": "res://Data/buildings/6_cookplace_lv2.tres"
+	},
+	"8": {
+		"path": "res://Data/buildings/8_workbench.tres"
+	},
+	"9": {
+		"path": "res://Data/buildings/9_chest.tres"
+	}
+}

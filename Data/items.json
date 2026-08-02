@@ -1,0 +1,170 @@
+{
+	"1": {
+		"path": "res://Data/items/1_empty_bottle.tres"
+	},
+	"10": {
+		"path": "res://Data/items/10_rope.tres"
+	},
+	"101": {
+		"path": "res://Data/items/101_factory_note.tres"
+	},
+	"102": {
+		"path": "res://Data/items/102_survival_guide.tres"
+	},
+	"103": {
+		"path": "res://Data/items/103_building_tutorial_note.tres"
+	},
+	"104": {
+		"path": "res://Data/items/104_fishing_guide.tres"
+	},
+	"105": {
+		"path": "res://Data/items/105_planting_guide.tres"
+	},
+	"106": {
+		"path": "res://Data/items/106_survival_guide_2.tres"
+	},
+	"107": {
+		"path": "res://Data/items/107_Controls_Note.tres"
+	},
+	"108": {
+		"path": "res://Data/items/108_planting_guide_2.tres"
+	},
+	"109": {
+		"path": "res://Data/items/109_Greenhouse_Closure_Notice.tres"
+	},
+	"11": {
+		"path": "res://Data/items/11_plastic_bag.tres"
+	},
+	"110": {
+		"path": "res://Data/items/110_bonbon_note.tres"
+	},
+	"111": {
+		"path": "res://Data/items/111_Refining_Instructions.tres"
+	},
+	"112": {
+		"path": "res://Data/items/112_Health_and_Safety_Notice.tres"
+	},
+	"113": {
+		"path": "res://Data/items/113_Message_For_Steve.tres"
+	},
+	"114": {
+		"path": "res://Data/items/114_Mines_Survivor.tres"
+	},
+	"115": {
+		"path": "res://Data/items/115_Radio_Tower_Fix.tres"
+	},
+	"12": {
+		"path": "res://Data/items/12_reeds.tres"
+	},
+	"13": {
+		"path": "res://Data/items/13_reed_seeds.tres"
+	},
+	"14": {
+		"path": "res://Data/items/14_rock.tres"
+	},
+	"15": {
+		"path": "res://Data/items/15_pinecone.tres"
+	},
+	"16": {
+		"path": "res://Data/items/16_pumpkin_seeds.tres"
+	},
+	"17": {
+		"path": "res://Data/items/17_cabbage_seeds.tres"
+	},
+	"18": {
+		"path": "res://Data/items/18_carrot_seeds.tres"
+	},
+	"19": {
+		"path": "res://Data/items/19_tomato_seeds.tres"
+	},
+	"2": {
+		"path": "res://Data/items/2_fish.tres"
+	},
+	"20": {
+		"path": "res://Data/items/20_half_a_carrot.tres"
+	},
+	"201": {
+		"path": "res://Data/items/201_town_key.tres"
+	},
+	"21": {
+		"path": "res://Data/items/21_half_a_potato.tres"
+	},
+	"22": {
+		"path": "res://Data/items/22_pumpkin.tres"
+	},
+	"23": {
+		"path": "res://Data/items/23_cabbage.tres"
+	},
+	"24": {
+		"path": "res://Data/items/24_carrot.tres"
+	},
+	"25": {
+		"path": "res://Data/items/25_potato.tres"
+	},
+	"26": {
+		"path": "res://Data/items/26_cooked_cabbage.tres"
+	},
+	"27": {
+		"path": "res://Data/items/27_cooked_carrot.tres"
+	},
+	"28": {
+		"path": "res://Data/items/28_cooked_potato.tres"
+	},
+	"29": {
+		"path": "res://Data/items/29_iron_ore.tres"
+	},
+	"3": {
+		"path": "res://Data/items/3_clean_water_bottle.tres"
+	},
+	"30": {
+		"path": "res://Data/items/30_copper_ore.tres"
+	},
+	"31": {
+		"path": "res://Data/items/31_iron.tres"
+	},
+	"32": {
+		"path": "res://Data/items/32_copper.tres"
+	},
+	"33": {
+		"path": "res://Data/items/33_coal.tres"
+	},
+	"34": {
+		"path": "res://Data/items/34_clay.tres"
+	},
+	"35": {
+		"path": "res://Data/items/35_brick.tres"
+	},
+	"36": {
+		"path": "res://Data/items/36_chips.tres"
+	},
+	"37": {
+		"path": "res://Data/items/37_bolt.tres"
+	},
+	"38": {
+		"path": "res://Data/items/38_wire.tres"
+	},
+	"39": {
+		"path": "res://Data/items/39_aluminium_can.tres"
+	},
+	"4": {
+		"path": "res://Data/items/4_dirtywater_bottle.tres"
+	},
+	"40": {
+		"path": "res://Data/items/40_alluminium_bar.tres"
+	},
+	"5": {
+		"path": "res://Data/items/5_cooked_fish.tres"
+	},
+	"6": {
+		"path": "res://Data/items/6_wood.tres"
+	},
+	"7": {
+		"path": "res://Data/items/7_seeds.tres"
+	},
+	"8": {
+		"path": "res://Data/items/8_tomato.tres"
+	},
+	"9": {
+		"path": "res://Data/items/9_stick.tres"
+	}
+}
