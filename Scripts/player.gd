@@ -16,18 +16,19 @@ signal hunger_changed(value)
 signal thirst_changed(value)
 signal update_inventory(inventory)
 
-const MOVE_SPEED: float = 200
+
 const INVENTORY_NUM: int = 30
 
 var unlocked_recipes: Array[int] = [1, 2] #Catalogue.get_crafting_resources().keys()
 var unlocked_buildings: Array[int] = [8, 9, 11] #Catalogue.get_building_resources().keys()
 
+var MOVE_SPEED: float = 200
 var areaData: AreaData
 var hunger_rate = 0.05
 var thirst_rate = 0.2
 var hunger = 100
 var thirst = 100
-var inventory = {0: {"id": 9, "qty": 1}, 1: {"id": 6, "qty": 64}, 2: {"id": 10, "qty": 64}, 3: {"id": 35, "qty": 64}, 4: {"id": 31, "qty": 64}, 5: {"id": 39, "qty": 64}}
+var inventory = {} #{0: {"id": 9, "qty": 1}, 1: {"id": 6, "qty": 64}, 2: {"id": 10, "qty": 64}, 3: {"id": 35, "qty": 64}, 4: {"id": 31, "qty": 64}, 5: {"id": 39, "qty": 64}, 6: {"id": 5, "qty": 20}, 7: {"id": 22, "qty": 10}, 8: {"id": 23, "qty": 20}, 9: {"id": 24, "qty": 20}, 10: {"id": 33, "qty": 64}, 11: {"id": 37, "qty": 64}, 12: {"id": 38, "qty": 64}}
 
 var facing_direction: String = "S"
 var input_direction: Vector2 = Vector2(0,0)
@@ -125,18 +126,28 @@ func unlock_crafting(cID: Variant) -> void:
 func decrease_hunger(delta: float) -> void:
 	hunger = max(hunger - (hunger_rate * delta), 0) 
 	hunger_changed.emit(hunger)
+	if hunger < 1 and MOVE_SPEED != 50:
+		EventBus.show_fadeaway.emit("I'm getting too hungry...")
+		MOVE_SPEED = 50
 	
 func increase_hunger(ammount: float) -> void:
 	hunger = min(hunger + ammount, 100)
 	hunger_changed.emit(hunger)
+	if MOVE_SPEED < 200 and hunger >= 1:
+		MOVE_SPEED = 200
 	
 func decrease_thirst(delta: float) -> void:
 	thirst = max(thirst - (thirst_rate * delta), 0) 
 	thirst_changed.emit(thirst)
+	if thirst < 1 and MOVE_SPEED != 50:
+		EventBus.show_fadeaway.emit("Need... clean water...")
+		MOVE_SPEED = 50
 
 func increase_thirst(ammount: float) -> void:
 	thirst = min(thirst + ammount, 100) 
 	thirst_changed.emit(thirst)
+	if MOVE_SPEED < 200 and hunger >= 1:
+		MOVE_SPEED = 200
 
 func find_item_quantity(itemID: int, qty: int) -> Variant:
 	for slotID in inventory.keys():

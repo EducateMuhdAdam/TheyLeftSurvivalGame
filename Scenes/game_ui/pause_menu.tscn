@@ -61,6 +61,11 @@ text = "Save"
 layout_mode = 2
 text = "Quit"
 
+[node name="SaveQuit" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=871690145]
+layout_mode = 2
+text = "Save & Quit"
+
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SaveQuit" to="." method="_on_save_quit_pressed"]

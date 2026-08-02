@@ -11,6 +11,7 @@ signal single_ui(panel: PanelContainer)
 signal open_message(messageData: MessageData)
 signal show_fadeaway(msg: String)
 signal log_layer(layer: LevelLayer)
+signal exit_level
 
 signal execute_event(eventID: int)
 

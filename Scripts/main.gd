@@ -11,12 +11,12 @@ var level_root: LevelRoot
 func _ready() -> void:
 	title_screen.quit_button.pressed.connect(handle_quit)
 	title_screen.continue_button.pressed.connect(setup_level)
-	title_screen.new_game_button.pressed.connect(setup_level)
+	title_screen.new_game_button.pressed.connect(setup_new_level)
 	EventBus.link_camera.connect(link_camera)
 	EventBus.set_camera_limit.connect(set_camera_limit)
 	EventBus.position_camera.connect(position_camera)
 	EventBus.fade_out.connect(fade_out)
-	
+	EventBus.exit_level.connect(exit_level)
 
 	
 func get_root() -> Variant:
@@ -64,6 +64,18 @@ func handle_save():
 func handle_quit() -> void:
 	get_tree().quit()
 
+func setup_new_level() -> void:
+	var area = load("res://Data/areas/4_tutorial.tres")
+	EventBus.set_camera_limit.emit(area.limit_ltrb)
+	var err = OK
+	if FileAccess.file_exists("user://savegame.save"):
+		err = DirAccess.remove_absolute("user://savegame.save")
+	if err == OK:
+		print("Save deleted.")
+	else:
+		print("Failed to delete save. Error:", err)
+	setup_level()
+
 func setup_level() -> void:
 	level_root = level_scene.instantiate()
 	ui_manager = ui_manager_scene.instantiate()
@@ -77,6 +89,11 @@ func setup_level() -> void:
 		Game.set_player(player)
 		EventBus.link_camera.emit(player.rt2d)
 	level_root.building_handler.log_buildings()
+
+func exit_level() -> void:
+	level_root.queue_free()
+	ui_manager.queue_free()
+	title_screen.show()
 
 func load_game():
 	if not FileAccess.file_exists("user://savegame.save"):

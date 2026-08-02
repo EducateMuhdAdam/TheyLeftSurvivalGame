@@ -25,7 +25,7 @@ func handle_event(eventID: int) -> void:
 			await get_tree().create_timer(2.0).timeout
 			EventBus.fade_out.emit(true)
 			await EventBus.fade_out_finished
-			EventBus.play_video.emit("res://Assets/Videos/They Left Chapter 1 End.ogv")
+			EventBus.play_video.emit("res://Assets/Videos/They Left Chapter 1 Ending Narration.ogv")
 			await EventBus.video_finished
 			EventBus.set_camera_limit.emit(player.areaData.limit_ltrb)
 			EventBus.fade_out.emit(false)
@@ -38,14 +38,19 @@ func handle_event(eventID: int) -> void:
 				Vector2i(15, 0): Vector2i(7, 12)
 				}
 			level_root.change_tile_from_dict(level_root.decoration_layer, dict)
+			EventBus.fade_out.emit(true)
+			await EventBus.fade_out_finished
+			EventBus.play_video.emit("res://Assets/Videos/They Left Chapter 2 Intro Alt.ogv")
+			await EventBus.video_finished
+			EventBus.fade_out.emit(false)
 		3:
 			var area: AreaData = load("res://Data/areas/1_empty_lot.tres")
 			EventBus.fade_out.emit(true)
 			await EventBus.fade_out_finished
-			EventBus.play_video.emit("res://Assets/Videos/They Left Chapter 1 Intro.ogv")
-			await EventBus.video_finished
 			player.global_position = Vector2(680, 680)
 			EventBus.change_area.emit(area)
+			EventBus.play_video.emit("res://Assets/Videos/They Left Chapter 1 Intro Narration.ogv")
+			await EventBus.video_finished
 			EventBus.set_camera_limit.emit(area.limit_ltrb)
 			EventBus.fade_out.emit(false)
 		4:
@@ -67,6 +72,10 @@ func handle_event(eventID: int) -> void:
 			
 			EventBus.fade_out.emit(true)
 			await EventBus.fade_out_finished
+			
+			EventBus.play_video.emit("res://Assets/Videos/They Left Chapter 2 End.ogv")
+			await EventBus.video_finished
+			
 			EventBus.link_camera.emit(player.rt2d)
 			EventBus.set_camera_limit.emit(player.areaData.limit_ltrb)
 			EventBus.fade_out.emit(false)
@@ -74,6 +83,9 @@ func handle_event(eventID: int) -> void:
 		5:
 			EventBus.fade_out.emit(true)
 			await EventBus.fade_out_finished
-			print("You Win! Yippie!")
+			EventBus.play_video.emit("res://Assets/Videos/They Left Chapter 3 End.ogv")
+			await EventBus.video_finished
+			
+			EventBus.exit_level.emit()
 		_:
 			print("Event ID ", eventID, " not found")

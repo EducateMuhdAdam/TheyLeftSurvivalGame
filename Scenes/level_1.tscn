@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://8wyiy1x1tfx1" path="res://Data/items/4_dirtywater_bottle.tres" id="5_lsmp6"]
 [ext_resource type="Script" uid="uid://c6leqku504rl2" path="res://testing/quest_area.gd" id="6_1fal7"]
 [ext_resource type="Resource" uid="uid://b6yngeg3sj5ya" path="res://Data/item_quests/2_tutorial_lever.tres" id="7_gcla0"]
+[ext_resource type="Texture2D" uid="uid://carm06oio6j4c" path="res://Assets/Images/Objects/Broken Lever.png" id="8_6axy7"]
 [ext_resource type="PackedScene" uid="uid://blog5v035ocuu" path="res://Scenes/storages/dumpster.tscn" id="8_chwpn"]
 [ext_resource type="PackedScene" uid="uid://447hrobxxsy1" path="res://Scenes/event_areas/bon_bon.tscn" id="8_yaxpm"]
 [ext_resource type="PackedScene" uid="uid://cbesm0rrl8fuo" path="res://Scenes/event_areas/generator.tscn" id="9_8f0cu"]
@@ -1145,6 +1146,10 @@ metadata/_custom_type_script = "uid://c6leqku504rl2"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EventTriggers/QuestArea" unique_id=1749131014]
 position = Vector2(-133, 47)
 shape = SubResource("RectangleShape2D_u5cqy")
+
+[node name="Sprite2D" type="Sprite2D" parent="EventTriggers/QuestArea" unique_id=183507156]
+position = Vector2(-126, 17)
+texture = ExtResource("8_6axy7")
 
 [node name="BonBon" parent="EventTriggers" unique_id=734767006 instance=ExtResource("8_yaxpm")]
 position = Vector2(383.05658, -905.5526)

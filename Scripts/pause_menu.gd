@@ -15,3 +15,8 @@ func _on_save_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	main.handle_quit()
+
+
+func _on_save_quit_pressed() -> void:
+	main.handle_save()
+	main.handle_quit()
