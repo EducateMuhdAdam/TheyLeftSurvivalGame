@@ -20,6 +20,7 @@ var build_mode: bool = false
 var destroy_mode: bool = false
 var inventory_mode: bool = false
 var placement_mode: bool = false
+var playing_cutscene: bool = false
 
 
 func _ready() -> void:
@@ -64,6 +65,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		toggle_build_mode()
 	if event.is_action_pressed("destroy"):
 		toggle_destroy_mode()
+	if playing_cutscene and event.is_action_pressed("enter"):
+		skip_cutscene()
 	
 
 func handle_escape() -> void:
@@ -153,10 +156,23 @@ func show_message(messageData: MessageData) -> void:
 
 func play_video(path: String) -> void:
 	print("Playing Video: " + path)
+	playing_cutscene = true
 	video_stream_player.stream = load(path)
 	video_stream_player.show()
 	video_stream_player.play()
 	
 	await video_stream_player.finished
+	
+	if playing_cutscene:
+		end_cutscene()
+
+func skip_cutscene():
+	print("Skipping cutscene")
+	video_stream_player.stop()
+	end_cutscene()
+
+
+func end_cutscene():
+	playing_cutscene = false
 	video_stream_player.hide()
 	EventBus.video_finished.emit()
